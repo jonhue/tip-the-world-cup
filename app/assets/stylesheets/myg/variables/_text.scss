@@ -1,0 +1,48 @@
+$myg-text__size: (
+    p: (sm: myg__px(14), base: myg__px(16), lg: myg__px(18), bg: myg__px(20)),
+    h1: (sm: myg__px(36), base: myg__px(48), lg: myg__px(64), bg: myg__px(74)),
+    h2: (sm: myg__px(21), base: myg__px(24), lg: myg__px(30), bg: myg__px(36)),
+    h3: (sm: myg__px(18), base: myg__px(21), lg: myg__px(24), bg: myg__px(30)),
+    h4: (sm: myg__px(16), base: myg__px(18), lg: myg__px(21), bg: myg__px(24)),
+    h5: (sm: myg__px(14), base: myg__px(16), lg: myg__px(18), bg: myg__px(21)),
+    h6: (sm: myg__px(13), base: myg__px(14), lg: myg__px(16), bg: myg__px(18))
+);
+$myg-text__size--mobile: (
+    p: (sm: myg__px(14), base: myg__px(16), lg: myg__px(18), bg: myg__px(20)),
+    h1: (sm: myg__px(30), base: myg__px(36), lg: myg__px(40), bg: myg__px(48)),
+    h2: (sm: myg__px(18), base: myg__px(21), lg: myg__px(24), bg: myg__px(30)),
+    h3: (sm: myg__px(16), base: myg__px(18), lg: myg__px(21), bg: myg__px(24)),
+    h4: (sm: myg__px(16), base: myg__px(17), lg: myg__px(18), bg: myg__px(21)),
+    h5: (sm: myg__px(15), base: myg__px(16), lg: myg__px(17), bg: myg__px(18)),
+    h6: (sm: myg__px(13), base: myg__px(14), lg: myg__px(15), bg: myg__px(16))
+);
+
+$myg-text__family: (
+    p: sans-serif,
+    h1: sans-serif,
+    h2: sans-serif,
+    h3: sans-serif,
+    h4: sans-serif,
+    h5: sans-serif,
+    h6: sans-serif
+);
+
+$myg-text__color: (
+    p: myg-theme__color(text, base),
+    h1: myg-theme__color(text, darker),
+    h2: myg-theme__color(text, darker),
+    h3: myg-theme__color(text, darker),
+    h4: myg-theme__color(text, darker),
+    h5: myg-theme__color(text, darker),
+    h6: myg-theme__color(text, darker)
+);
+
+$myg-text__weight: (
+    p: normal,
+    h1: bold,
+    h2: bold,
+    h3: bold,
+    h4: bold,
+    h5: bold,
+    h6: bold
+);

@@ -1,0 +1,7 @@
+$myg-theme__scrollbar: (
+    width: myg__px(5),
+    track-background: transparent,
+    thumb-border-radius: myg__px(2.5),
+    thumb-background: myg-theme__color(border),
+    thumb-hover-background: myg-theme__color(text, dark)
+);

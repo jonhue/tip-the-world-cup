@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
-  resources :nations
-  resources :tips
-  resources :matches
-  resources :games
-  get 'welcome/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount Pwa::Engine, at: ''
+
+  constraints subdomain: '' do
+    scope :app do
+      devise_for :users
+      root to: 'games#index'
+      resources :games, except: [:index] do
+        get 'invite', to: 'games#invite', on: :member
+        resources :participant, except: [:edit, :update] do
+          resources :tips, except: [:new, :edit]
+        end
+        resources :matches, only: [:index, :show]
+      end
+    end
+    root to: 'welcome#index'
+  end
+
+  match '*path', to: 'r404#not_found', via: :all
 end
