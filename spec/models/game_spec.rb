@@ -4,24 +4,33 @@ RSpec.describe Game, type: :model do
   context 'validation tests' do
     it 'ensures name presence' do
       user = create(:user)
-      game = build(:game, name: nil).save
+      nation = create(:nation)
+      game = build(:game, name: nil, nation_id: nation.id).save
+      expect(game).to eq(false)
+    end
+    it 'ensures nation_id presence' do
+      user = create(:user)
+      game = build(:game).save
       expect(game).to eq(false)
     end
     it 'ensures user presence' do
-      game = build(:game).save
+      nation = create(:nation)
+      game = build(:game, nation_id: nation.id).save
       expect(game).to eq(false)
     end
     it 'saves successfully' do
       user = create(:user)
-      game = build(:game, user: user).save
+      nation = create(:nation)
+      game = build(:game, user: user, nation_id: nation.id).save
       expect(game).to eq(true)
     end
   end
 
   context 'scope tests' do
     let(:user) { create(:user) }
-    let(:personal_game) { create(:game, user: user) }
-    let(:shared_game) { create(:game, user: user, private: false) }
+    let(:nation) { create(:nation) }
+    let(:personal_game) { create(:game, user: user, nation_id: nation.id) }
+    let(:shared_game) { create(:game, user: user, nation_id: nation.id, private: false) }
     it 'scopes shared games' do
       expect(Game.shared).to match_array([shared_game])
     end
@@ -32,7 +41,8 @@ RSpec.describe Game, type: :model do
 
   context 'association tests' do
     let(:user) { create(:user) }
-    let(:game) { create(:game, user: user) }
+    let(:nation) { create(:nation) }
+    let(:game) { create(:game, user: user, nation_id: nation.id) }
     it 'belongs to a user' do
       expect(game.user).to eq(user)
     end

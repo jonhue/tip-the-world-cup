@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Tip, type: :model do
   context 'validation specs' do
-    let(:game) { create(:game) }
     let(:user) { create(:user) }
     let(:nation) { create(:nation) }
+    let(:game) { create(:game, user: user, nation_id: nation.id) }
     let(:another_nation) { create(:another_nation) }
     it 'ensures home_goals presence' do
       participant = create(:participant, game: game, user: user, nation: nation)
@@ -35,10 +35,10 @@ RSpec.describe Tip, type: :model do
       expect(tip).to eq(true)
     end
     context 'participant already tipped match' do
-      let(:game) { create(:game) }
       let(:user) { create(:user) }
       let(:nation) { create(:nation) }
       let(:another_nation) { create(:another_nation) }
+      let(:game) { create(:game, user: user, nation_id: nation.id) }
       let(:participant) { create(:participant, game: game, user: user, nation: nation) }
       let(:match) { create(:match, home: nation, away: another_nation) }
       let(:tip) { create(:tip, home_goals: 2, away_goals: 1, participant: participant, match: match) }
@@ -50,10 +50,10 @@ RSpec.describe Tip, type: :model do
   end
 
   context 'association tests' do
-    let(:game) { create(:game) }
     let(:user) { create(:user) }
     let(:nation) { create(:nation) }
     let(:another_nation) { create(:another_nation) }
+    let(:game) { create(:game, user: user, nation_id: nation.id) }
     let(:participant) { create(:participant, game: game, user: user, nation: nation) }
     let(:match) { create(:match, home: nation, away: another_nation) }
     let(:tip) { create(:tip, home_goals: 2, away_goals: 1, participant: participant, match: match) }

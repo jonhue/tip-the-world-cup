@@ -9,28 +9,30 @@ RSpec.describe Participant, type: :model do
       expect(participant).to eq(false)
     end
     it 'ensures user presence' do
-      game = create(:game)
+      user = create(:user)
       nation = create(:nation)
+      game = create(:game, user: user, nation_id: nation.id)
       participant = build(:participant, game: game, nation: nation).save
       expect(participant).to eq(false)
     end
     it 'ensures nation presence' do
-      game = create(:game)
       user = create(:user)
+      nation = create(:nation)
+      game = create(:game, user: user, nation_id: nation.id)
       participant = build(:participant, game: game, user: user).save
       expect(participant).to eq(false)
     end
     it 'saves successfully' do
-      game = create(:game)
       user = create(:user)
       nation = create(:nation)
+      game = create(:game, user: user, nation_id: nation.id)
       participant = build(:participant, game: game, user: user, nation: nation).save
       expect(participant).to eq(true)
     end
     context 'user already participates in a game' do
-      let(:game) { create(:game) }
       let(:user) { create(:user) }
       let(:nation) { create(:nation) }
+      let(:game) { create(:game, user: user, nation_id: nation.id) }
       let(:participant) { create(:participant, game: game, user: user, nation: nation) }
       it 'does not allow another participation' do
         another_participant = build(:participant, game: game, user: user, nation: nation).save
@@ -40,9 +42,9 @@ RSpec.describe Participant, type: :model do
   end
 
   context 'association tests' do
-    let(:game) { create(:game) }
     let(:user) { create(:user) }
     let(:nation) { create(:nation) }
+    let(:game) { create(:game, user: user, nation_id: nation.id) }
     let(:participant) { create(:participant, game: game, user: user, nation: nation) }
     it 'belongs to a game' do
       expect(participant.game).to eq(game)

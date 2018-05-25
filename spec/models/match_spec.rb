@@ -47,12 +47,12 @@ RSpec.describe Match, type: :model do
       expect(match.home).to eq(nation)
     end
     it 'belongs to an away nation' do
-      expect(game.away).to eq(another_nation)
+      expect(match.away).to eq(another_nation)
     end
     it 'has many tips' do
-      game = create(:game)
       nation = create(:nation)
       user = create(:user)
+      game = create(:game, user: user, nation_id: nation.id)
       another_user = create(:another_user)
       participant = create(:participant, user: user, game: game, nation: nation)
       another_participant = create(:participant, user: another_user, game: game, nation: nation)
