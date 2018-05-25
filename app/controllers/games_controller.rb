@@ -1,14 +1,13 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_game, only: [:show, :edit, :update, :destroy, :invite]
 
   # GET /games
-  # GET /games.json
   def index
     @games = Game.all
   end
 
   # GET /games/1
-  # GET /games/1.json
   def show
   end
 
@@ -22,7 +21,6 @@ class GamesController < ApplicationController
   end
 
   # POST /games
-  # POST /games.json
   def create
     @game = Game.new(game_params)
 
@@ -38,7 +36,6 @@ class GamesController < ApplicationController
   end
 
   # PATCH/PUT /games/1
-  # PATCH/PUT /games/1.json
   def update
     respond_to do |format|
       if @game.update(game_params)
@@ -52,7 +49,6 @@ class GamesController < ApplicationController
   end
 
   # DELETE /games/1
-  # DELETE /games/1.json
   def destroy
     @game.destroy
     respond_to do |format|
@@ -61,14 +57,17 @@ class GamesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_game
-      @game = Game.find(params[:id])
-    end
+  # GET /games/1/invite
+  def invite
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def game_params
-      params.require(:game).permit(:bet, :rule_match, :rule_goal_difference, :rule_tendency, :rule_miss, :private)
-    end
+  private
+
+  def set_game
+    @game = Game.find(params[:id])
+  end
+  
+  def game_params
+    params.require(:game).permit(:bet, :rule_match, :rule_goal_difference, :rule_tendency, :rule_miss, :private)
+  end
 end
