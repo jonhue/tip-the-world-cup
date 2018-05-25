@@ -4,7 +4,7 @@ FactoryBot.define do
     password 'password'
     name 'User'
   end
-  factory :another_user do
+  factory :another_user, class: User do
     email 'another_user@example.com'
     password 'password'
     name 'Another User'

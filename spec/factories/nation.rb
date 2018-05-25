@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :nation do
     name 'Germany'
   end
-  factory :nation do
+  factory :another_nation, class: Nation do
     name 'France'
   end
 end

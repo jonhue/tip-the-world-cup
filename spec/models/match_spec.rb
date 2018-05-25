@@ -62,4 +62,10 @@ RSpec.describe Match, type: :model do
       expect(match.tips).to match_array([tip1, tip2])
     end
   end
+
+  describe '#goals_available?' do
+  end
+
+  describe '#goal_difference' do
+  end
 end
