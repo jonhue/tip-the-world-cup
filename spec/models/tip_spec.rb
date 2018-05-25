@@ -39,7 +39,7 @@ RSpec.describe Tip, type: :model do
       let(:user) { create(:user) }
       let(:nation) { create(:nation) }
       let(:another_nation) { create(:another_nation) }
-      let(:participant) { create(:participant, game: game, user: user. nation: nation) }
+      let(:participant) { create(:participant, game: game, user: user, nation: nation) }
       let(:match) { create(:match, home: nation, away: another_nation) }
       let(:tip) { create(:tip, home_goals: 2, away_goals: 1, participant: participant, match: match) }
       it 'does not save another tip' do
@@ -54,7 +54,7 @@ RSpec.describe Tip, type: :model do
     let(:user) { create(:user) }
     let(:nation) { create(:nation) }
     let(:another_nation) { create(:another_nation) }
-    let(:participant) { create(:participant, game: game, user: user. nation: nation) }
+    let(:participant) { create(:participant, game: game, user: user, nation: nation) }
     let(:match) { create(:match, home: nation, away: another_nation) }
     let(:tip) { create(:tip, home_goals: 2, away_goals: 1, participant: participant, match: match) }
     it 'belongs to a participant' do

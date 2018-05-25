@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_05_25_183110) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
+    t.string "name"
     t.integer "bet", default: 0, null: false
     t.integer "rule_match", default: 5, null: false
     t.integer "rule_goal_difference", default: 3, null: false

@@ -2,6 +2,9 @@ class Tip < ApplicationRecord
   belongs_to :participant
   belongs_to :match
 
+  validates :home_goals, presence: true, numericality: true
+  validates :away_goals, presence: true, numericality: true
+
   def goal_difference
     (self.home_goals - self.away_goals).abs
   end
