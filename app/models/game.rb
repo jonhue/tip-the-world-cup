@@ -4,6 +4,8 @@ class Game < ApplicationRecord
   belongs_to :user
   has_many :participants
 
+  scope :personal, -> { where(private: true) }
+  scope :shared, -> { where(private: false) }
 
   attr_accessor :nation_id
 
