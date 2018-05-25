@@ -51,10 +51,11 @@ RSpec.describe Match, type: :model do
     end
     it 'has many tips' do
       game = create(:game)
+      nation = create(:nation)
       user = create(:user)
       another_user = create(:another_user)
-      participant = create(:participant, user: user, game: game)
-      another_participant = create(:participant, user: another_user, game: game)
+      participant = create(:participant, user: user, game: game, nation: nation)
+      another_participant = create(:participant, user: another_user, game: game, nation: nation)
       tip1 = create(:tip, participant: participant, match: match)
       tip2 = create(:tip, participant: another_participant, match: match)
 
