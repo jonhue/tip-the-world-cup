@@ -3,6 +3,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
     create_table :games do |t|
       t.references :user, index: true
 
+      t.string :name
       t.integer :bet, null: false, default: 0
       t.integer :rule_match, null: false, default: 5
       t.integer :rule_goal_difference, null: false, default: 3
