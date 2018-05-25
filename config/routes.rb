@@ -7,10 +7,11 @@ Rails.application.routes.draw do
       root to: 'games#index'
       resources :games, except: [:index] do
         get 'invite', to: 'games#invite', on: :member
-        resources :participant, except: [:edit, :update] do
+        resources :participants, except: [:edit, :update] do
           resources :tips, except: [:new, :edit]
         end
         resources :matches, only: [:index, :show]
+        resources :nations, only: [:show]
       end
     end
     root to: 'welcome#index'

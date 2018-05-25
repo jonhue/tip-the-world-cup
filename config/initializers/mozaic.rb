@@ -3,9 +3,9 @@ Mozaic.configure do |config|
     # Use Mozaic with Webpacker
     # config.es6 = true
     # Javascript asset directory
-    # config.javascripts = 'app/javascript/javascripts'
+    config.javascripts = 'app/webpack/javascripts'
     # Stylesheet asset directory
-    # config.stylesheets = 'app/javascript/stylesheets'
+    config.stylesheets = 'app/webpack/stylesheets'
 
     # Define Mozaic components
     # config.define_component :name
