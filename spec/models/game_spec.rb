@@ -37,7 +37,7 @@ RSpec.describe Game, type: :model do
       expect(game.user).to eq(user)
     end
     it 'has many participants' do
-      another_user = create(:user)
+      another_user = create(:another_user)
       nation = create(:nation)
       participant1 = create(:participant, user: user, game: game, nation: nation)
       participant2 = create(:participant, user: another_user, game: game, nation: nation)
