@@ -1,12 +1,14 @@
 class CreateGames < ActiveRecord::Migration[5.2]
   def change
     create_table :games do |t|
-      t.integer :bet
-      t.integer :rule_match
-      t.integer :rule_goal_difference
-      t.integer :rule_tendency
-      t.integer :rule_miss
-      t.boolean :private
+      t.references :user, index: true
+
+      t.integer :bet, null: false, default: 0
+      t.integer :rule_match, null: false, default: 5
+      t.integer :rule_goal_difference, null: false, default: 3
+      t.integer :rule_tendency, null: false, default: 2
+      t.integer :rule_miss, null: false, default: 0
+      t.boolean :private, null: false, default: true
 
       t.timestamps
     end
