@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
   before_action :set_game
   before_action :set_match, only: [:show]
 
-  layout :app
+  layout 'app'
 
   # GET /app/games/1/matches
   def index

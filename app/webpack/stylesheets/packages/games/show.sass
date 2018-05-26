@@ -1,0 +1,48 @@
+body.games.show
+  .myg-content
+    padding: myg-spacing(4)
+    a
+      display: inline-block
+      text-decoration: none !important
+      width: 100%
+      &.participant
+        .myg-card
+          padding: myg-spacing(2) myg-spacing(4)
+          +myg-grid__flex
+          +myg-grid__flex---center-y
+          +myg-grid__flex---space-between
+          &:first-child
+            background: myg-theme__color(accent, dark)
+            border-color: myg-theme__color(accent, dark)
+          &:nth-child(2)
+            background: myg-theme__color(accent, base)
+            border-color: myg-theme__color(accent, base)
+          &:nth-child(3)
+            background: myg-theme__color(accent, light)
+            border-color: myg-theme__color(accent, light)
+          h4, p
+            color: myg-theme__color(accent, contrast) !important
+            flex: 5
+          p
+            opacity: .6
+            flex: 1
+            margin: 0
+            &:last-child
+              opacity: 1
+              font-weight: bold
+              text-align: right
+          &:not(:first-child)
+            margin-top: myg-spacing(4)
+      &:not(.participant)
+        margin-top: myg-spacing(2)
+        .myg-card
+          margin-top: myg-spacing(2)
+          +myg-animate__transition
+          &:hover, &:focus, &:active
+            border-color: myg-theme__color(accent, base)
+            h4, p
+              color: myg-theme__color(accent, base) !important
+          p
+            margin: myg-spacing(1) 0 0
+    h3:not(:first-of-type)
+      margin-top: myg-spacing(8)

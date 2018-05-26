@@ -3,7 +3,7 @@ class NationsController < ApplicationController
   before_action :set_game
   before_action :set_nation
 
-  layout :back
+  layout 'back'
 
   # GET /app/games/1/nations/1
   def show

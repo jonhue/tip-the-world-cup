@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_game, only: [:show, :update, :destroy]
 
-  layout :app
+  layout 'app'
 
   # GET /app/games
   def index

@@ -4,7 +4,7 @@ class TipsController < ApplicationController
   before_action :set_participant
   before_action :set_tip, only: [:edit, :update, :destroy]
 
-  layout :app
+  layout 'app'
 
   # GET /app/games/1/participants/1/tips
   def index

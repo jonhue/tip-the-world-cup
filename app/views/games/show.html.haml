@@ -1,0 +1,14 @@
+%h1.sm= @game.name
+
+%h3 Leaderboard
+.myg-card__container
+  - @game.participants.limit(3).leaderboard.each do |participant|
+    = render participant
+  = link_to 'Full leaderboard', game_participants_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit'
+
+%h3 Next matches
+
+= link_to 'Browse matches', game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit'
+
+- if can? :update, @game
+  %h3 Invite

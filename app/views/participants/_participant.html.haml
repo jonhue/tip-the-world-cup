@@ -1,0 +1,6 @@
+= link_to game_participant_url(game_id: participant.game.to_param, id: participant.to_param), class: 'participant' do
+  .myg-card
+    %p.sm= participant.position.ordinalize
+    %h4= participant.user.name
+    %p.sm= participant.nation.name
+    %p.sm= participant.earned_points

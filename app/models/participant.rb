@@ -10,8 +10,8 @@ class Participant < ApplicationRecord
     self.tips.sum(&:earned_points)
   end
 
-  def position game
-    self.class.where(game: game).leaderboard.index(self) + 1
+  def position
+    self.class.where(game: self.game).leaderboard.index(self) + 1
   end
 
   def time_left_before_next_required_tip

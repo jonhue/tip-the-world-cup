@@ -3,7 +3,7 @@ class ParticipantsController < ApplicationController
   before_action :set_game
   before_action :set_participant, only: [:show, :destroy]
 
-  layout :app
+  layout 'app'
 
   # GET /app/games/1/participants
   def index

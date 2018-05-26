@@ -3,7 +3,7 @@ class InvitationsController < ApplicationController
   before_action :set_game
   before_action :set_invitation, only: [:show]
 
-  layout :back
+  layout 'back'
 
   # GET /app/games/1/invitations/1
   def show

@@ -1,0 +1,5 @@
+%h1.sm Leaderboard
+
+.myg-card__container
+  - @game.participants.leaderboard.each do |participant|
+    = render participant
