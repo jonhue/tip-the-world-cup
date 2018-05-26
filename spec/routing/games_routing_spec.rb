@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.describe GamesController, type: :routing do
   describe 'routing' do
-    it 'routes to #new' do
-      expect(get: '/app/games/new').to route_to('games#new', subdomain: '')
+    it 'routes to #index' do
+      expect(get: '/app').to route_to('games#index', subdomain: '')
     end
+      it 'routes to #new' do
+        expect(get: '/app/games/new').to route_to('games#new', subdomain: '')
+      end
     it 'routes to #show' do
       expect(get: '/app/games/1').to route_to('games#show', id: '1', subdomain: '')
     end

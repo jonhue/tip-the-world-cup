@@ -5,29 +5,39 @@
   @return unquote("\"\\#{$str}\"");
 }
 
-$nc-podium-trophy: unicode(ea02);
 $nc-trophy: unicode(ea03);
-$nc-trophy-2: unicode(ea04);
-$nc-tail-left: unicode(ea05);
-$nc-simple-add: unicode(ea06);
-
-.nc-podium-trophy::before {
-  content: $nc-podium-trophy;
-}
+$nc-podium: unicode(ea07);
+$nc-ball-soccer: unicode(ea08);
+$nc-soccer-field: unicode(ea09);
+$nc-dashboard-29: unicode(ea0a);
+$nc-tail-left-2: unicode(ea0b);
+$nc-add: unicode(ea0c);
 
 .nc-trophy::before {
   content: $nc-trophy;
 }
 
-.nc-trophy-2::before {
-  content: $nc-trophy-2;
+.nc-podium::before {
+  content: $nc-podium;
 }
 
-.nc-tail-left::before {
-  content: $nc-tail-left;
+.nc-ball-soccer::before {
+  content: $nc-ball-soccer;
 }
 
-.nc-simple-add::before {
-  content: $nc-simple-add;
+.nc-soccer-field::before {
+  content: $nc-soccer-field;
+}
+
+.nc-dashboard-29::before {
+  content: $nc-dashboard-29;
+}
+
+.nc-tail-left-2::before {
+  content: $nc-tail-left-2;
+}
+
+.nc-add::before {
+  content: $nc-add;
 }
 

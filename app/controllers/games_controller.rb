@@ -10,17 +10,21 @@ class GamesController < ApplicationController
     @invitations = current_user.invitations
     authorizes! :read, @games
     authorizes! :update, @invitations
+    turbolinks_animate 'fadein'
+    render layout: 'mozaic'
   end
 
   # GET /app/games/1
   def show
     authorize! :read, @game
+    turbolinks_animate 'fadein'
   end
 
   # GET /app/games/new
   def new
     @game = current_user.administrated_games.build
     authorize! :create, @game
+    turbolinks_animate 'fadeinleft'
     render layout: 'back'
   end
 

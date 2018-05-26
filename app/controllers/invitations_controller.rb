@@ -8,12 +8,14 @@ class InvitationsController < ApplicationController
   # GET /app/games/1/invitations/1
   def show
     authorize! :update, @invitation
+    turbolinks_animate 'fadein'
   end
 
   # GET /app/games/1/invitations/new
   def new
     authorize! :update, @game
     @invitation = @game.invitations.build
+    turbolinks_animate 'fadeinleft'
   end
 
   # POST /app/games/1/invitations

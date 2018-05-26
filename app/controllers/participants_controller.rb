@@ -3,15 +3,18 @@ class ParticipantsController < ApplicationController
   before_action :set_game
   before_action :set_participant, only: [:show, :destroy]
 
-  layout :back
+  layout :app
 
   # GET /app/games/1/participants
   def index
     @participants = Participant.all
+    turbolinks_animate 'fadein'
   end
 
   # GET /app/games/1/participants/1
   def show
+    turbolinks_animate 'fadeinleft'
+    render layout: 'back'
   end
 
   # GET /app/games/1/participants/new
@@ -24,6 +27,7 @@ class ParticipantsController < ApplicationController
       authorize! :update, Game
       @participant = @game.participants.build(user: current_user)
     end
+    turbolinks_animate 'fadein'
     render layout: 'mozaic'
   end
 

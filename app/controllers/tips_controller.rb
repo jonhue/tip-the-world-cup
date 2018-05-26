@@ -4,12 +4,13 @@ class TipsController < ApplicationController
   before_action :set_participant
   before_action :set_tip, only: [:edit, :update, :destroy]
 
-  layout :back
+  layout :app
 
   # GET /app/games/1/participants/1/tips
   def index
     @matches = Match.all.includes(tips: { participant: { user: current_user } })
     authorizes! :read, @matches
+    turbolinks_animate 'fadein'
   end
 
   # GET /app/games/1/participants/1/tips/new

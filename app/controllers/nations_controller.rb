@@ -10,6 +10,7 @@ class NationsController < ApplicationController
     authorize! :read, @nation
     @matches = @nation.matches.includes(tips: { participant: { game: @game } })
     authorizes! :read, @matches
+    turbolinks_animate 'fadeinleft'
   end
 
   private
