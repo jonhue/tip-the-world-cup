@@ -8,6 +8,6 @@ Mozaic.configure do |config|
     config.stylesheets = 'app/webpack/stylesheets'
 
     # Define Mozaic components
-    # config.define_component :name
+    config.define_component :mobile
 
 end
