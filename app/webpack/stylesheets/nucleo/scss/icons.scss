@@ -1,0 +1,33 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$nc-podium-trophy: unicode(ea02);
+$nc-trophy: unicode(ea03);
+$nc-trophy-2: unicode(ea04);
+$nc-tail-left: unicode(ea05);
+$nc-simple-add: unicode(ea06);
+
+.nc-podium-trophy::before {
+  content: $nc-podium-trophy;
+}
+
+.nc-trophy::before {
+  content: $nc-trophy;
+}
+
+.nc-trophy-2::before {
+  content: $nc-trophy-2;
+}
+
+.nc-tail-left::before {
+  content: $nc-tail-left;
+}
+
+.nc-simple-add::before {
+  content: $nc-simple-add;
+}
+
