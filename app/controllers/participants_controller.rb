@@ -32,9 +32,9 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new participant_params
 
     if @participant.save
-      redirect_to @game, notice: 'Participant was successfully created.']
+      redirect_to @game, notice: 'Participant was successfully created.'
     else
-      redirect_to @part
+      redirect_to @participant, alert: 'Could not create participant.'
     end
   end
 
