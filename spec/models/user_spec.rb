@@ -55,5 +55,14 @@ RSpec.describe User, type: :model do
 
       expect(user.administrating_games).to match_array([game1, game2])
     end
+    it 'has many invitations' do
+      nation = create(:nation)
+      game = create(:game, user: user, nation_id: nation.id)
+      another_game = create(:another_game, user: user, nation_id: nation.id)
+      invitation1 = create(:invitation, user: user, gme: game)
+      invitation2 - create(:another_invitation, user: user, gme: another_game)
+
+      expect(user.invitations).to match_array([invitation1, invitation2])
+    end
   end
 end

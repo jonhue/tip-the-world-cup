@@ -3,6 +3,7 @@ class Game < ApplicationRecord
 
   belongs_to :user
   has_many :participants
+  has_many :invitations
 
   validates :name, presence: true
   validates :bet, numericality: true

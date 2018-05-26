@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_game, only: [:show, :edit, :update, :destroy, :invite]
+  before_action :set_game, only: [:show, :update, :destroy]
 
   # GET /games
   def index
@@ -14,10 +14,6 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
-  end
-
-  # GET /games/1/edit
-  def edit
   end
 
   # POST /games
@@ -57,16 +53,12 @@ class GamesController < ApplicationController
     end
   end
 
-  # GET /games/1/invite
-  def invite
-  end
-
   private
 
   def set_game
     @game = Game.find(params[:id])
   end
-  
+
   def game_params
     params.require(:game).permit(:bet, :rule_match, :rule_goal_difference, :rule_tendency, :rule_miss, :private)
   end

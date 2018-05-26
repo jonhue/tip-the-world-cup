@@ -1,4 +1,6 @@
 class Tip < ApplicationRecord
+  before_save :check_if_match_started
+  
   belongs_to :participant
   belongs_to :match
 
@@ -34,5 +36,9 @@ class Tip < ApplicationRecord
 
   def tendency?
     self.home_goals < self.away_goals && self.match.home_goals < self.match.away_goals || self.home_goals > self.away_goals && self.match.home_goals > self.match.away_goals || self.home_goals == self.away_goals && self.match.home_goals == self.match.away_goals
+  end
+
+  def check_if_match_started
+    return false if self.match.begins_at.past?
   end
 end
