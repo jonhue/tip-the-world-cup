@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def authorizes! ability, collection
-    collection.map do |object|
+    collection&.map do |object|
       authorize! ability, object
     end
   end

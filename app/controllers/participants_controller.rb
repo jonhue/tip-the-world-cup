@@ -27,18 +27,20 @@ class ParticipantsController < ApplicationController
       authorize! :update, Game
       @participant = @game.participants.build(user: current_user)
     end
+    @nations = Nation.all.order(:name)
+    authorizes! :read, @nation
     turbolinks_animate 'fadein'
     render layout: 'application'
   end
 
   # POST /app/games/1/participants
   def create
-    @participant = Participant.new participant_params
+    @participant = Participant.new participant_params.merge(nation_id: Nation.find_by(name: params[:commit])&.id)
 
     if @participant.save
       redirect_to @game, notice: 'Participant was successfully created.'
     else
-      redirect_to @participant, alert: 'Could not create participant.'
+      redirect_to new_game_participant_url(game_id: @game.to_param), alert: 'Could not create participant.'
     end
   end
 

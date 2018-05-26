@@ -1,15 +1,5 @@
--# = simple_form_for @game do |f|
--#   = component 'myg/form-field', as: :input, attribute: :name, class_name: 'game', label: 'Give me a name', input_html: { required: true, value: @game.name, autofocus: true }
--#
--#   %h3 Rules
--#   = component 'myg/form-field', as: :input, attribute: :rule_match, class_name: 'game', label: ['Points for Match', 'Points awarded if a game has been tipped correctly.'], input_html: { value: @game.rule_match, placeholder: '5' }
--#   = component 'myg/form-field', as: :input, attribute: :rule_goal_difference, class_name: 'game', label: ['Points for Goal Difference', 'Points awarded if a the goal difference and tendency of a game has been tipped correctly.'], input_html: { value: @game.rule_goal_difference, placeholder: '3' }
--#   = component 'myg/form-field', as: :input, attribute: :rule_tendency, class_name: 'game', label: ['Points for Tendency', 'Points awarded if a just the tendency of a game has been tipped correctly.'], input_html: { value: @game.rule_tendency, placeholder: '2' }
--#   = component 'myg/form-field', as: :input, attribute: :rule_miss, class_name: 'game', label: ['Points for Miss', 'Points awarded if a the tendency of a game has not been tipped correctly.'], input_html: { value: @game.rule_miss, placeholder: '0' }
--#
--#   %h3 More...
--#   = component 'myg/form-field', as: :input, attribute: :bet, class_name: 'game', label: ['Bet', 'Specify a reward for the winner.'], input_html: { value: @game.bet, placeholder: '$5' }
--#   = component 'myg/form-field', as: :switch, attribute: :private, class_name: 'game', inline_label: ['Private', 'No one but you and your invited friends can see this game.'], input_html: { checked: @game.private }
--#
--#   .myg-button__container.myg-grid__flex.-reverse
--#     = component 'myg/button', value: 'Create game'
+= simple_form_for @participant, url: game_participants_url do |f|
+  = f.input :game_id, as: :hidden, input_html: { value: @participant.game_id }
+  = f.input :user_id, as: :hidden, input_html: { value: @participant.user_id }
+  - @nations.each do |nation|
+    = component 'myg/button', value: nation.name

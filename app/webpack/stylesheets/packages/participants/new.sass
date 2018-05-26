@@ -1,0 +1,22 @@
+body.participants.new
+  .myg-content
+    +myg-grid__flex
+    +myg-grid__flex---center-y
+    flex-direction: column
+    padding: myg-spacing(4)
+    h1
+      text-align: center
+      max-width: 85%
+      margin: myg-spacing(6) 0
+    form
+      width: 100%
+      .myg-button
+        background: myg-theme__color(background, lighter)
+        color: myg-theme__color(text, base)
+        border-color: myg-theme__color(text, base)
+        width: 100%
+        &:not(:first-child)
+          margin-top: myg-spacing(4)
+        &:hover, &:focus, &:active
+          color: myg-theme__color(accent, base)
+          border-color: myg-theme__color(accent, base)
