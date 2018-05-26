@@ -16,32 +16,33 @@ class ParticipantsController < ApplicationController
 
   # GET /app/games/1/participants/new
   def new
-    @participant = Participant.new
+    if params.has_key?(:invitation_id)
+      @invitation = Invitation.find(params[:invitation_id])
+      authorize! :update, Invitation
+      @participant = @invitation.accept
+    else
+      authorize! :update, Game
+      @participant = @game.participants.build(user: current_user)
+    end
     render layout: 'mozaic'
   end
 
   # POST /app/games/1/participants
   def create
-    @participant = Participant.new(participant_params)
+    @participant = Participant.new participant_params
 
-    respond_to do |format|
-      if @participant.save
-        format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
-        format.json { render :show, status: :created, location: @participant }
-      else
-        format.html { render :new }
-        format.json { render json: @participant.errors, status: :unprocessable_entity }
-      end
+    if @participant.save
+      redirect_to @game, notice: 'Participant was successfully created.']
+    else
+      redirect_to @part
     end
   end
 
   # DELETE /games/1/participants/1
   def destroy
+    authorize! :destroy, @participant
     @participant.destroy
-    respond_to do |format|
-      format.html { redirect_to participants_url, notice: 'Participant was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to games_url, notice: 'Participant was successfully destroyed.'
   end
 
   private
@@ -55,6 +56,6 @@ class ParticipantsController < ApplicationController
   end
 
   def participant_params
-    params.require(:participant).permit(:bet, :rule_match, :rule_goal_difference, :rule_tendency, :rule_miss, :private)
+    params.require(:participant).permit(:game_id, :user_id, :nation_id)
   end
 end

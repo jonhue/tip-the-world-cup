@@ -4,33 +4,24 @@ RSpec.describe Game, type: :model do
   context 'validation tests' do
     it 'ensures name presence' do
       user = create(:user)
-      nation = create(:nation)
-      game = build(:game, name: nil, nation_id: nation.id).save
-      expect(game).to eq(false)
-    end
-    it 'ensures nation_id presence' do
-      user = create(:user)
-      game = build(:game).save
+      game = build(:game, name: nil).save
       expect(game).to eq(false)
     end
     it 'ensures user presence' do
-      nation = create(:nation)
-      game = build(:game, nation_id: nation.id).save
+      game = build(:game).save
       expect(game).to eq(false)
     end
     it 'saves successfully' do
       user = create(:user)
-      nation = create(:nation)
-      game = build(:game, user: user, nation_id: nation.id).save
+      game = build(:game, user: user).save
       expect(game).to eq(true)
     end
   end
 
   context 'scope tests' do
     let(:user) { create(:user) }
-    let(:nation) { create(:nation) }
-    let(:personal_game) { create(:game, user: user, nation_id: nation.id) }
-    let(:shared_game) { create(:game, user: user, nation_id: nation.id, private: false) }
+    let(:personal_game) { create(:game, user: user) }
+    let(:shared_game) { create(:game, user: user, private: false) }
     it 'scopes shared games' do
       expect(Game.shared).to match_array([shared_game])
     end
@@ -41,8 +32,7 @@ RSpec.describe Game, type: :model do
 
   context 'association tests' do
     let(:user) { create(:user) }
-    let(:nation) { create(:nation) }
-    let(:game) { create(:game, user: user, nation_id: nation.id) }
+    let(:game) { create(:game, user: user) }
     it 'belongs to a user' do
       expect(game.user).to eq(user)
     end
@@ -56,8 +46,8 @@ RSpec.describe Game, type: :model do
     end
     it 'has many invitations' do
       another_user = create(:another_user)
-      invitation1 = create(:invitation, user: user, gme: game)
-      invitation2 - create(:another_invitation, user: another_user, gme: game)
+      invitation1 = create(:invitation, user: user, game: game)
+      invitation2 - create(:another_invitation, user: another_user, game: game)
 
       expect(game.invitations).to match_array([invitation1, invitation2])
     end

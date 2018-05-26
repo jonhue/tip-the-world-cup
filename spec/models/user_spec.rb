@@ -32,8 +32,8 @@ RSpec.describe User, type: :model do
     let(:user) { create(:user) }
     it 'has many participants' do
       nation = create(:nation)
-      game = create(:game, user: user, nation_id: nation.id)
-      another_game = create(:another_game, user: user, nation_id: nation.id)
+      game = create(:game, user: user)
+      another_game = create(:another_game, user: user)
       participant1 = create(:participant, game: game, user: user, nation: nation)
       participant2 = create(:participant, game: another_game, user: user, nation: nation)
 
@@ -41,24 +41,22 @@ RSpec.describe User, type: :model do
     end
     it 'has many games through participants' do
       nation = create(:nation)
-      game1 = create(:game, user: user, nation_id: nation.id)
-      game2 = create(:another_game, user: user, nation_id: nation.id)
+      game1 = create(:game, user: user)
+      game2 = create(:another_game, user: user)
       participant = create(:participant, game: game1, user: user, nation: nation)
       another_participant = create(:participant, game: game2, user: user, nation: nation)
 
       expect(user.games).to match_array([game1, game2])
     end
     it 'has many administrating games' do
-      nation = create(:nation)
-      game1 = create(:game, user: user, nation_id: nation.id)
-      game2 = create(:another_game, user: user, nation_id: nation.id)
+      game1 = create(:game, user: user)
+      game2 = create(:another_game, user: user)
 
       expect(user.administrating_games).to match_array([game1, game2])
     end
     it 'has many invitations' do
-      nation = create(:nation)
-      game = create(:game, user: user, nation_id: nation.id)
-      another_game = create(:another_game, user: user, nation_id: nation.id)
+      game = create(:game, user: user)
+      another_game = create(:another_game, user: user)
       invitation1 = create(:invitation, user: user, gme: game)
       invitation2 - create(:another_invitation, user: user, gme: another_game)
 

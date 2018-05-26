@@ -7,21 +7,23 @@ class InvitationsController < ApplicationController
 
   # GET /app/games/1/invitations/1
   def show
+    authorize! :update, @invitation
   end
 
   # GET /app/games/1/invitations/new
   def new
-    @invitation = Invitation.new
+    authorize! :update, @game
+    @invitation = @game.invitations.build
   end
 
   # POST /app/games/1/invitations
   def create
-    @invitation = Invitation.new(invitation_params)
+    @invitation = @game.invitations.build invitation_params
 
     if @invitation.save
       redirect_to @invitation, notice: 'Invitation was successfully created.'
     else
-      render :new
+      redirect_to @game, alert: 'Could not send invitation.'
     end
   end
 
@@ -36,6 +38,6 @@ class InvitationsController < ApplicationController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:email, :accepted)
+    params.require(:invitation).permit(:email, :accepted, :message)
   end
 end

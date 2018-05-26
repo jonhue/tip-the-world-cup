@@ -9,6 +9,11 @@ class Invitation < ApplicationRecord
   scope :accepted, -> { where(accepted: true) }
   scope :unaccepted, -> { where(accepted: false) }
 
+  def accept
+    self.update_attributes(accepted: true)
+    return Participant.new(game: self.game, user: self.user || User.find_by(email: self.email))
+  end
+
   private
 
   def associate_with_user

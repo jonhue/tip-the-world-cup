@@ -7,17 +7,20 @@ class MatchesController < ApplicationController
 
   # GET /app/games/1/matches
   def index
-    @matches = Match.all
+    @matches = @game.matches
+    authorizes! :read, @matches
   end
 
   # GET /app/games/1/matches/1
   def show
+    authorize! :read, @match
   end
 
   private
 
   def set_game
     @game = Game.find(params[:game_id])
+    authorize! :read, @game
   end
 
   def set_match

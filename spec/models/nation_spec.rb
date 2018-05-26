@@ -28,7 +28,7 @@ RSpec.describe Nation, type: :model do
     it 'has many participants' do
       user = create(:user)
       another_user = create(:another_user)
-      game = create(:game, user: user, nation_id: nation.id)
+      game = create(:game, user: user)
       participant = create(:participant, user: user, game: game, nation: nation)
       another_participant = create(:participant, user: another_user, game: game, nation: nation)
 

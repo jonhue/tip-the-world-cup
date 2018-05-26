@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         resources :invitations, only: [:show, :new, :create]
         resources :participants, except: [:edit, :update] do
           resources :tips, except: [:show, :new, :edit]
-          resources :tips, only: [:show], constraints: Modalist::Ajax.new
+          resources :tips, only: [:new, :edit], constraints: Modalist::Ajax.new
         end
         resources :matches, only: [:index, :show]
         resources :nations, only: [:show]

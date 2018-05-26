@@ -9,7 +9,7 @@ class GamesController < ApplicationController
     @games = current_user.games
     @invitations = current_user.invitations
     authorizes! :read, @games
-    authorizes! :manage, @invitations
+    authorizes! :update, @invitations
   end
 
   # GET /app/games/1
