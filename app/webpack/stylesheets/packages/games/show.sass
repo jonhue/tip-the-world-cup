@@ -34,9 +34,11 @@ body.games.show
           &:not(:first-child)
             margin-top: myg-spacing(4)
       &:not(.participant)
-        margin-top: myg-spacing(2)
-        .myg-card
+        &:not(:first-child)
           margin-top: myg-spacing(2)
+        .myg-card
+          &:not(:first-child)
+            margin-top: myg-spacing(2)
           +myg-animate__transition
           &:hover, &:focus, &:active
             border-color: myg-theme__color(accent, base)
@@ -44,5 +46,22 @@ body.games.show
               color: myg-theme__color(accent, base) !important
           p
             margin: myg-spacing(1) 0 0
+      &.match
+        .match-wrapper
+          +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
+          p
+            margin: 0
+            &:first-child
+              text-align: left
+            &:last-child
+              text-align: right
+          h4
+            margin: 0
+            text-align: center
+        .tip-wrapper
+          margin-bottom: myg-spacing(2)
+          text-align: center
+          p
+            margin: 0
     h3:not(:first-of-type)
       margin-top: myg-spacing(8)

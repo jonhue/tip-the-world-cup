@@ -17,6 +17,10 @@ class GamesController < ApplicationController
   # GET /app/games/1
   def show
     authorize! :read, @game
+    @participants = @game.participants.leaderboard.take(3)
+    authorizes! :read, @participants
+    @matches = Match.future.limit(3).order(:begins_at)
+    authorizes! :read, @matches
     turbolinks_animate 'fadein'
   end
 
