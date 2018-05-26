@@ -72,6 +72,8 @@ gem 'randomize_id', '~> 1.0'
 gem 'nilify_blanks', '~> 1.3'
 # Myg framework
 gem 'myg', '~> 2.10'
+# Modals
+gem 'modalist', '~> 2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

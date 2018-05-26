@@ -1,0 +1,30 @@
+import Rails from 'rails-ujs';
+window.Rails = Rails;
+Rails.start();
+
+import Turbolinks from 'turbolinks';
+Turbolinks.start();
+
+import 'turbolinks-animate';
+document.addEventListener( 'turbolinks:load', () => {
+  TurbolinksAnimate.init({ element: document.querySelector('body.turbolinks-animate') });
+})
+
+import 'onsignal/dist/OneSignalSDK';
+import OnSignal from 'onsignal';
+document.addEventListener( 'DOMContentLoaded', () => {
+  window.onSignal = new OnSignal( '<%= Rails.application.credentials.onesignal[:app_id] %>', {} );
+})
+
+import './../javascripts/myg/index';
+
+// import './../javascripts/packages/apps/show';
+// import './../javascripts/packages/apps/form';
+// import './../javascripts/packages/layouts/application';
+// import './../javascripts/packages/layouts/app';
+// import './../javascripts/packages/users/payment_methods/edit';
+// import './../javascripts/packages/users/registrations/edit';
+// import './../javascripts/packages/welcome/notify';
+
+
+import './../stylesheets/index';
