@@ -11,7 +11,7 @@ class GamesController < ApplicationController
     authorizes! :read, @games
     authorizes! :update, @invitations
     turbolinks_animate 'fadein'
-    render layout: 'mozaic'
+    render layout: 'application'
   end
 
   # GET /app/games/1
@@ -22,19 +22,19 @@ class GamesController < ApplicationController
 
   # GET /app/games/new
   def new
-    @game = current_user.administrated_games.build
+    @game = current_user.administrating_games.build
     authorize! :create, @game
-    turbolinks_animate 'fadeinleft'
+    turbolinks_animate 'fadeinright'
     render layout: 'back'
   end
 
   # POST /app/games
   def create
-    @game = current_user.administrated_games.build game_params
+    @game = current_user.administrating_games.build game_params
     authorize! :create, @game
 
     if @game.save
-      redirect_to @game, notice: 'Game was successfully created.'
+      redirect_to new_game_participant_url(game_id: @game.to_param), notice: 'Game was successfully created.'
     else
       redirect_to new_game_url, alert: 'Could not create game.'
     end

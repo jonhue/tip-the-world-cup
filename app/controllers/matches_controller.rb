@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
   # GET /app/games/1/matches/1
   def show
     authorize! :read, @match
-    turbolinks_animate 'fadeinleft'
+    turbolinks_animate 'fadeinright'
     render layout: 'back'
   end
 

@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   constraints subdomain: '' do
     scope :app do
-      devise_for :users
-      root to: 'games#index'
-      resources :games, except: [:index, :edit] do
+      devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+      }
+      resources :games, except: [:edit] do
         resources :invitations, only: [:show, :new, :create]
         resources :participants, except: [:edit, :update] do
           resources :tips, except: [:show, :new, :edit]

@@ -1,8 +1,8 @@
 $myg-theme: (
     accent: (
-        light: #51e086,
-        base: #39d573,
-        dark: #28c161,
+        light: #39d573,
+        base: #28c161,
+        dark: #1cb354,
         contrast: #ffffff
     ),
     text: (
@@ -20,7 +20,7 @@ $myg-theme: (
         darker: #ecf2f7
     ),
     border: #dce2e7,
-    box-shadow: rgba(#000, .16),
+    box-shadow: rgba(#000, .06),
     error: #e3646b,
     success: #51e086,
     overlay: (

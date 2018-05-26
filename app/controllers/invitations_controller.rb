@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
   def new
     authorize! :update, @game
     @invitation = @game.invitations.build
-    turbolinks_animate 'fadeinleft'
+    turbolinks_animate 'fadeinright'
   end
 
   # POST /app/games/1/invitations

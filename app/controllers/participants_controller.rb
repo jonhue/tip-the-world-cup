@@ -13,7 +13,7 @@ class ParticipantsController < ApplicationController
 
   # GET /app/games/1/participants/1
   def show
-    turbolinks_animate 'fadeinleft'
+    turbolinks_animate 'fadeinright'
     render layout: 'back'
   end
 
@@ -28,7 +28,7 @@ class ParticipantsController < ApplicationController
       @participant = @game.participants.build(user: current_user)
     end
     turbolinks_animate 'fadein'
-    render layout: 'mozaic'
+    render layout: 'application'
   end
 
   # POST /app/games/1/participants

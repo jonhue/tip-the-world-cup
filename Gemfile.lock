@@ -62,7 +62,7 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     cancancan (2.2.0)
-    capybara (3.1.0)
+    capybara (3.1.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -277,6 +277,9 @@ GEM
       rubyzip (~> 1.2)
     sentry-raven (2.7.3)
       faraday (>= 0.7.6, < 1.0)
+    simple_form (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -362,6 +365,7 @@ DEPENDENCIES
   search-engine-optimization (~> 1.2)
   selenium-webdriver
   sentry-raven (~> 2.7)
+  simple_form (~> 4.0)
   turbolinks (~> 5)
   turbolinks-animate (~> 2.0)
   tzinfo-data

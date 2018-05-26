@@ -4,7 +4,6 @@ class Game < ApplicationRecord
   has_many :invitations
 
   validates :name, presence: true
-  validates :bet, numericality: true
   validates :rule_match, numericality: true
   validates :rule_goal_difference, numericality: true
   validates :rule_tendency, numericality: true

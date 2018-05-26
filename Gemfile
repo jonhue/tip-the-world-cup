@@ -55,6 +55,8 @@ gem 'mozaic', '~> 2.0'
 gem 'metamagic', '~> 3.1'
 # SEO
 gem 'search-engine-optimization', '~> 1.2'
+# Forms
+gem 'simple_form', '~> 4.0'
 # Error pages
 gem 'r404', '~> 2.0'
 # Progressive Web App

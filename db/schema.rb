@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 2018_05_26_060808) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "bet", default: 0, null: false
+    t.string "name"
+    t.string "bet"
     t.integer "rule_match", default: 5, null: false
     t.integer "rule_goal_difference", default: 3, null: false
     t.integer "rule_tendency", default: 2, null: false
@@ -61,9 +62,11 @@ ActiveRecord::Schema.define(version: 2018_05_26_060808) do
   end
 
   create_table "nations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "slug"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_nations_on_slug"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
