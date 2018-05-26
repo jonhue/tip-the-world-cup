@@ -2,21 +2,21 @@ class GamesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_game, only: [:show, :update, :destroy]
 
-  # GET /games
+  # GET /app/games
   def index
     @games = Game.all
   end
 
-  # GET /games/1
+  # GET /app/games/1
   def show
   end
 
-  # GET /games/new
+  # GET /app/games/new
   def new
     @game = Game.new
   end
 
-  # POST /games
+  # POST /app/games
   def create
     @game = Game.new(game_params)
 
@@ -31,7 +31,7 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
+  # PATCH/PUT /app/games/1
   def update
     respond_to do |format|
       if @game.update(game_params)
@@ -44,7 +44,7 @@ class GamesController < ApplicationController
     end
   end
 
-  # DELETE /games/1
+  # DELETE /app/games/1
   def destroy
     @game.destroy
     respond_to do |format|

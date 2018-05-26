@@ -3,7 +3,7 @@ class NationsController < ApplicationController
   before_action :set_game
   before_action :set_nation
 
-  # GET /games/1/nations/1
+  # GET /app/games/1/nations/1
   def show
   end
 
@@ -14,6 +14,6 @@ class NationsController < ApplicationController
   end
 
   def set_nation
-    @nation = Nation.find(params[:id])
+    @nation = Nation.friendly.find(params[:id])
   end
 end

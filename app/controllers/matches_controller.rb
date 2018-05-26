@@ -3,12 +3,12 @@ class MatchesController < ApplicationController
   before_action :set_game
   before_action :set_match, only: [:show]
 
-  # GET /games/1/matches
+  # GET /app/games/1/matches
   def index
     @matches = Match.all
   end
 
-  # GET /games/1/matches/1
+  # GET /app/games/1/matches/1
   def show
   end
 

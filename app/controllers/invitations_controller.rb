@@ -3,16 +3,16 @@ class InvitationsController < ApplicationController
   before_action :set_game
   before_action :set_invitation, only: [:show]
 
-  # GET /games/1/invitations/1
+  # GET /app/games/1/invitations/1
   def show
   end
 
-  # GET /games/1/invitations/new
+  # GET /app/games/1/invitations/new
   def new
     @invitation = Invitation.new
   end
 
-  # POST /games/1/invitations
+  # POST /app/games/1/invitations
   def create
     @invitation = Invitation.new(invitation_params)
 

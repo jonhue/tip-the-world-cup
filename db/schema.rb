@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_25_183110) do
+ActiveRecord::Schema.define(version: 2018_05_26_060808) do
 
   create_table "devices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "owner_type"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2018_05_25_183110) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "name"
     t.integer "bet", default: 0, null: false
     t.integer "rule_match", default: 5, null: false
     t.integer "rule_goal_difference", default: 3, null: false
@@ -36,6 +35,17 @@ ActiveRecord::Schema.define(version: 2018_05_25_183110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "email"
+    t.boolean "accepted", default: false, null: false
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_invitations_on_email"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
   create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

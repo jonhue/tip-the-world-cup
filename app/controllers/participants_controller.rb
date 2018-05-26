@@ -3,21 +3,21 @@ class ParticipantsController < ApplicationController
   before_action :set_game
   before_action :set_participant, only: [:show, :destroy]
 
-  # GET /games/1/participants
+  # GET /app/games/1/participants
   def index
     @participants = Participant.all
   end
 
-  # GET /games/1/participants/1
+  # GET /app/games/1/participants/1
   def show
   end
 
-  # GET /games/1/participants/new
+  # GET /app/games/1/participants/new
   def new
     @participant = Participant.new
   end
 
-  # POST /games/1/participants
+  # POST /app/games/1/participants
   def create
     @participant = Participant.new(participant_params)
 

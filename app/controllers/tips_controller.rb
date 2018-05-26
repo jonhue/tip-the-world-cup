@@ -4,16 +4,16 @@ class TipsController < ApplicationController
   before_action :set_participant
   before_action :set_tip, only: [:show, :update, :destroy]
 
-  # GET /games/1/participants/1/tips
+  # GET /app/games/1/participants/1/tips
   def index
     @tips = Tip.all
   end
 
-  # GET /games/1/participants/1/tips/1
+  # GET /app/games/1/participants/1/tips/1
   def show
   end
 
-  # POST /games/1/participants/1/tips
+  # POST /app/games/1/participants/1/tips
   def create
     @tip = Tip.new(tip_params)
 
@@ -28,7 +28,7 @@ class TipsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1/participants/1/tips/1
+  # PATCH/PUT /app/games/1/participants/1/tips/1
   def update
     respond_to do |format|
       if @tip.update(tip_params)
@@ -41,7 +41,7 @@ class TipsController < ApplicationController
     end
   end
 
-  # DELETE /games/1/participants/1/tips/1
+  # DELETE /app/games/1/participants/1/tips/1
   def destroy
     @tip.destroy
     respond_to do |format|
