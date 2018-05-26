@@ -4,6 +4,8 @@ class TipsController < ApplicationController
   before_action :set_participant
   before_action :set_tip, only: [:show, :update, :destroy]
 
+  layout :back
+
   # GET /app/games/1/participants/1/tips
   def index
     @tips = Tip.all
@@ -11,6 +13,7 @@ class TipsController < ApplicationController
 
   # GET /app/games/1/participants/1/tips/1
   def show
+    modalist
   end
 
   # POST /app/games/1/participants/1/tips

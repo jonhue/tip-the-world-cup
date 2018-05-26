@@ -1,0 +1,10 @@
+- replace :layout, 'app'
+- replace :body_class, 'myg-layout--toolbar'
+
+= mozaic do
+
+    = component 'myg/toolbar'
+
+    .myg-content
+        = mozaic_area :app do
+            = yield

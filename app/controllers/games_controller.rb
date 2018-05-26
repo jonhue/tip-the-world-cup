@@ -2,6 +2,8 @@ class GamesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_game, only: [:show, :update, :destroy]
 
+  layout :app
+
   # GET /app/games
   def index
     @games = Game.all
@@ -14,6 +16,7 @@ class GamesController < ApplicationController
   # GET /app/games/new
   def new
     @game = Game.new
+    render layout: 'back'
   end
 
   # POST /app/games

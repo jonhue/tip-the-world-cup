@@ -3,6 +3,8 @@ class MatchesController < ApplicationController
   before_action :set_game
   before_action :set_match, only: [:show]
 
+  layout :back
+
   # GET /app/games/1/matches
   def index
     @matches = Match.all

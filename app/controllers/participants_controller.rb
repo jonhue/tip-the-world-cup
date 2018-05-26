@@ -3,6 +3,8 @@ class ParticipantsController < ApplicationController
   before_action :set_game
   before_action :set_participant, only: [:show, :destroy]
 
+  layout :back
+
   # GET /app/games/1/participants
   def index
     @participants = Participant.all
@@ -15,6 +17,7 @@ class ParticipantsController < ApplicationController
   # GET /app/games/1/participants/new
   def new
     @participant = Participant.new
+    render layout: 'mozaic'
   end
 
   # POST /app/games/1/participants
