@@ -1,0 +1,17 @@
+%h1= "Hi, #{current_user.name}!"
+
+.myg-card__container
+  - @games&.each do |game|
+    = render game
+  = link_to new_game_url do
+    .myg-card
+      %h4 New game
+      %p.sm Start playing with friends & family.
+
+%h3 Invitations
+- if @invitations.any?
+  .myg-card__container
+    - @invitations&.each do |invitation|
+      = render invitation
+- else
+  %p You don't have any pending invitations.

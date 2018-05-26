@@ -6,8 +6,8 @@ class GamesController < ApplicationController
 
   # GET /app/games
   def index
-    @games = current_user.games
-    @invitations = current_user.invitations
+    @games = current_user.games.includes(:participants)
+    @invitations = current_user.invitations.unaccepted
     authorizes! :read, @games
     authorizes! :update, @invitations
     turbolinks_animate 'fadein'

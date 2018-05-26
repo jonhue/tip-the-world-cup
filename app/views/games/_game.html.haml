@@ -1,0 +1,12 @@
+= link_to game, class: 'game' do
+  .myg-card
+    %h4= game.name
+    %p.sm
+      %span
+        = game.participants.find_by(user_id: current_user.id).time_left_before_next_required_tip
+        days
+      until your next required tip
+    %p.sm
+      = game.participants.find_by(user_id: current_user.id).position(game).ordinalize
+      place on the leaderboard
+      = "(of #{game.participants.count})"

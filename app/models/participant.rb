@@ -9,4 +9,12 @@ class Participant < ApplicationRecord
   def earned_points
     self.tips.sum(&:earned_points)
   end
+
+  def position game
+    self.class.where(game: game).leaderboard.index(self) + 1
+  end
+
+  def time_left_before_next_required_tip
+    ((Match.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).order(:begins_at).first.begins_at - DateTime.now) / 1.day).round
+  end
 end
