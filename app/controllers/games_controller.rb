@@ -6,54 +6,52 @@ class GamesController < ApplicationController
 
   # GET /app/games
   def index
-    @games = Game.all
+    @games = current_user.games
+    @invitations = current_user.invitations
+    authorizes! :read, @games
+    authorizes! :manage, @invitations
   end
 
   # GET /app/games/1
   def show
+    authorize! :read, @game
   end
 
   # GET /app/games/new
   def new
-    @game = Game.new
+    @game = current_user.administrated_games.build
+    authorize! :create, @game
     render layout: 'back'
   end
 
   # POST /app/games
   def create
-    @game = Game.new(game_params)
+    @game = current_user.administrated_games.build game_params
+    authorize! :create, @game
 
-    respond_to do |format|
-      if @game.save
-        format.html { redirect_to @game, notice: 'Game was successfully created.' }
-        format.json { render :show, status: :created, location: @game }
-      else
-        format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
+    if @game.save
+      redirect_to @game, notice: 'Game was successfully created.'
+    else
+      redirect_to new_game_url, alert: 'Could not create game.'
     end
   end
 
   # PATCH/PUT /app/games/1
   def update
-    respond_to do |format|
-      if @game.update(game_params)
-        format.html { redirect_to @game, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @game }
-      else
-        format.html { render :edit }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
+    authorize! :update, @game
+
+    if @game.update game_params
+      redirect_to @game, notice: 'Game was successfully updated.'
+    else
+      redirect_to @game, alert: 'Could not update game.'
     end
   end
 
   # DELETE /app/games/1
   def destroy
+    authorize! :destroy, @game
     @game.destroy
-    respond_to do |format|
-      format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to games_url, notice: 'Game was successfully destroyed.'
   end
 
   private
@@ -63,6 +61,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:bet, :rule_match, :rule_goal_difference, :rule_tendency, :rule_miss, :private)
+    params.require(:game).permit(:name, :bet, :rule_match, :rule_goal_difference, :rule_tendency, :rule_miss, :private)
   end
 end
