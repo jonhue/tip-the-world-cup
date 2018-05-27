@@ -4,8 +4,9 @@
 %p Tip the 2018 World Cup with friends & family.
 
 = simple_form_for resource, as: resource_name, url: user_registration_url do |f|
+    = f.input :token, as: :hidden, input_html: { value: params[:token] }
     = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', floating_label: 'Name', input_html: { required: true, autofocus: true }
-    = component 'myg/form-field', as: :input, attribute: :email, class_name: 'user', floating_label: 'Email', input_html: { required: true, type: 'email' }
+    = component 'myg/form-field', as: :input, attribute: :email, class_name: 'user', floating_label: 'Email', input_html: { required: true, type: 'email', value: params[:email] }
     = component 'myg/form-field', as: :input, attribute: :password, class_name: 'user', floating_label: 'Password', input_html: { required: true, type: 'password', minlength: 6 }
     .myg-grid__flex.-space-between
         %p.sm

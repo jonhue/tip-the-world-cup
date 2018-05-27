@@ -1,0 +1,21 @@
+- meta title: "Join #{@game.name}"
+
+%h1.sm
+  = @game.user.name
+  invited you to tip the 2018 World Cup
+
+%p= @invitation.message
+%p
+  Bet:
+  %span= @game.bet
+
+- if @game.participants.count > 1
+  %p
+    = @game.participants.map { |participant| participant.user.name }.join(', ')
+    already agreed to the challenge
+
+.myg-button__container
+  - if current_user
+    = link_to 'Go ahead', new_game_participant_url(game_id: @game.to_param), class: 'myg-button'
+  - else
+    = link_to 'Go ahead', new_user_registration_url(email: @invitation.email || @invitation.user.email, token: @invitation.token), class: 'myg-button'

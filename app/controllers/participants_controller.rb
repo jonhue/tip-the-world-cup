@@ -22,9 +22,8 @@ class ParticipantsController < ApplicationController
 
   # GET /app/1/participants/new
   def new
-    if params.has_key?(:invitation_id)
-      @invitation = Invitation.find(params[:invitation_id])
-      authorize! :update, Invitation
+    if params.has_key?(:token)
+      @invitation = Invitation.find_by(token: params[:token])
       @participant = @invitation.accept
     else
       authorize! :update, Game

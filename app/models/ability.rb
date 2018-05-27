@@ -9,7 +9,7 @@ class Ability
 
       can :manage, Tip, participant: { user_id: user.id }
 
-      can :read, Participant, games: { participants: { user_id: user.id } }
+      can :read, Participant, game: { participants: { user_id: user.id } }
       can :manage, Participant, user_id: user.id
 
       can :read, Nation

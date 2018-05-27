@@ -11,6 +11,7 @@ class InvitationsController < ApplicationController
       redirect_to root_url, alert: 'Token invalid.'
     end
     turbolinks_animate 'fadein'
+    render layout: 'application'
   end
 
   # GET /app/1/invitations/new

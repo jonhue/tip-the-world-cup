@@ -1,0 +1,10 @@
+a.invitation
+  display: inline-block
+  text-decoration: none !important
+  width: 100%
+  .myg-card
+    +myg-animate__transition
+    &:hover, &:focus, &:active
+      border-color: myg-theme__color(accent, base)
+      h4, p
+        color: myg-theme__color(accent, base) !important

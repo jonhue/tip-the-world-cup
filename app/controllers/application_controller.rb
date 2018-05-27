@@ -1,17 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :set_raven_context
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def authorizes! ability, collection
     collection&.map do |object|
       authorize! ability, object
     end
-  end
-
-  def configure_permitted_parameters
-    attributes = [:email, :name, :password, :remember_me]
-    devise_parameter_sanitizer.permit :sign_up, keys: attributes
-    devise_parameter_sanitizer.permit :account_update, keys: attributes
   end
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -20,6 +13,13 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, AbstractController::ActionNotFound, ActionController::RoutingError do |exception|
     render_r404 :not_found, 404, exception
   end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    games_url
+  end
+
 
   private
 
