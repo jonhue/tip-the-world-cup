@@ -1,0 +1,31 @@
+body.matches.show
+  .myg-content
+    .match-wrapper
+      background: myg-theme__color(accent, base)
+      padding: myg-spacing(4)
+      padding-top: myg-spacing(7)
+      .result-wrapper
+        +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
+        .nation-wrapper
+          text-decoration: none !important
+          margin: 0
+          &:last-child
+            +myg-grid__flex
+            flex-direction: column
+            +myg-grid__flex---end-y
+          h4
+            margin-top: myg-spacing(1)
+            color: myg-theme__color(accent, contrast)
+        h1
+          margin: 0
+          margin-top: myg-spacing(2)
+          text-align: center
+          color: myg-theme__color(accent, contrast)
+      & > p
+        text-align: center
+        color: myg-theme__color(accent, contrast)
+        opacity: .6
+    .content-wrapper
+      padding: myg-spacing(4)
+      .myg-button__container
+        margin-top: myg-spacing(4)

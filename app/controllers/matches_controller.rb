@@ -7,7 +7,7 @@ class MatchesController < ApplicationController
 
   # GET /app/games/1/matches
   def index
-    @matches = @game.matches
+    @matches = Match.all.order(:begins_at)
     authorizes! :read, @matches
     turbolinks_animate 'fadein'
   end
@@ -15,6 +15,7 @@ class MatchesController < ApplicationController
   # GET /app/games/1/matches/1
   def show
     authorize! :read, @match
+    @tips = @match.tips.sort_by { |tip| tip.earned_points }.reverse
     turbolinks_animate 'fadeinright'
     render layout: 'back'
   end

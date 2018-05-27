@@ -2,21 +2,16 @@ a.match
   display: inline-block
   text-decoration: none !important
   width: 100%
-  // &:not(:first-child)
-  //   margin-top: myg-spacing(2)
   .myg-card
-    // &:not(:first-child)
-    //   margin-top: myg-spacing(2)
     +myg-animate__transition
     &:hover, &:focus, &:active
       border-color: myg-theme__color(accent, base)
       h4, p
         color: myg-theme__color(accent, base) !important
-    // p
-    //   margin: myg-spacing(1) 0 0
   .match-wrapper
     +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
     p
+      font-weight: bold
       margin: 0
       &:first-child
         text-align: left

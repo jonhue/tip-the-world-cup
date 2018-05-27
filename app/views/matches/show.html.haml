@@ -1,0 +1,30 @@
+.match-wrapper
+  .result-wrapper
+    = link_to game_nation_url(game_id: @game.to_param, id: @match.home.to_param), class: 'nation-wrapper' do
+      = component 'flag', nation: @match.home
+      %h4= @match.home.name
+    %h1.sm
+      = @match.home_goals || '-'
+      = ':'
+      = @match.away_goals || '-'
+    = link_to game_nation_url(game_id: @game.to_param, id: @match.away.to_param), class: 'nation-wrapper' do
+      = component 'flag', nation: @match.away
+      %h4= @match.away.name
+  %p.sm
+    = @match.begins_at.future? ? 'Match starts on' : 'Match started on'
+    = @match.begins_at.strftime('%-d %b, at %I:%M %P')
+
+.content-wrapper
+  %h3 Tips
+  - if @tips.any?
+    - @tips.each do |tip|
+      = render 'tip', tip: tip
+  - else
+    %p You and your contenders have yet to tip this match.
+
+  - if Tip.includes(:participant).find_by(match_id: @match.id, participants: { game: @game, user: current_user }).nil?
+    .myg-button__container.myg-grid__flex.-reverse
+      = link_to 'Tip this match', new_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param), class: 'modalist--trigger myg-button'
+  - elsif @match.begins_at.future?
+    .myg-button__container.myg-grid__flex.-reverse
+      = link_to 'Edit your tip', edit_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param, id: Tip.includes(:participant).find_by(match_id: @match.id, participants: { game: @game, user: current_user }).to_param), class: 'modalist--trigger myg-button'

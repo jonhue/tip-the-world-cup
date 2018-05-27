@@ -1,0 +1,22 @@
+= link_to game_participant_url(game_id: tip.participant.game.to_param, id: tip.participant.to_param), class: 'match-tip' do
+  - if tip.match.begins_at.future?
+    .myg-card
+      %p.sm= '-'
+      %h4= tip.participant.user.name
+      %p.sm= tip.participant.earned_points
+      %p.sm
+        - if tip.participant.user == current_user
+          = tip.home_goals
+          = ':'
+          = tip.away_goals
+        - else
+          = '? : ?'
+  - else
+    .myg-card{ class: "p#{tip.earned_points == tip.participant.game.rule_match ? 5 : (tip.earned_points == tip.participant.game.rule_goal_difference ? 3 : (tip.earned_points == tip.participant.game.rule_tendency ? 2))}" }
+      %p.sm= "#{'+' if tip.earned_points > 0}#{tip.earned_points}"
+      %h4= tip.participant.user.name
+      %p.sm= tip.participant.earned_points
+      %p.sm
+        = tip.home_goals
+        = ':'
+        = tip.away_goals
