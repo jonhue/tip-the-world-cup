@@ -17,3 +17,5 @@
       = render invitation
 - else
   %p You don't have any pending invitations.
+
+= link_to 'Signout', destroy_user_session_url, method: :delete, class: 'myg-text__hyperlink -inherit'

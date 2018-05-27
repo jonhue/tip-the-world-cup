@@ -2,10 +2,10 @@
   = component 'myg/form-field', as: :input, attribute: :name, class_name: 'game', label: 'Give me a name', input_html: { required: true, value: @game.name, autofocus: true }
 
   %h3 Rules
-  = component 'myg/form-field', as: :input, attribute: :rule_match, class_name: 'game', label: ['Points for Match', 'Points awarded if a game has been tipped correctly.'], input_html: { value: @game.rule_match, placeholder: '5' }
-  = component 'myg/form-field', as: :input, attribute: :rule_goal_difference, class_name: 'game', label: ['Points for Goal Difference', 'Points awarded if a the goal difference and tendency of a game has been tipped correctly.'], input_html: { value: @game.rule_goal_difference, placeholder: '3' }
-  = component 'myg/form-field', as: :input, attribute: :rule_tendency, class_name: 'game', label: ['Points for Tendency', 'Points awarded if a just the tendency of a game has been tipped correctly.'], input_html: { value: @game.rule_tendency, placeholder: '2' }
-  = component 'myg/form-field', as: :input, attribute: :rule_miss, class_name: 'game', label: ['Points for Miss', 'Points awarded if a the tendency of a game has not been tipped correctly.'], input_html: { value: @game.rule_miss, placeholder: '0' }
+  = component 'myg/form-field', as: :input, attribute: :rule_match, class_name: 'game', label: ['Points for Match', 'Points awarded if a game has been tipped correctly.'], input_html: { value: @game.rule_match, type: :integer, placeholder: '5' }
+  = component 'myg/form-field', as: :input, attribute: :rule_goal_difference, class_name: 'game', label: ['Points for Goal Difference', 'Points awarded if a the goal difference and tendency of a game has been tipped correctly.'], input_html: { value: @game.rule_goal_difference, type: :integer, placeholder: '3' }
+  = component 'myg/form-field', as: :input, attribute: :rule_tendency, class_name: 'game', label: ['Points for Tendency', 'Points awarded if a just the tendency of a game has been tipped correctly.'], input_html: { value: @game.rule_tendency, type: :integer, placeholder: '2' }
+  = component 'myg/form-field', as: :input, attribute: :rule_miss, class_name: 'game', label: ['Points for Miss', 'Points awarded if a the tendency of a game has not been tipped correctly.'], input_html: { value: @game.rule_miss, type: :integer, placeholder: '0' }
 
   %h3 More...
   = component 'myg/form-field', as: :input, attribute: :bet, class_name: 'game', label: ['Bet', 'Specify a reward for the winner.'], input_html: { value: @game.bet, placeholder: '$5' }
