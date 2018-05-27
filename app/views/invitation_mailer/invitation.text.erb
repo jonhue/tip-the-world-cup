@@ -1,0 +1,3 @@
+<%= @invitation.message %>
+
+Join here: <%= game_invitation_url(game_id: @invitation.game.to_param, id: @invitation.to_param, token: @invitation.token) %>

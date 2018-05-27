@@ -7,6 +7,7 @@ class CreateInvitations < ActiveRecord::Migration[5.2]
       t.string :email, index: true
       t.boolean :accepted, null: false, default: false
       t.text :message
+      t.string :token, unique: true
 
       t.timestamps
     end

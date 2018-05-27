@@ -1,5 +1,5 @@
 class InvitationsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   before_action :set_game
   before_action :set_invitation, only: [:show]
 
@@ -7,7 +7,9 @@ class InvitationsController < ApplicationController
 
   # GET /app/1/invitations/1
   def show
-    authorize! :update, @invitation
+    unless params[:token] == @invitation.token
+      redirect_to root_url, alert: 'Token invalid.'
+    end
     turbolinks_animate 'fadein'
   end
 
