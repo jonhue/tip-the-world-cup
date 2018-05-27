@@ -155,7 +155,7 @@ GEM
       railties (>= 5.0)
     msgpack (1.2.4-x86-mingw32)
     multipart-post (2.0.0)
-    myg (2.10.2)
+    myg (2.10.3)
       actionpack (>= 5.0)
       activesupport (>= 5.0)
       mozaic (~> 2.0)

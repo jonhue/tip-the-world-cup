@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "myg": "^0.13.1",
+    "myg": "^0.13.2",
     "onsignal": "^5.0.6",
     "rails-erb-loader": "^5.4.2",
     "rails-ujs": "^5.2.0",
