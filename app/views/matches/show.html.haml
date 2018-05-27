@@ -19,8 +19,9 @@
 .content-wrapper
   %h3 Tips
   - if @tips.any?
-    - @tips.each do |tip|
-      = render 'tip', tip: tip
+    .myg-card__container
+      - @tips.each do |tip|
+        = render 'tip', tip: tip
   - else
     %p You and your contenders have yet to tip this match.
 
