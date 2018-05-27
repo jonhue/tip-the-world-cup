@@ -13,9 +13,8 @@ class Participant < ApplicationRecord
   end
 
   def position
-    part = self
-    part.class.where(game: part.game).leaderboard.each_with_index do |participant, index|
-      return index + 1 if participant.earned_points == part.earned_points
+    self.class.where(game: self.game).leaderboard.each_with_index do |participant, index|
+      return index + 1 if participant.earned_points == self.earned_points
     end
   end
 
