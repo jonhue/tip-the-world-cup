@@ -4,9 +4,9 @@
   .match-wrapper
     = component 'flag', nation: tip.match.home
     .tip-wrapper
-      = component 'myg/form-field', as: :input, attribute: :home_goals, class_name: 'tip', input_html: { required: true, type: :integer, minlength: 1, maxlength: 1, placeholder: 0, size: 1, value: tip.home_goals, autofocus: true }
+      = component 'myg/form-field', as: :input, attribute: :home_goals, class_name: 'tip', input_html: { required: true, type: :integer, minlength: 1, maxlength: 1, size: 1, value: tip.home_goals || 0, autofocus: true }
       %h1= ':'
-      = component 'myg/form-field', as: :input, attribute: :away_goals, class_name: 'tip', input_html: { required: true, type: :integer, minlength: 1, maxlength: 1, placeholder: 0, size: 1, value: tip.away_goals }
+      = component 'myg/form-field', as: :input, attribute: :away_goals, class_name: 'tip', input_html: { required: true, type: :integer, minlength: 1, maxlength: 1, size: 1, value: tip.away_goals || 0 }
     = component 'flag', nation: tip.match.away
 
   .myg-button__container.myg-grid__flex.-reverse

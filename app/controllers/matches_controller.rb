@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
   # GET /app/1/matches/1
   def show
     authorize! :read, @match
-    @tips = @match.tips.sort_by { |tip| tip.earned_points }.reverse
+    @tips = @match.tips.includes(:participant).where(participants: { game: @game }).sort_by { |tip| tip.earned_points }.reverse
     turbolinks_animate 'fadeinright'
     render layout: 'back'
   end
