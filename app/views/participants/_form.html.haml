@@ -2,4 +2,6 @@
   = f.input :game_id, as: :hidden, input_html: { value: @participant.game_id }
   = f.input :user_id, as: :hidden, input_html: { value: @participant.user_id }
   - @nations.each do |nation|
-    = component 'myg/button', value: nation.name
+    %button.nation{ type: 'submit', name: 'commit', value: nation.name }
+      = component 'flag', nation: nation, size: 'tn'
+      %p.sm= nation.name

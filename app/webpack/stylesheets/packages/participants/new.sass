@@ -10,13 +10,26 @@ body.participants.new
       margin: myg-spacing(6) 0
     form
       width: 100%
-      .myg-button
+      .nation
+        +myg-grid__flex
+        +myg-grid__flex---center-y
         background: myg-theme__color(background, lighter)
         color: myg-theme__color(text, base)
-        border-color: myg-theme__color(text, base)
+        border: myg__px(1) solid myg-theme__color(border)
+        padding: myg-spacing(1) myg-spacing(2)
         width: 100%
+        +myg-theme__border-radius(1)
+        +myg__cursor(pointer)
+        +myg-animate__transition
         &:not(:first-child)
-          margin-top: myg-spacing(4)
+          margin-top: myg-spacing(3)
         &:hover, &:focus, &:active
-          color: myg-theme__color(accent, base)
           border-color: myg-theme__color(accent, base)
+          p
+            color: myg-theme__color(accent, base)
+        .flag
+          margin-top: myg-spacing(1)
+        p
+          flex: 1
+          text-align: center
+          margin: 0

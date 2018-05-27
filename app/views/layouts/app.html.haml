@@ -3,18 +3,18 @@
 
 = mozaic do
 
-  = component 'myg/toolbar', class: 'myg-toolbar--flexible -bottom' do
+  = component 'myg/toolbar', class: 'myg-toolbar--flexible -bottom', data: { turbolinks_animate_persist: 'nav' } do
     .mdc-toolbar__row
-      = link_to games_url do
+      = link_to game_url(id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
         %i.nc.nc-dashboard-29.nc-lg
         %p Dashboard
-      = link_to game_participants_url(game_id: @game.to_param) do
+      = link_to game_participants_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
         %i.nc.nc-podium.nc-lg
         %p Leaderboard
-      = link_to game_matches_url(game_id: @game.to_param) do
+      = link_to game_matches_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
         %i.nc.nc-soccer-field.nc-lg
         %p Matches
-      = link_to game_participant_tips_url(game_id: @game.to_param, participant_id: @game.participants.where(user: current_user).to_param) do
+      = link_to game_participant_tips_url(game_id: @game.to_param, participant_id: @game.participants.where(user: current_user).to_param), data: { turbolinks_animate_type: 'nav' } do
         %i.nc.nc-ball-soccer.nc-lg
         %p Tips
 

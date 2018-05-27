@@ -21,7 +21,10 @@ a.match
       margin: 0
       text-align: center
   .tip-wrapper
+    +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
     margin-bottom: myg-spacing(2)
     text-align: center
     p
       margin: 0
+    .flag:last-child
+      +myg-grid__grid--self-end-x
