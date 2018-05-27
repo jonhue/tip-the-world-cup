@@ -14,7 +14,7 @@ class Tip < ApplicationRecord
   end
 
   def earned_points
-    return nil unless self.match.goals_available?
+    return 0 unless self.match.goals_available?
     if self.match?
       return self.participant.game.rule_match
     elsif self.goal_difference?
