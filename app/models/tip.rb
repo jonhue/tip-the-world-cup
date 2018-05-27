@@ -7,7 +7,7 @@ class Tip < ApplicationRecord
   validates :home_goals, presence: true, numericality: true
   validates :away_goals, presence: true, numericality: true
 
-  scope :unchangeable, -> { includes(:match).where(matches: { begins_at: DateTime.now }) }
+  scope :unchangeable, -> { includes(:match).where('matches.begins_at >= ?', Time.now.strftime('%Y-%d-%m %H:%M:%S')) }
 
   def goal_difference
     (self.home_goals - self.away_goals).abs

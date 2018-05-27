@@ -1,7 +1,8 @@
 .nation-wrapper
   %h1.sm= @participant.user.name
   .feature-wrapper
-    = component 'flag', nation: @participant.nation, size: 'sm'
+    = link_to game_nation_url(game_id: @game.to_param) do
+      = component 'flag', nation: @participant.nation, size: 'sm'
     %p
       = @participant.nation.name
       will win the World Cup
