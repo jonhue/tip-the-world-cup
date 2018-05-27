@@ -61,5 +61,16 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Needed for Devise Gem
+  config.action_mailer.default_url_options = { host: 'lvh.me', port: 3000 }
+
+  # Email delivery
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+  	api_key: 'Settings.mailgun.key',
+  	domain: 'tip-the-world-cup.com'
+  }
+
+  # Host for url helpers
+  Rails.application.routes.default_url_options[:host] = 'lvh.me:3000'
 end

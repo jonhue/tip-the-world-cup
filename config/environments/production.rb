@@ -94,5 +94,26 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'tip-the-world-cup.com' }
+  # Needed for Devise Gem
+  config.action_mailer.default_url_options = {
+    host: 'tip-the-world-cup.com',
+    protocol: 'https'
+  }
+  # Host for url helpers
+  Rails.application.routes.default_url_options[:host] = 'tip-the-world-cup.com'
+  Rails.application.routes.default_url_options[:protocol] = 'https'
+
+  # Email delivery
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+  	api_key: 'Settings.mailgun.key',
+  	domain: 'tip-the-world-cup.com'
+  }
+
+  # Heroku
+  config.serve_static_assets = true
+  config.assets.digest = true
+
+  # Cloudflare Flexible SSL && Heroku Free Dynos (No custom SSL certificate)
+  config.action_controller.forgery_protection_origin_check = false
 end
