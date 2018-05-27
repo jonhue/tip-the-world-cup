@@ -10,9 +10,9 @@
     .tip-wrapper
       = component 'flag', nation: match.home, size: 'tn'
       %p.sm
-        = Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.home_goals || '-'
+        = Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.home_goals || '?'
         = ':'
-        = Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.away_goals || '-'
+        = Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.away_goals || '?'
       = component 'flag', nation: match.away, size: 'tn'
     %p.sm
       = match.count_tips_by_others(current_user)

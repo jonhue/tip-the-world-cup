@@ -1,0 +1,7 @@
+%h1 Tips
+
+- @matches.group_by { |match| match.begins_at.to_date }.each do |date, matches|
+  %p= date.strftime('%-d %B')
+  .myg-card__container
+    - matches.each do |match|
+      = render 'tip', tip: match.tips.includes(:participant).find_by(participants: { user: current_user }), game: @game, match: match

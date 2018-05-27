@@ -1,4 +1,6 @@
 class Participant < ApplicationRecord
+  before_create :check_if_tournament_started
+
   belongs_to :game
   belongs_to :user
   belongs_to :nation
@@ -16,5 +18,11 @@ class Participant < ApplicationRecord
 
   def time_left_before_next_required_tip
     ((Match.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).order(:begins_at).first.begins_at - DateTime.now) / 1.day).round
+  end
+
+  private
+
+  def check_if_tournament_started
+    return false if Match.all.order(:begins_at).first.begins_at < DateTime.now
   end
 end

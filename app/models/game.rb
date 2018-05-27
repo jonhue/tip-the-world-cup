@@ -1,4 +1,6 @@
 class Game < ApplicationRecord
+  before_create :check_if_tournament_started
+
   belongs_to :user
   has_many :participants
   has_many :invitations
@@ -11,4 +13,10 @@ class Game < ApplicationRecord
 
   scope :personal, -> { where(private: true) }
   scope :shared, -> { where(private: false) }
+
+  private
+
+  def check_if_tournament_started
+    return false if Match.all.order(:begins_at).first.begins_at < DateTime.now
+  end
 end
