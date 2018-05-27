@@ -25,7 +25,7 @@ class InvitationsController < ApplicationController
     @invitation = @game.invitations.build invitation_params
 
     if @invitation.save
-      redirect_to @invitation, notice: 'Invitation was successfully created.'
+      redirect_to @game, notice: 'Invitation was successfully created.'
     else
       redirect_to @game, alert: 'Could not send invitation.'
     end

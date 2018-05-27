@@ -65,7 +65,7 @@ gem 'pwa', '~> 4.0'
 # Sentry issue tracking
 gem 'sentry-raven', '~> 2.7'
 # Mail
-gem 'mailgun', '~> 0.11'
+gem 'mailgun-ruby', '~> 1.1'
 # URLs
 gem 'friendly_id', '~> 5.2'
 # Animations

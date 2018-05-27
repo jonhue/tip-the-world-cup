@@ -1,6 +1,6 @@
 class Invitation < ApplicationRecord
-  before_validation :create_token
-  after_create_commit :associate_with_user
+  before_validation :create_token, on: :create
+  after_create :associate_with_user
   after_create_commit :send_invitation
 
   belongs_to :game
@@ -26,7 +26,7 @@ class Invitation < ApplicationRecord
   end
 
   def associate_with_user
-    self.update_attributes(user: User.find_by(email: self.email)) unless self.user.present?
+    self.update_columns(user_id: User.find_by(email: self.email)&.id) unless self.user.present?
   end
 
   def send_invitation
