@@ -1,5 +1,5 @@
 - if tip.nil? && match.present? && game.present?
-  = link_to new_game_participant_tip_url(game_id: game.to_param, participant_id: game.participants.find_by(user: current_user).to_param), class: 'tip modalist--trigger' do
+  = link_to new_game_participant_tip_url(game_id: game.to_param, participant_id: game.participants.find_by(user: current_user).to_param, match_id: match.to_param), class: 'tip modalist--trigger' do
     .myg-card
       .match-wrapper
         %p.sm= match.home.name

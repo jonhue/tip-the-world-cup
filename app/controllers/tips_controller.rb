@@ -31,9 +31,9 @@ class TipsController < ApplicationController
     @tip = @participant.tips.build tip_params
 
     if @tip.save
-      redirect_to tips_url, notice: 'Tip was successfully created.'
+      redirect_to game_participant_tips_url(game_id: @game.to_param, participant_id: @participant.to_param), notice: 'Tip was successfully created.'
     else
-      redirect_to tips_url, notice: 'Could not create tip.'
+      redirect_to game_participant_tips_url(game_id: @game.to_param, participant_id: @participant.to_param), notice: 'Could not create tip.'
     end
   end
 
@@ -42,9 +42,9 @@ class TipsController < ApplicationController
     authorize! :update, @tip
 
     if @tip.update tip_params
-      redirect_to tips_url, notice: 'Tip was successfully updated.'
+      redirect_to game_participant_tips_url(game_id: @game.to_param, participant_id: @participant.to_param), notice: 'Tip was successfully updated.'
     else
-      redirect_to tips_url, notice: 'Could not update tip.'
+      redirect_to game_participant_tips_url(game_id: @game.to_param, participant_id: @participant.to_param), notice: 'Could not update tip.'
     end
   end
 

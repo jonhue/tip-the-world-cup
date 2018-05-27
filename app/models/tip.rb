@@ -4,8 +4,8 @@ class Tip < ApplicationRecord
   belongs_to :participant
   belongs_to :match
 
-  validates :home_goals, presence: true, numericality: true
-  validates :away_goals, presence: true, numericality: true
+  validates :home_goals, presence: true
+  validates :away_goals, presence: true
 
   scope :unchangeable, -> { includes(:match).where('matches.begins_at >= ?', Time.now.strftime('%Y-%d-%m %H:%M:%S')) }
 

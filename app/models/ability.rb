@@ -7,7 +7,7 @@ class Ability
       can :read, Game, participants: { user_id: user.id }
       can :manage, Game, user_id: user.id
 
-      can :manage, Tip, user_id: user.id
+      can :manage, Tip, participant: { user_id: user.id }
 
       can :read, Participant, games: { participants: { user_id: user.id } }
       can :manage, Participant, user_id: user.id

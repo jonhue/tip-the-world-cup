@@ -1,0 +1,32 @@
+.modalist--content-body.tips.new
+  .match-wrapper
+    +myg-grid__flex
+    +myg-grid__flex---center-y
+    +myg-grid__flex---space-between
+    .flag
+      &:first-child
+        margin-right: myg-spacing(3)
+      &:last-child
+        margin-left: myg-spacing(3)
+    .tip-wrapper
+      +myg-grid__flex
+      +myg-grid__flex---center
+      margin-top: myg-spacing(-1)
+      padding: 0 myg-spacing(3)
+      background: myg-theme__color(background, darker)
+      +myg-theme__border-radius(2)
+      input
+        width: myg__px(17)
+        padding: 0
+        border: none
+        box-shadow: none !important
+        font-size: myg__px(36)
+        font-weight: bold
+        background: transparent
+        +myg-font(monospace)
+      h1
+        margin: myg-spacing(-1) 0 0
+        font-weight: normal
+        +myg-font(monospace)
+  .myg-button__container
+    margin-top: myg-spacing(2)

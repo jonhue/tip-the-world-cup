@@ -24,7 +24,7 @@
 
   - if Tip.includes(:participant).find_by(match_id: @match.id, participants: { game: @game, user: current_user }).nil?
     .myg-button__container.myg-grid__flex.-reverse
-      = link_to 'Tip this match', new_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param), class: 'modalist--trigger myg-button'
+      = link_to 'Tip this match', new_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param, match_id: @match.to_param), class: 'modalist--trigger myg-button'
   - elsif @match.begins_at.future?
     .myg-button__container.myg-grid__flex.-reverse
       = link_to 'Edit your tip', edit_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param, id: Tip.includes(:participant).find_by(match_id: @match.id, participants: { game: @game, user: current_user }).to_param), class: 'modalist--trigger myg-button'
