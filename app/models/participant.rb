@@ -16,8 +16,12 @@ class Participant < ApplicationRecord
     self.class.where(game: self.game).leaderboard.index(self) + 1
   end
 
-  def time_left_before_next_required_tip
-    ((Match.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).order(:begins_at).first.begins_at - DateTime.now) / 1.day).round
+  def days_left_before_next_required_tip
+    if Match.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).any?
+      ((Match.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).order(:begins_at).first.begins_at - DateTime.now) / 1.day).round
+    else
+      nil
+    end
   end
 
   private

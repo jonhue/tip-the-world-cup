@@ -2,10 +2,13 @@
   .myg-card
     %h4= game.name
     %p.sm
-      %span
-        = game.participants.find_by(user_id: current_user.id).time_left_before_next_required_tip
-        days
-      until your next required tip
+      - if game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip.nil?
+        You have tipped all available matches
+      - else
+        %span
+          = game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip
+          days
+        until your next required tip
     %p.sm
       = game.participants.find_by(user_id: current_user.id).position.ordinalize
       place on the leaderboard
