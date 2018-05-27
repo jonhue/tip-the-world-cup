@@ -5,13 +5,13 @@ class ParticipantsController < ApplicationController
 
   layout 'app'
 
-  # GET /app/games/1/participants
+  # GET /app/1/participants
   def index
     @participants = Participant.all
     turbolinks_animate 'fadein'
   end
 
-  # GET /app/games/1/participants/1
+  # GET /app/1/participants/1
   def show
     authorize! :read, @participant
     @tips = @participant.tips.unchangeable.order('matches.begins_at ASC')
@@ -20,7 +20,7 @@ class ParticipantsController < ApplicationController
     render layout: 'back'
   end
 
-  # GET /app/games/1/participants/new
+  # GET /app/1/participants/new
   def new
     if params.has_key?(:invitation_id)
       @invitation = Invitation.find(params[:invitation_id])
@@ -36,7 +36,7 @@ class ParticipantsController < ApplicationController
     render layout: 'application'
   end
 
-  # POST /app/games/1/participants
+  # POST /app/1/participants
   def create
     @participant = Participant.new participant_params.merge(nation_id: Nation.find_by(name: params[:commit])&.id)
 
@@ -47,7 +47,7 @@ class ParticipantsController < ApplicationController
     end
   end
 
-  # DELETE /games/1/participants/1
+  # DELETE /app/1/participants/1
   def destroy
     authorize! :destroy, @participant
     @participant.destroy

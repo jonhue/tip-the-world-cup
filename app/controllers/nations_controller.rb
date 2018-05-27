@@ -5,7 +5,7 @@ class NationsController < ApplicationController
 
   layout 'back'
 
-  # GET /app/games/1/nations/1
+  # GET /app/1/nations/1
   def show
     authorize! :read, @nation
     @matches = @nation.matches

@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
   end
 
   create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "game_id"
     t.bigint "user_id"
     t.string "email"
     t.boolean "accepted", default: false, null: false
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_invitations_on_email"
+    t.index ["game_id"], name: "index_invitations_on_game_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 

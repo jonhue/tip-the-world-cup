@@ -5,20 +5,20 @@ class InvitationsController < ApplicationController
 
   layout 'back'
 
-  # GET /app/games/1/invitations/1
+  # GET /app/1/invitations/1
   def show
     authorize! :update, @invitation
     turbolinks_animate 'fadein'
   end
 
-  # GET /app/games/1/invitations/new
+  # GET /app/1/invitations/new
   def new
     authorize! :update, @game
     @invitation = @game.invitations.build
     turbolinks_animate 'fadeinright'
   end
 
-  # POST /app/games/1/invitations
+  # POST /app/1/invitations
   def create
     @invitation = @game.invitations.build invitation_params
 

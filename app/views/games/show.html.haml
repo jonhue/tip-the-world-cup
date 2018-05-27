@@ -15,3 +15,4 @@
 
 - if can? :update, @game
   %h3 Invite
+  = link_to 'Invite fellow tippers', new_game_invitation_url(game_id: @game.to_param), class: 'myg-button'

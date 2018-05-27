@@ -4,7 +4,7 @@ class GamesController < ApplicationController
 
   layout 'app'
 
-  # GET /app/games
+  # GET /app
   def index
     @games = current_user.games.includes(:participants)
     @invitations = current_user.invitations.unaccepted
@@ -14,7 +14,7 @@ class GamesController < ApplicationController
     render layout: 'application'
   end
 
-  # GET /app/games/1
+  # GET /app/1
   def show
     authorize! :read, @game
     @participants = @game.participants.leaderboard.take(3)
@@ -24,7 +24,7 @@ class GamesController < ApplicationController
     turbolinks_animate 'fadein'
   end
 
-  # GET /app/games/new
+  # GET /app/new
   def new
     @game = current_user.administrating_games.build
     authorize! :create, @game
@@ -32,7 +32,7 @@ class GamesController < ApplicationController
     render layout: 'back'
   end
 
-  # POST /app/games
+  # POST /app
   def create
     @game = current_user.administrating_games.build game_params
     authorize! :create, @game
@@ -44,7 +44,7 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /app/games/1
+  # PATCH/PUT /app/1
   def update
     authorize! :update, @game
 
@@ -55,7 +55,7 @@ class GamesController < ApplicationController
     end
   end
 
-  # DELETE /app/games/1
+  # DELETE /app/1
   def destroy
     authorize! :destroy, @game
     @game.destroy

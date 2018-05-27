@@ -6,27 +6,27 @@ class TipsController < ApplicationController
 
   layout 'app'
 
-  # GET /app/games/1/participants/1/tips
+  # GET /app/1/participants/1/tips
   def index
     @matches = Match.all.order(:begins_at)
     authorizes! :read, @matches
     turbolinks_animate 'fadein'
   end
 
-  # GET /app/games/1/participants/1/tips/new
+  # GET /app/1/participants/1/tips/new
   def new
     @tip = @participant.tips.build match: Match.find(params[:match_id])
     authorize! :create, @tip
     modalist
   end
 
-  # GET /app/games/1/participants/1/tips/1/edit
+  # GET /app/1/participants/1/tips/1/edit
   def edit
     authorize! :update, @tip
     modalist
   end
 
-  # POST /app/games/1/participants/1/tips
+  # POST /app/1/participants/1/tips
   def create
     @tip = @participant.tips.build tip_params
 
@@ -37,7 +37,7 @@ class TipsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /app/games/1/participants/1/tips/1
+  # PATCH/PUT /app/1/participants/1/tips/1
   def update
     authorize! :update, @tip
 
@@ -48,7 +48,7 @@ class TipsController < ApplicationController
     end
   end
 
-  # DELETE /app/games/1/participants/1/tips/1
+  # DELETE /app/1/participants/1/tips/1
   def destroy
     authorize! :destroy, @tip
     @tip.destroy
