@@ -4,7 +4,7 @@ class Participant < ApplicationRecord
   belongs_to :game
   belongs_to :user
   belongs_to :nation
-  has_many :tips
+  has_many :tips, dependent: :destroy
 
   scope :leaderboard, -> { all.sort_by { |participant| participant.earned_points }.reverse }
 

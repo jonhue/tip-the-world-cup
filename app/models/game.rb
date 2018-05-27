@@ -2,8 +2,8 @@ class Game < ApplicationRecord
   before_create :check_if_tournament_started
 
   belongs_to :user
-  has_many :participants
-  has_many :invitations
+  has_many :participants, dependent: :destroy
+  has_many :invitations, dependent: :destroy
 
   validates :name, presence: true
   validates :rule_match, numericality: true
