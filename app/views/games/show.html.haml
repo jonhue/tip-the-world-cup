@@ -10,7 +10,7 @@
 .myg-card__container
   - @matches.each do |match|
     = render match, game: @game
-= link_to 'Browse matches', game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit'
+  = link_to 'Browse matches', game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit'
 
 - if can? :update, @game
   %h3 Invite

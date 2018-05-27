@@ -3,7 +3,7 @@
 .myg-card__container
   - @games&.each do |game|
     = render game
-  = link_to new_game_url do
+  = link_to new_game_url, class: 'card' do
     .myg-card
       %h4 New game
       %p.sm Start playing with friends & family.
