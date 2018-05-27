@@ -4,7 +4,7 @@
 .nation-wrapper
   %h1.sm= @participant.user.name
   .feature-wrapper
-    = link_to game_nation_url(game_id: @game.to_param) do
+    = link_to game_nation_url(game_id: @game.to_param), data: { turbolinks_animate_animation: 'fadeout' } do
       = component 'flag', nation: @participant.nation, size: 'sm'
     %p
       = @participant.nation.name
