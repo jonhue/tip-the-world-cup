@@ -13,7 +13,9 @@ class Participant < ApplicationRecord
   end
 
   def position
-    self.class.where(game: self.game).leaderboard.index(self) + 1
+    self.class.where(game: self.game).leaderboard.each_with_index do |index, participant|
+      return index + 1 if participant.earned_points == self.earned_points
+    end
   end
 
   def days_left_before_next_required_tip
