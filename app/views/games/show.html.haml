@@ -20,3 +20,6 @@
   .myg-button__container.myg-grid__flex
     = link_to 'Invite fellow tippers', new_game_invitation_url(game_id: @game.to_param), class: 'myg-button'
     = link_to 'Delete', game_url(id: @game.to_param), method: :delete, class: 'myg-button--secondary -error', data: { confirm: 'Are you sure?' }
+
+- if current_user.participants.find_by(game: @game).nil?
+  = link_to 'Join the fun', new_game_participant_url(game_id: @game.to_param), class: 'myg-button'
