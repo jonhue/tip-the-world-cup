@@ -13,6 +13,9 @@ class ParticipantsController < ApplicationController
 
   # GET /app/games/1/participants/1
   def show
+    authorize! :read, @participant
+    @tips = @participant.tips.unchangeable.order('matches.begins_at ASC')
+    authorizes! :read, @tips
     turbolinks_animate 'fadeinright'
     render layout: 'back'
   end

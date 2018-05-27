@@ -1,0 +1,17 @@
+.nation-wrapper
+  %h1.sm= @participant.user.name
+  .feature-wrapper
+    %h4= @participant.position.ordinalize
+    %p place on the leaderboard
+  .feature-wrapper
+    %h4= @participant.earned_points
+    %p earned points
+
+.content-wrapper
+  %h3 Tips
+  - if @tips.any?
+    .myg-card__container
+      - @tips.each do |tip|
+        = render tip
+  - else
+    %p This participant does not yet have any public tips.

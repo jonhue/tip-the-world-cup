@@ -1,0 +1,24 @@
+body.participants.show
+  .myg-content
+    .nation-wrapper
+      background: myg-theme__color(accent, base)
+      padding: myg-spacing(4)
+      h1
+        margin-top: 0
+        color: myg-theme__color(accent, contrast)
+      .feature-wrapper
+        +myg-grid__flex
+        +myg-grid__flex---center-y
+        margin: myg-spacing(3) 0
+        h4, p
+          color: myg-theme__color(accent, contrast)
+          margin: 0
+        p
+          margin-left: myg-spacing(2)
+          opacity: .6
+    .content-wrapper
+      padding: myg-spacing(4)
+      .myg-card__container
+        a.tip
+          &:not(:first-child)
+            margin-top: myg-spacing(4)

@@ -1,11 +1,13 @@
 class Tip < ApplicationRecord
   before_save :check_if_match_started
-  
+
   belongs_to :participant
   belongs_to :match
 
   validates :home_goals, presence: true, numericality: true
   validates :away_goals, presence: true, numericality: true
+
+  scope :unchangeable, -> { includes(:match).where(matches: { begins_at: DateTime.now }) }
 
   def goal_difference
     (self.home_goals - self.away_goals).abs

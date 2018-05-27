@@ -1,0 +1,16 @@
+.nation-wrapper
+  .name-wrapper
+    = component 'flag', nation: @nation
+    %h2= @nation.name
+  .feature-wrapper
+    %h4= @nation.participants.count
+    %p
+      think
+      = @nation.name
+      will win the World Cup
+
+.content-wrapper
+  %h3 Matches
+  .myg-card__container
+    - @matches.each do |match|
+      = render match, game: @game

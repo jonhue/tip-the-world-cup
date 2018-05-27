@@ -8,7 +8,7 @@ class NationsController < ApplicationController
   # GET /app/games/1/nations/1
   def show
     authorize! :read, @nation
-    @matches = @nation.matches.includes(tips: { participant: { game: @game } })
+    @matches = @nation.matches
     authorizes! :read, @matches
     turbolinks_animate 'fadeinright'
   end
