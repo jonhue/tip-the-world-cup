@@ -1,4 +1,4 @@
-= link_to 'javascript:void(0)', class: 'match-tip' do
+= link_to game_participant_url(game_id: tip.participant.game.to_param, id: tip.participant.to_param), class: 'match-tip', data: { turbolinks_animate_animation: 'fadeout' } do
   - if tip.match.begins_at.future?
     .myg-card
       %p.sm= '-'

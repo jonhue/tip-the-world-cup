@@ -1,5 +1,5 @@
 - if tip.nil? && match.present? && game.present?
-  = link_to (match.begins_at.past? ? 'javascript:void(0)' : new_game_participant_tip_url(game_id: game.to_param, participant_id: game.participants.find_by(user: current_user).to_param, match_id: match.to_param)), class: 'tip modalist--trigger' do
+  = link_to (match.begins_at.past? ? 'javascript:void(0)' : new_game_participant_tip_url(game_id: game.to_param, participant_id: game.participants.find_by(user: current_user).to_param, match_id: match.to_param)), class: 'tip modalist--trigger', data: { turbolinks_animate_animation: 'fadeout' } do
     .myg-card
       .match-wrapper
         %p.sm= match.home.name
@@ -14,7 +14,7 @@
         = component 'flag', nation: match.away, size: 'tn'
       %p.sm= match.begins_at.strftime('%-d %b, %I:%M %P')
 - elsif tip.present?
-  = link_to (!can?(:update, tip) || tip.match.begins_at.past? ? 'javascript:void(0)' : edit_game_participant_tip_url(game_id: tip.participant.game.to_param, participant_id: tip.participant.to_param, id: tip.to_param)), class: 'tip modalist--trigger' do
+  = link_to (!can?(:update, tip) || tip.match.begins_at.past? ? 'javascript:void(0)' : edit_game_participant_tip_url(game_id: tip.participant.game.to_param, participant_id: tip.participant.to_param, id: tip.to_param)), class: 'tip modalist--trigger', data: { turbolinks_animate_animation: 'fadeout' } do
     .myg-card
       .match-wrapper
         %p.sm= tip.match.home.name
