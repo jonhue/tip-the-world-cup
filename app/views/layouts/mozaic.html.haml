@@ -22,6 +22,7 @@
         %link{ rel: 'msapplication-square310x310logo', content: request.base_url + '/icon_310x310.png' }
 
         = favicon_link_tag '/favicon.ico'
+        = component 'pwa/theme', default: '#28c161'
 
         = component 'seo/schema', type: :brand, name: 'Tip The World Cup', description: 'Tip the 2018 World Cup with friends & family.', url: 'https://tip-the-world-cup.com', logo: 'https://tip-the-world-cup.com/icon_512x512.png'
 
