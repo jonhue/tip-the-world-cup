@@ -6,7 +6,7 @@ class Participant < ApplicationRecord
   belongs_to :nation
   has_many :tips, dependent: :destroy
 
-  scope :leaderboard, -> { all.sort_by { |participant| [(participant.nation == WINNER if WINNER), participant.earned_points] }.reverse }
+  scope :leaderboard, -> { all.sort_by { |participant| WINNER ? [participant.nation == WINNER, participant.earned_points] : participant.earned_points }.reverse }
 
   def earned_points
     self.tips.sum(&:earned_points)
