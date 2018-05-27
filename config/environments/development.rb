@@ -67,7 +67,7 @@ Rails.application.configure do
   # Email delivery
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-  	api_key: 'Settings.mailgun.key',
+  	api_key: Rails.application.credentials.mailgun[:api_key],
   	domain: 'tip-the-world-cup.com'
   }
 
