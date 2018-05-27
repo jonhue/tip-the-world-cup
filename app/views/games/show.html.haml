@@ -7,13 +7,13 @@
 .myg-card__container
   - @participants.each do |participant|
     = render participant
-  = link_to 'Full leaderboard', game_participants_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit'
+  = link_to 'Full leaderboard', game_participants_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
 
 %h3 Next matches
 .myg-card__container
   - @matches.each do |match|
     = render match, game: @game
-  = link_to 'Browse matches', game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit'
+  = link_to 'Browse matches', game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
 
 - if can? :update, @game
   %h3 Invite

@@ -1,4 +1,4 @@
-= simple_form_for tip, url: (game_participant_tip_url(game_id: game.to_param, participant_id: participant.to_param, id: tip.to_param)) do |f|
+= simple_form_for tip, url: (tip.id ? game_participant_tip_url(game_id: game.to_param, participant_id: participant.to_param, id: tip.to_param) : game_participant_tips_url(game_id: game.to_param, participant_id: participant.to_param)) do |f|
   = f.input :match_id, as: :hidden, input_html: { value: tip.match_id }
 
   .match-wrapper
