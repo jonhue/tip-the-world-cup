@@ -1,3 +1,5 @@
+- meta title: "#{@match.home.name} vs #{@match.away.name}"
+
 .match-wrapper
   .result-wrapper
     = link_to game_nation_url(game_id: @game.to_param, id: @match.home.to_param), class: 'nation-wrapper' do

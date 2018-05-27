@@ -1,3 +1,5 @@
+- meta title: "#{@game.name} tips"
+
 %h1 Tips
 
 - @matches.group_by { |match| match.begins_at.to_date }.each do |date, matches|
