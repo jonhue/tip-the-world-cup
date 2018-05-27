@@ -3,8 +3,21 @@
 
 = mozaic do
 
-    = component 'myg/toolbar'
+  = component 'myg/toolbar', class: 'myg-toolbar--flexible -bottom' do
+    .mdc-toolbar__row
+      = link_to games_url do
+        %i.nc.nc-dashboard-29.nc-lg
+        %p Dashboard
+      = link_to game_participants_url(game_id: @game.to_param) do
+        %i.nc.nc-podium.nc-lg
+        %p Leaderboard
+      = link_to game_matches_url(game_id: @game.to_param) do
+        %i.nc.nc-soccer-field.nc-lg
+        %p Matches
+      = link_to game_participant_tips_url(game_id: @game.to_param, participant_id: @game.participants.where(user: current_user).to_param) do
+        %i.nc.nc-ball-soccer.nc-lg
+        %p Tips
 
-    .myg-content
-        = mozaic_area :app do
-            = yield
+  .myg-content
+    = mozaic_area :app do
+      = yield

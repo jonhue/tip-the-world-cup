@@ -3,8 +3,11 @@
 
 = mozaic do
 
-    = component 'myg/toolbar'
+  = component 'myg/toolbar' do
+    .mdc-toolbar__row
+      = link_to url_for(:back) do
+        %i.nc.nc-tail-left-2.nc-lg
 
-    .myg-content
-        = mozaic_area :back do
-            = yield
+  .myg-content
+    = mozaic_area :back do
+      = yield
