@@ -12,7 +12,7 @@
         - else
           = '? : ?'
   - else
-    .myg-card{ class: "p#{tip.earned_points == tip.participant.game.rule_match ? 5 : (tip.earned_points == tip.participant.game.rule_goal_difference ? 3 : (tip.earned_points == tip.participant.game.rule_tendency ? 2))}" }
+    .myg-card{ class: "p#{tip.earned_points == tip.participant.game.rule_match ? 5 : (tip.earned_points == tip.participant.game.rule_goal_difference ? 3 : (2 if tip.earned_points == tip.participant.game.rule_tendency))}" }
       %p.sm= "#{'+' if tip.earned_points > 0}#{tip.earned_points}"
       %h4= tip.participant.user.name
       %p.sm= tip.participant.earned_points
