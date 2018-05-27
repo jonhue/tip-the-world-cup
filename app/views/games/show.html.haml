@@ -16,5 +16,7 @@
   = link_to 'Browse matches', game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
 
 - if can? :update, @game
-  %h3 Invite
-  = link_to 'Invite fellow tippers', new_game_invitation_url(game_id: @game.to_param), class: 'myg-button'
+  %h3 Manage
+  .myg-button__container.myg-grid__flex.-reverse
+    = link_to 'Delete', game_url(id: @game.to_param), method: :delete, class: 'myg-button -error'
+    = link_to 'Invite fellow tippers', new_game_invitation_url(game_id: @game.to_param), class: 'myg-button'
