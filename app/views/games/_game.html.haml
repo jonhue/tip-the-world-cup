@@ -5,9 +5,7 @@
       - if game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip == Float::INFINITY
         You have tipped all available matches
       - else
-        %span
-          = game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip
-          days
+        %span= pluralize(game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip, 'day', 'days')
         until your next required tip
     %p.sm
       = game.participants.find_by(user_id: current_user.id).position.ordinalize
