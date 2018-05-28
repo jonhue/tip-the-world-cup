@@ -2,7 +2,7 @@
   .myg-card
     %h4= game.name
     %p.sm
-      - if game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip.nil?
+      - if game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip == Float::INFINITY
         You have tipped all available matches
       - else
         %span
