@@ -16,7 +16,7 @@ class Match < ApplicationRecord
     (self.home_goals - self.away_goals).abs
   end
 
-  def count_tips_by_others user
-    self.tips.includes(:participant).find_by(participants: { user_id: user.id }) ? self.tips.count - 1 : self.tips.count
+  def count_tips_by_others participant
+    self.tips.find_by(participant_id: participant.id) ? self.tips.includes(:participant).where(participants: { game_id: participant.game_id }).count - 1 : self.tips.includes(:participant).where(participants: { game_id: participant.game_id }).count
   end
 end
