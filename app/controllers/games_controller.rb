@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 
   # GET /app
   def index
-    @games = current_user.games.includes(:participants)
+    @games = current_user.games.includes(:participants).sort_by { |game| game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip }
     @invitations = current_user.invitations.unaccepted
     authorizes! :read, @games
     authorizes! :update, @invitations
