@@ -14,8 +14,5 @@ RSpec.describe ParticipantsController, type: :routing do
     it 'routes to #create' do
       expect(post: '/app/1/participants').to route_to('participants#create', game_id: '1', subdomain: '')
     end
-    it 'routes to #destroy' do
-      expect(delete: '/app/1/participants/1').to route_to('participants#destroy', id: '1', game_id: '1', subdomain: '')
-    end
   end
 end

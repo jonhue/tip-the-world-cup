@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     }
     resources :games, path: 'app', except: [:edit] do
       resources :invitations, only: [:show, :new, :create]
-      resources :participants, except: [:edit, :update] do
+      resources :participants, except: [:edit, :update, :destroy] do
         resources :tips, except: [:show, :new, :edit]
         resources :tips, only: [:new, :edit], constraints: Modalist::Ajax.new
       end
