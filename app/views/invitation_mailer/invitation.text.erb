@@ -1,3 +1,5 @@
+<%= @user.name %> invited you to participate in <%= @invitation.game.name %> and tip the 2018 World Cup! He left a message for you:
+
 <%= @invitation.message %>
 
 Join here: <%= game_invitation_url(game_id: @invitation.game.to_param, id: @invitation.to_param, token: @invitation.token) %>
