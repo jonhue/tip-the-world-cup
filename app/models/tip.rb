@@ -1,5 +1,6 @@
 class Tip < ApplicationRecord
   before_save :check_if_match_started
+  before_create :check_if_already_tipped
 
   belongs_to :participant
   belongs_to :match
@@ -42,5 +43,9 @@ class Tip < ApplicationRecord
 
   def check_if_match_started
     return false if self.match.begins_at.past?
+  end
+
+  def check_if_already_tipped
+    return false if self.match.tips.where(participant_id: self.participant.id).any?
   end
 end
