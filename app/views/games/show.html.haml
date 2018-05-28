@@ -23,3 +23,6 @@
 
 - if current_user.participants.find_by(game: @game).nil?
   = link_to 'Join the fun', new_game_participant_url(game_id: @game.to_param), class: 'myg-button'
+  %p.sm
+    Bet:
+    = @game.bet
