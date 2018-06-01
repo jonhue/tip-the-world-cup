@@ -1,6 +1,6 @@
 module AssetHelper
   # Get Asset as HTML String
   def asset path
-    raw Rails.application.assets[path].to_s
+    raw Rails.application.assets_manifest.assets[path].to_s
   end
 end
