@@ -5,7 +5,7 @@
     = component 'flag', nation: @nation
     %h2= @nation.name
   .feature-wrapper
-    %h4= @nation.participants.count
+    %h4= @nation.participants.where(game_id: @game.id).count
     %p
       think
       = @nation.name
