@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  onsignal
+  notification_target
 
   has_many :participants, dependent: :destroy
   has_many :games, through: :participants
