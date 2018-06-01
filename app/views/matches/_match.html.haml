@@ -18,4 +18,4 @@
       = pluralize(match.count_tips_by_others(current_user.participants.find_by(game: game)), 'other person', 'others')
       tipped the match
       ·
-      = match.begins_at.strftime('%-d %b, %I:%M %P')
+      = match.begins_at.strftime('%b %-d, %I:%M %P')
