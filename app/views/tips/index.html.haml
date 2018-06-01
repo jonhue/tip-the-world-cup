@@ -6,4 +6,4 @@
   %p= date.strftime('%-d %B')
   .myg-card__container
     - matches.each do |match|
-      = render 'tip', tip: match.tips.includes(:participant).find_by(participants: { user: current_user }), game: @game, match: match
+      = render 'tip', tip: match.tips.includes(:participant).find_by(participants: { user: current_user, game: @game }), match: match
