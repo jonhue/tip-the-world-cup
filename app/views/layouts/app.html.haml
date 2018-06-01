@@ -1,22 +1,24 @@
 - replace :layout, 'app'
-- replace :body_class, 'myg-layout--toolbar -bottom'
+- if @game.participants.find_by(user: current_user)
+  - replace :body_class, 'myg-layout--toolbar -bottom'
 
 = mozaic do
 
-  = component 'myg/toolbar', class: 'myg-toolbar--flexible -bottom', data: { turbolinks_animate_persist: 'nav' } do
-    .mdc-toolbar__row
-      = link_to game_url(id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
-        %i.nc.nc-dashboard-29.nc-lg
-        %p Dashboard
-      = link_to game_participants_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
-        %i.nc.nc-podium.nc-lg
-        %p Leaderboard
-      = link_to game_matches_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
-        %i.nc.nc-soccer-field.nc-lg
-        %p Matches
-      = link_to game_participant_tips_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user: current_user).to_param), data: { turbolinks_animate_type: 'nav' } do
-        %i.nc.nc-ball-soccer.nc-lg
-        %p Tips
+  - if @game.participants.find_by(user: current_user)
+    = component 'myg/toolbar', class: 'myg-toolbar--flexible -bottom', data: { turbolinks_animate_persist: 'nav' } do
+      .mdc-toolbar__row
+        = link_to game_url(id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
+          %i.nc.nc-dashboard-29.nc-lg
+          %p Dashboard
+        = link_to game_participants_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
+          %i.nc.nc-podium.nc-lg
+          %p Leaderboard
+        = link_to game_matches_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
+          %i.nc.nc-soccer-field.nc-lg
+          %p Matches
+        = link_to game_participant_tips_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user: current_user).to_param), data: { turbolinks_animate_type: 'nav' } do
+          %i.nc.nc-ball-soccer.nc-lg
+          %p Tips
 
   .myg-content
     = mozaic_area :app do
