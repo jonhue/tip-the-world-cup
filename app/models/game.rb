@@ -17,6 +17,6 @@ class Game < ApplicationRecord
   private
 
   def check_if_tournament_started
-    return false if Match.all.order(:begins_at).first.begins_at < DateTime.now
+    throw(:abort) if Match.all.order(:begins_at).first.begins_at < DateTime.now
   end
 end

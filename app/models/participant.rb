@@ -39,10 +39,10 @@ class Participant < ApplicationRecord
   private
 
   def check_if_tournament_started
-    return false if Match.all.order(:begins_at).first.begins_at < DateTime.now
+    throw(:abort) if Match.all.order(:begins_at).first.begins_at < DateTime.now
   end
 
   def check_if_already_participating
-    return false if self.game.participants.where(user_id: self.user.id).any?
+    throw(:abort) if self.game.participants.where(user_id: self.user.id).any?
   end
 end

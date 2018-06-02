@@ -42,10 +42,10 @@ class Tip < ApplicationRecord
   end
 
   def check_if_match_started
-    return false if self.match.begins_at.past?
+    throw(:abort) if self.match.begins_at.past?
   end
 
   def check_if_already_tipped
-    return false if Tip.where(match_id: self.match.id, participant_id: self.participant.id).any?
+    throw(:abort) if self.match.tips.where(participant_id: self.participant.id).any?
   end
 end
