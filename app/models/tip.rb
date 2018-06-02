@@ -46,6 +46,6 @@ class Tip < ApplicationRecord
   end
 
   def check_if_already_tipped
-    return false if self.match.tips.where(participant_id: self.participant.id).any?
+    return false if Tip.where(match_id: self.match.id, participant_id: self.participant.id).any?
   end
 end
