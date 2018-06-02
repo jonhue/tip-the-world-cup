@@ -8,8 +8,8 @@ a.tip
       border-color: myg-theme__color(accent, base)
       h4, p
         color: myg-theme__color(accent, base) !important
-  .match-wrapper
-    +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
+  .tip-wrapper
+    +myg-grid__grid-template(1fr, 1fr myg__px(65) 1fr)
     p
       font-weight: bold
       margin: 0
@@ -20,11 +20,16 @@ a.tip
     h4
       margin: 0
       text-align: center
-  .tip-wrapper
-    +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
+  .match-wrapper
+    +myg-grid__grid-template(1fr, 1fr myg__px(50) 1fr)
     margin-bottom: myg-spacing(2)
     text-align: center
     p
       margin: 0
+      height: myg__px(27)
+      +myg-theme__border-radius(2)
     .flag:last-child
       +myg-grid__grid--self-end-x
+    &.live p
+      border: myg__px(1) solid myg-theme__color(accent, base)
+      color: myg-theme__color(accent, base)

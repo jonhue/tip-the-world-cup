@@ -20,10 +20,21 @@ body.matches.show
           margin-top: myg-spacing(2)
           text-align: center
           color: myg-theme__color(accent, contrast)
+          height: myg__px(45)
+          +myg-theme__border-radius(2)
       & > p
         text-align: center
         color: myg-theme__color(accent, contrast)
         opacity: .6
+        span.live
+          display: none
+          font-weight: bold
+      &.live
+        & > p span.live
+          display: inline
+        .result-wrapper h1
+          background: myg-theme__color(accent, contrast)
+          color: myg-theme__color(accent, base)
     .content-wrapper
       padding: myg-spacing(4)
       a.match-tip

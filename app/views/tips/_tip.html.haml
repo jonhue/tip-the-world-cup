@@ -1,11 +1,11 @@
 - if tip.nil? && match.present? && game.present?
   = link_to (match.begins_at.past? ? 'javascript:void(0)' : new_game_participant_tip_url(game_id: game.to_param, participant_id: game.participants.find_by(user: current_user).to_param, match_id: match.to_param)), class: 'tip modalist--trigger', data: { turbolinks_animate_animation: 'fadeout' } do
     .myg-card
-      .match-wrapper
+      .tip-wrapper
         %p.sm= match.home.name
         %h4= '? : ?'
         %p.sm= match.away.name
-      .tip-wrapper
+      .match-wrapper{ class: ('live' if match.live) }
         = component 'flag', nation: match.home, size: 'tn'
         %p.sm
           = match.home_goals || '-'
@@ -16,11 +16,11 @@
 - elsif tip.present?
   = link_to (!can?(:update, tip) || tip.match.begins_at.past? ? 'javascript:void(0)' : edit_game_participant_tip_url(game_id: tip.participant.game.to_param, participant_id: tip.participant.to_param, id: tip.to_param)), class: 'tip modalist--trigger', data: { turbolinks_animate_animation: 'fadeout' } do
     .myg-card
-      .match-wrapper
+      .tip-wrapper
         %p.sm= tip.match.home.name
         %h4= "#{tip.home_goals} : #{tip.away_goals}"
         %p.sm= tip.match.away.name
-      .tip-wrapper
+      .match-wrapper{ class: ('live' if match.live) }
         = component 'flag', nation: tip.match.home, size: 'tn'
         %p.sm
           = tip.match.home_goals || '-'

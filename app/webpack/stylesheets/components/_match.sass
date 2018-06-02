@@ -9,7 +9,7 @@ a.match
       h4, p
         color: myg-theme__color(accent, base) !important
   .match-wrapper
-    +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
+    +myg-grid__grid-template(1fr, 1fr myg__px(65) 1fr)
     p
       font-weight: bold
       margin: 0
@@ -20,6 +20,10 @@ a.match
     h4
       margin: 0
       text-align: center
+    &.live h4
+      border: myg__px(2) solid myg-theme__color(accent, base)
+      color: myg-theme__color(accent, base)
+      +myg-theme__border-radius(2)
   .tip-wrapper
     +myg-grid__grid-template(1fr, 1fr 1fr 1fr)
     margin-bottom: myg-spacing(2)

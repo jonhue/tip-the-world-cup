@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_26_150216) do
+ActiveRecord::Schema.define(version: 2018_06_02_100630) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.string "email"
     t.boolean "accepted", default: false, null: false
     t.text "message"
-    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "token"
     t.index ["email"], name: "index_invitations_on_email"
     t.index ["game_id"], name: "index_invitations_on_game_id"
     t.index ["user_id"], name: "index_invitations_on_user_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.datetime "begins_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "live", default: false, null: false
     t.index ["away_id"], name: "index_matches_on_away_id"
     t.index ["home_id"], name: "index_matches_on_home_id"
   end

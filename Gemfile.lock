@@ -128,6 +128,8 @@ GEM
       tilt
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -165,6 +167,7 @@ GEM
       railties (>= 5.0)
     msgpack (1.2.4-x64-mingw32)
     msgpack (1.2.4-x86-mingw32)
+    multi_xml (0.6.0)
     multipart-post (2.0.0)
     myg (2.10.3)
       actionpack (>= 5.0)
@@ -387,6 +390,7 @@ DEPENDENCIES
   factory_bot (~> 4.8)
   friendly_id (~> 5.2)
   haml (~> 5.0)
+  httparty (~> 0.16.2)
   i18n (~> 1.0)
   lol_dba
   mailgun-ruby (~> 1.1)

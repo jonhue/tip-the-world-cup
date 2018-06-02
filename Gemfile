@@ -77,6 +77,8 @@ gem 'nilify_blanks', '~> 1.3'
 gem 'myg', '~> 2.10'
 # Modals
 gem 'modalist', '~> 2.3'
+# API requests
+gem 'httparty', '~> 0.16.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
