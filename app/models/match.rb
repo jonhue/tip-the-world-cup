@@ -1,14 +1,18 @@
 class Match < ApplicationRecord
   notification_object
-  
+
   belongs_to :home, class_name: 'Nation'
   belongs_to :away, class_name: 'Nation'
-  has_many :tips
+  has_many :tips, dependent: :destroy
 
   validates :begins_at, presence: true
 
   scope :past, -> { where('begins_at < ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
   scope :future, -> { where('begins_at >= ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
+
+  def live?
+    self.begins_at.past? && !self.finished
+  end
 
   def goals_available?
     self.home_goals && self.away_goals

@@ -1,7 +1,7 @@
 - meta title: "#{@match.home.name} vs #{@match.away.name}"
 - replace :back_location, game_matches_url(game_id: @game.to_param)
 
-.match-wrapper{ class: ('live' if @match.live) }
+.match-wrapper{ class: ('live' if @match.live?) }
   .result-wrapper
     = link_to game_nation_url(game_id: @game.to_param, id: @match.home.to_param), class: 'nation-wrapper', data: { turbolinks_animate_animation: 'fadeout' } do
       = component 'flag', nation: @match.home
