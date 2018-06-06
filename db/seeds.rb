@@ -12,7 +12,7 @@ end
 
 Nation.all.each do |nation|
   name = nation.name.downcase.gsub(' ', '_')
-  nation.flag.attach(io: File.open(Rails.application.root.join('db', 'resources', 'flags', "#{name}.png")), filename: "#{name}.png", content_type: 'image/png')# unless nation.flag.attached?
+  nation.flag.attach(io: File.open(Rails.application.root.join('db', 'resources', 'flags', "#{name}.png")), filename: "#{name}.png", content_type: 'image/png') unless nation.flag.attached?
 end
 
 groups&.each do |_, group|
