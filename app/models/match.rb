@@ -9,6 +9,7 @@ class Match < ApplicationRecord
 
   scope :past, -> { where('begins_at < ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
   scope :future, -> { where('begins_at >= ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
+  scope :live, -> { past.where(finished: false) }
 
   def live?
     self.begins_at.past? && !self.finished

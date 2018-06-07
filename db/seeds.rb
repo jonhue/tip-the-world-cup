@@ -17,7 +17,8 @@ end
 
 groups&.each do |_, group|
   group['matches']&.each do |match|
-    Match.find_or_create_by!(home_id: match['home_team'], away_id: match['away_team'], begins_at: match['date'].to_datetime).update_attributes(home_goals: match['home_result'], away_goals: match['away_result'], finished: match['finished'])
+    match = Match.find_or_create_by!(home_id: match['home_team'], away_id: match['away_team'], begins_at: match['date'].to_datetime)
+    match.update_attributes(home_goals: match['home_result'], away_goals: match['away_result'], finished: match['finished']) if match['home_result'] && match['away_result']
   end
 end
 
