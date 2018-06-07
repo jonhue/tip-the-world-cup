@@ -1,7 +1,7 @@
 namespace :data do
   desc "Update match data."
   task fetch: :environment do
-    system('rails db:seed')
+    FifaWorldCupData::Match.new.perform
     Match.live&.each do |match|
       Livescore.new.perform(match: match)
     end
