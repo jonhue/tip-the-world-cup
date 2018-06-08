@@ -30,15 +30,21 @@ class Tip < ApplicationRecord
   private
 
   def match?
+    return false if self.match.penalties?
     self.home_goals == self.match.home_goals && self.away_goals == self.match.away_goals
   end
 
   def goal_difference?
+    return false if self.match.penalties?
     self.tendency? && self.goal_difference == self.match.goal_difference
   end
 
   def tendency?
-    self.home_goals < self.away_goals && self.match.home_goals < self.match.away_goals || self.home_goals > self.away_goals && self.match.home_goals > self.match.away_goals || self.home_goals == self.away_goals && self.match.home_goals == self.match.away_goals
+    if self.match.penalties?
+      self.home_goals < self.away_goals && self.match.home_penalties < self.match.away_penalties || self.home_goals > self.away_goals && self.match.home_penalties > self.match.away_penalties
+    else
+      self.home_goals < self.away_goals && self.match.home_goals < self.match.away_goals || self.home_goals > self.away_goals && self.match.home_goals > self.match.away_goals || self.home_goals == self.away_goals && self.match.home_goals == self.match.away_goals
+    end
   end
 
   def check_if_match_started

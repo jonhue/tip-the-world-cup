@@ -19,6 +19,10 @@ class Match < ApplicationRecord
     self.home_goals && self.away_goals
   end
 
+  def penalties?
+    self.home_penalties && self.away_penalties
+  end
+
   def goal_difference
     (self.home_goals - self.away_goals).abs
   end

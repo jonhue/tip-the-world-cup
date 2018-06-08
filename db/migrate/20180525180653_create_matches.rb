@@ -6,6 +6,8 @@ class CreateMatches < ActiveRecord::Migration[5.2]
 
       t.integer :home_goals
       t.integer :away_goals
+      t.integer :home_penalties
+      t.integer :away_penalties
       t.boolean :finished, null: false, default: false
       t.datetime :begins_at
 

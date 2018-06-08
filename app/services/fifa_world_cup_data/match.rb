@@ -19,7 +19,7 @@ module FifaWorldCupData
           b['matches']&.each do |match|
             if match['home_team']&.is_a?(Integer) && match['away_team']&.is_a?(Integer) && match['home_team'] < 33 && match['away_team'] < 33
               match = ::Match.find_or_create_by!(home_id: match['home_team'], away_id: match['away_team'], begins_at: match['date'].to_datetime)
-              match.update_attributes(home_goals: match['home_result'], away_goals: match['away_result'], finished: match['finished']) if match['home_result'] && match['away_result']
+              match.update_attributes(home_goals: match['home_result'], away_goals: match['away_result'], home_penalties: match['home_penalty'], away_penalties: match['away_penalty'], finished: match['finished']) if match['home_result'] && match['away_result']
             end
           end
         end
