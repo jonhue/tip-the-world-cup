@@ -12,7 +12,7 @@ class Match < ApplicationRecord
   scope :live, -> { past.where(finished: false) }
 
   def live?
-    self.begins_at.past? && !self.finished
+    self.home_goals && self.away_goals && !self.finished
   end
 
   def goals_available?
