@@ -3,9 +3,9 @@
     .match-wrapper{ class: ('live' if match.live?) }
       %p.sm= match.home.name
       %h4
-        = match.home_goals || '-'
+        = match.home_penalties || match.home_goals || '-'
         = ':'
-        = match.away_goals || '-'
+        = match.away_penalties || match.away_goals || '-'
       %p.sm= match.away.name
     .tip-wrapper
       = component 'flag', nation: match.home, size: 'tn'
