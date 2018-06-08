@@ -19,7 +19,7 @@
 .myg-list--contained
   .myg-list__item
     Bet:
-    = @game.bet || 'Nothing'
+    = @game.bet || 'None'
   .myg-list__item
     Points for Match:
     = @game.rule_match
@@ -44,4 +44,4 @@
   = link_to 'Join the fun', new_game_participant_url(game_id: @game.to_param), class: 'myg-button'
   %p.sm
     Bet:
-    = @game.bet || 'Nothing'
+    = @game.bet || 'None'
