@@ -7,9 +7,9 @@
       = component 'flag', nation: @match.home
       %h4= @match.home.name
     %h1.sm
-      = @match.home_goals || '-'
+      = @match.home_penalties || @match.home_goals || '-'
       = ':'
-      = @match.away_goals || '-'
+      = @match.away_penalties || @match.away_goals || '-'
     = link_to game_nation_url(game_id: @game.to_param, id: @match.away.to_param), class: 'nation-wrapper', data: { turbolinks_animate_animation: 'fadeout' } do
       = component 'flag', nation: @match.away
       %h4= @match.away.name
