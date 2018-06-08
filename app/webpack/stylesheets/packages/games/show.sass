@@ -17,6 +17,10 @@ body.games.show
           font-size: myg__px(14)
     h3:not(:first-of-type)
       margin-top: myg-spacing(8)
+    .myg-list--contained
+      .myg-list__item
+        &:first-child
+          background: myg-theme__color(background, darker)
     & > .myg-button
       margin-top: myg-spacing(6)
     & > p.sm

@@ -15,6 +15,25 @@
     = render match, game: @game
   = link_to 'Browse matches', game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
 
+%h3 Rules
+.myg-list--contained
+  .myg-list__item
+    Bet:
+    = @game.bet || 'Nothing'
+  .myg-list__item
+    Points for Match:
+    = @game.rule_match
+  .myg-list__item
+    Points for Goal Difference:
+    = @game.rule_goal_difference
+  .myg-list__item
+    Points for Tendency:
+    = @game.rule_tendency
+  .myg-list__item
+    Points for Miss:
+    = @game.rule_miss
+%p.sm When a fixture is decided in penalties only points for Tendency and Miss are awarded.
+
 - if can? :update, @game
   %h3 Manage
   .myg-button__container.myg-grid__flex
@@ -25,4 +44,4 @@
   = link_to 'Join the fun', new_game_participant_url(game_id: @game.to_param), class: 'myg-button'
   %p.sm
     Bet:
-    = @game.bet
+    = @game.bet || 'Nothing'
