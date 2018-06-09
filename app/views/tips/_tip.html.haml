@@ -12,7 +12,7 @@
           = ':'
           = match.away_penalties || match.away_goals || '-'
         = component 'flag', nation: match.away, size: 'tn'
-      %p.sm= match.begins_at.strftime('%b %-d, %I:%M %P')
+      %p.sm= l(match.begins_at)
 - elsif tip.present?
   = link_to (!can?(:update, tip) || tip.match.begins_at.past? ? 'javascript:void(0)' : edit_game_participant_tip_url(game_id: tip.participant.game.to_param, participant_id: tip.participant.to_param, id: tip.to_param)), class: 'tip modalist--trigger', data: { turbolinks_animate_animation: 'fadeout' } do
     .myg-card
@@ -27,4 +27,4 @@
           = ':'
           = tip.match.away_penalties || tip.match.away_goals || '-'
         = component 'flag', nation: tip.match.away, size: 'tn'
-      %p.sm= tip.match.begins_at.strftime('%b %-d, %I:%M %P')
+      %p.sm= l(tip.match.begins_at)

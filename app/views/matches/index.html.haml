@@ -3,6 +3,6 @@
 %h1= t('d.matches')
 
 - @matches.group_by { |match| match.begins_at.to_date }.each do |date, match|
-  %p= date.strftime('%-d %B')
+  %p= l(date, format: :date)
   .myg-card__container
     = render match, game: @game

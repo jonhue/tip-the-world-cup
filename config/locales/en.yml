@@ -24,3 +24,7 @@ en:
     signup: Signup
     tips: Tips
     unauthorized: You are unauthorized to perform this action.
+  time:
+    formats:
+      default: %b %-d, %I:%M %P
+      date: %b %-d

@@ -24,3 +24,7 @@ de:
     signup: Registrieren
     tips: Tipps
     unauthorized: Du bist nicht berechtigt, diese Aktion auszuführenz
+  time:
+    formats:
+      default: %-d. %b, %H:%M
+      date: %-d. %b

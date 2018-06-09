@@ -18,4 +18,4 @@
       - if current_user.participants.find_by(game: game)
         = t('matches._match.tips_by_others.content', n_participants: pluralize(match.count_tips_by_others(current_user.participants.find_by(game: game)), t('matches._match.tips_by_others.other_person'), t('matches._match.tips_by_others.others')))
         ·
-      = match.begins_at.strftime('%b %-d, %I:%M %P')
+      = l(match.begins_at)

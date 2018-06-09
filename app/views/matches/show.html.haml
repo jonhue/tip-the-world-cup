@@ -16,7 +16,7 @@
   %p.sm
     %span.live= t('matches.show.live')
     = @match.begins_at.future? ? t('matches.show.match_starts_on') : t('matches.show.match_started_on')
-    = @match.begins_at.strftime('%b %-d, at %I:%M %P')
+    = l(@match.begins_at)
 
 .content-wrapper
   %h3= t('d.tips')
