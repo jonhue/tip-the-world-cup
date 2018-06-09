@@ -3,11 +3,8 @@
     %h4= game.name
     %p.sm
       - if game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip == Float::INFINITY
-        You have tipped all available matches
+        = t('games._game.next_required_tip.none')
       - else
-        %span= pluralize(game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip, 'day', 'days')
-        until your next required tip
-    %p.sm
-      = game.participants.find_by(user_id: current_user.id).position.ordinalize
-      place on the leaderboard
-      = "(of #{game.participants.count})"
+        %span= pluralize(game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip, t('games._game.next_required_tip.day'), t('games._game.next_required_tip.days'))
+        = t('games._game.next_required_tip.some')
+    %p.sm= t('games._game.leaderboard', place: game.participants.find_by(user_id: current_user.id).position.ordinalize, of: game.participants.count)

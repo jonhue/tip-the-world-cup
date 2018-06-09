@@ -1,0 +1,8 @@
+en:
+  games:
+    index:
+      hi: Hi, %{name}
+      new:
+        title: New game
+        content: Start playing with friends & family.
+      no_invitations: You don't have any pending invitations.

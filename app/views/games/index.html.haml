@@ -1,23 +1,23 @@
-- meta title: 'Overview'
+- meta title: t('overview')
 
-%h1= "Hi, #{current_user.name}!"
+%h1= t('games.index.hi', name: current_user.name)
 
 .myg-card__container
   - @games&.each do |game|
     = render game
   = link_to new_game_url, class: 'card' do
     .myg-card
-      %h4 New game
-      %p.sm Start playing with friends & family.
+      %h4= t('games.index.new.title')
+      %p.sm= t('games.index.new.content')
 
-%h3 Invitations
+%h3= t('invitations')
 - if @invitations.any?
   .myg-card__container
     - @invitations&.each do |invitation|
       = render invitation
 - else
-  %p You don't have any pending invitations.
+  %p= t('games.index.no_invitations')
 
-%h3 Account
+%h3= t('account')
 .myg-button__container.myg-grid__flex
-  = link_to 'Signout', destroy_user_session_url, method: :delete, class: 'myg-button--secondary -error'
+  = link_to t('signout'), destroy_user_session_url, method: :delete, class: 'myg-button--secondary -error'

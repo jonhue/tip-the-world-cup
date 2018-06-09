@@ -1,0 +1,9 @@
+en:
+  games:
+    _game:
+      next_required_tip:
+        none: You have tipped all available matches.
+        some: until your next required tip.
+        day: day
+        days: days
+      leaderboard: "%{place} on the leaderboard (of %{of})"

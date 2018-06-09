@@ -1,7 +1,18 @@
 en:
+  account: Account
+  bet: Bet
+  delete: Delete
   email: Email
+  invitations: Invitations
+  leaderboard: Leaderboard
   login: Login
+  manage: Manage
   name: Name
+  none: None
+  overview: Overview
   password: Password
+  private: Private
+  rules: Rules
+  signout: Signout
   signup: Signup
   unauthorized: You are unauthorized to perform this action

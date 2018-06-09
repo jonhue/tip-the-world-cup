@@ -1,0 +1,19 @@
+en:
+  games:
+    _form:
+      name: Give me a name
+      rule_match:
+        title: Points for Match
+        content: Points awarded if a game has been tipped correctly.
+      rule_goal_difference:
+        title: Points for Goal Difference
+        content: Points awarded if a the goal difference and tendency of a game has been tipped correctly.
+      rule_tendency:
+        title: Points for Tendency
+        content: Points awarded if a just the tendency of a game has been tipped correctly.
+      rule_miss:
+        title: Points for Miss
+        content: Points awarded if a the tendency of a game has not been tipped correctly.
+      bet: Specify a reward for the winner.
+      private: No one but you and your invited friends can see this game.
+      submit: Create game
