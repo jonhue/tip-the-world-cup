@@ -1,6 +1,6 @@
-- meta title: "#{@game.name} leaderboard"
+- meta title: t('participants.index.title', name: @game.name)
 
-%h1.sm Leaderboard
+%h1.sm= t('leaderboard')
 
 .myg-card__container
   - @game.participants.leaderboard.each do |participant|

@@ -1,0 +1,7 @@
+en:
+  participants:
+    show:
+      nation: "%{name} will win the World Cup"
+      leaderboard: place on the leaderboard
+      points: earned points
+      no_tips: This participant does not yet have any public tips.

@@ -6,21 +6,19 @@
   .feature-wrapper
     = link_to game_nation_url(game_id: @game.to_param, id: @participant.nation.to_param), data: { turbolinks_animate_animation: 'fadeout' } do
       = component 'flag', nation: @participant.nation, size: 'sm'
-    %p
-      = @participant.nation.name
-      will win the World Cup
+    %p= t('participants.show.nation', name: @participant.nation.name)
   .feature-wrapper
     %h4= @participant.position.ordinalize
-    %p place on the leaderboard
+    %p= t('participants.show.leaderboard')
   .feature-wrapper
     %h4= @participant.earned_points
-    %p earned points
+    %p= t('participants.show.points')
 
 .content-wrapper
-  %h3 Tips
+  %h3= t('tips')
   - if @tips.any?
     .myg-card__container
       - @tips.each do |tip|
         = render tip
   - else
-    %p This participant does not yet have any public tips.
+    %p= t('participants.show.no_tips')
