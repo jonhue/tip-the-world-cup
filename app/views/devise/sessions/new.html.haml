@@ -9,6 +9,6 @@
     = component 'myg/form-field', as: :checkbox, attribute: :remember_me, class_name: 'user', inline_label: t('devise.sessions.new.remember_me'), input_html: { input_html: { checked: true } } if devise_mapping.rememberable?
     .myg-grid__flex.-space-between
         %p.sm
-            = link_to t('d.signup'), new_user_registration_url(app: params[:app]), class: 'myg-text__hyperlink -inherit'
+            = link_to t('d.signup'), new_user_registration_url(game_id: params[:game_id], token: params[:token]), class: 'myg-text__hyperlink -inherit'
             -# = link_to 'Forgot password?', new_user_password_url, class: 'myg-text__hyperlink -inherit'
         = component 'myg/button', value: t('d.login')

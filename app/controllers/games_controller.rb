@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   before_action :set_game, only: [:show, :update, :destroy]
 
   layout 'app'
@@ -17,11 +17,15 @@ class GamesController < ApplicationController
   # GET /app/1
   def show
     authorize! :read, @game
-    @participants = @game.participants.leaderboard.take(3)
-    authorizes! :read, @participants
-    @matches = Match.future.limit(3).order(:begins_at)
-    authorizes! :read, @matches
-    turbolinks_animate 'fadein'
+    if current_user
+      @participants = @game.participants.leaderboard.take(3)
+      authorizes! :read, @participants
+      @matches = Match.future.limit(3).order(:begins_at)
+      authorizes! :read, @matches
+      turbolinks_animate 'fadein'
+    else
+      redirect_to new_user_registration_url(game_id: @game.to_param)
+    end
   end
 
   # GET /app/new

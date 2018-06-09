@@ -24,6 +24,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
           invitation = Invitation.find_by(token: invitation_param)
           invitation.update! user: current_user
         end
+        if participate_param && participate_param != ''
+          game = Game.find_by(id: participate_param)
+          Invitation.create! user: current_user, game: game if game
+        end
         respond_with resource, location: after_sign_up_path_for(resource)
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
@@ -68,15 +72,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_up_params[:token]
   end
 
+  def participate_param
+    sign_up_params = devise_parameter_sanitizer.sanitize :sign_up
+    sign_up_params[:game_id]
+  end
+
   def sign_up_params
     sign_up_params = devise_parameter_sanitizer.sanitize :sign_up
     sign_up_params.delete :token
+    sign_up_params.delete :game_id
     sign_up_params
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :token])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :token, :game_id])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
