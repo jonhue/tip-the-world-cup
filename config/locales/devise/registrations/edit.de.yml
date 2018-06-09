@@ -1,0 +1,6 @@
+de:
+  devise:
+    registrations:
+      edit:
+        title: Einstellungen
+        submit: Update account

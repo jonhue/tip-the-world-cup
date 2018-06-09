@@ -20,4 +20,5 @@
 
 %h3= t('d.account')
 .myg-button__container.myg-grid__flex
+  = link_to t('d.settings'), edit_user_registration_url, class: 'myg-button--secondary'
   = link_to t('d.signout'), destroy_user_session_url, method: :delete, class: 'myg-button--secondary -error'

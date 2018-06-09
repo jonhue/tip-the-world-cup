@@ -1,0 +1,9 @@
+- meta title: t('devise.registrations.edit.title')
+
+%h1.sm= t('devise.registrations.edit.title')
+
+= simple_form_for resource, as: resource_name, url: user_registration_url, html: { method: :put } do |f|
+  = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', label: t('d.first_name'), input_html: { required: true, value: resource.name, autofocus: true }
+
+  .myg-button__container.myg-grid__flex.-reverse
+    = component 'myg/button', value: t('devise.registrations.edit.submit')

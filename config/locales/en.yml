@@ -21,6 +21,7 @@ en:
     password: Password
     private: Private
     rules: Rules
+    settings: Settings
     signout: Signout
     signup: Signup
     tips: Tips

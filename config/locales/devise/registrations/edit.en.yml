@@ -1,0 +1,6 @@
+en:
+  devise:
+    registrations:
+      edit:
+        title: Settings
+        submit: Account aktualisieren
