@@ -1,0 +1,10 @@
+en:
+  matches:
+    show:
+      title: "%{home} vs %{away}"
+      live: LIVE!
+      match_starts_on: Match starts on
+      match_started_on: Match started on
+      no_tips: You and your contenders have yet to tip this match.
+      tip_this_match: Tip this match
+      edit_your_tip: Edit your tip

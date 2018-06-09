@@ -1,0 +1,7 @@
+en:
+  matches:
+    _match:
+      tips_by_others:
+        content: "%{n_participants} tipped the match"
+        other_person: other person
+        others: others

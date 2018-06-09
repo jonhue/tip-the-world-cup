@@ -1,4 +1,4 @@
-- meta title: "#{@match.home.name} vs #{@match.away.name}"
+- meta title: t('matches.show.title', home: @match.home.name, away: @match.away.name)
 - replace :back_location, game_matches_url(game_id: @game.to_param)
 
 .match-wrapper{ class: ('live' if @match.live?) }
@@ -14,22 +14,22 @@
       = component 'flag', nation: @match.away
       %h4= @match.away.name
   %p.sm
-    %span.live LIVE!
-    = @match.begins_at.future? ? 'Match starts on' : 'Match started on'
+    %span.live= t('matches.show.live')
+    = @match.begins_at.future? ? t('matches.show.match_starts_on') : t('matches.show.match_started_on')
     = @match.begins_at.strftime('%b %-d, at %I:%M %P')
 
 .content-wrapper
-  %h3 Tips
+  %h3= t('tips')
   - if @tips.any?
     .myg-card__container
       - @tips.each do |tip|
         = render 'tip', tip: tip
   - else
-    %p You and your contenders have yet to tip this match.
+    %p= t('matches.show.no_tips')
 
   - if Tip.includes(:participant).find_by(match_id: @match.id, participants: { game: @game, user: current_user }).nil?
     .myg-button__container.myg-grid__flex.-reverse
-      = link_to 'Tip this match', new_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param, match_id: @match.to_param), class: 'modalist--trigger myg-button'
+      = link_to t('matches.show.tip_this_match'), new_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param, match_id: @match.to_param), class: 'modalist--trigger myg-button'
   - elsif @match.begins_at.future?
     .myg-button__container.myg-grid__flex.-reverse
-      = link_to 'Edit your tip', edit_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param, id: Tip.includes(:participant).find_by(match_id: @match.id, participants: { game: @game, user: current_user }).to_param), class: 'modalist--trigger myg-button'
+      = link_to t('matches.show.edit_your_tip'), edit_game_participant_tip_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user_id: current_user.id).to_param, id: Tip.includes(:participant).find_by(match_id: @match.id, participants: { game: @game, user: current_user }).to_param), class: 'modalist--trigger myg-button'

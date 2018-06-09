@@ -1,0 +1,4 @@
+en:
+  matches:
+    index:
+      title: "%{name} matches"
