@@ -7,11 +7,11 @@ en:
       next_matches: Next matches
       browse_matches: Browse matches
       rules:
-        bet: Bet: %{bet}
-        match: Points for Match: %{rule_match}
-        goal_difference: Points for Goal Difference: %{rule_goal_difference}
-        tendency: Points for Tendency: %{rule_tendency}
-        miss: Points for Miss: %{rule_miss}
+        bet: "Bet: %{bet}"
+        match: "Points for Match: %{rule_match}"
+        goal_difference: "Points for Goal Difference: %{rule_goal_difference}"
+        tendency: "Points for Tendency: %{rule_tendency}"
+        miss: "Points for Miss: %{rule_miss}"
         penalties: When a fixture is decided in penalties only points for Tendency and Miss are awarded.
       invite: Invite fellow tippers
       join: Join the fun

@@ -44,8 +44,8 @@ class ApplicationController < ActionController::Base
   end
   def user_location_detected_locale
     language = browser.accept_language.first
-    return nil unless language&.code
-    language.code
+    return nil unless language
+    language.split('-').first.to_sym
   end
 
   def render_r404_access_denied format, status, exception

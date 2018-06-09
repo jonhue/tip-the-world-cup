@@ -3,7 +3,7 @@ en:
     show:
       title: Join %{name}
       header: "%{name} invited you to tip the 2018 World Cup"
-      bet: Bet: %{bet}
+      bet: "Bet: %{bet}"
       participants: "%{participants} already agreed to the challenge"
       submit: Go ahead
       token_invalid: Token invalid.
