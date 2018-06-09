@@ -1,6 +1,7 @@
 en:
   account: Account
   bet: Bet
+  dashboard: Dashboard
   delete: Delete
   email: Email
   invitations: Invitations
@@ -8,6 +9,7 @@ en:
   leaderboard: Leaderboard
   login: Login
   manage: Manage
+  matches: Matches
   message: Message
   name: Name
   none: None
@@ -17,4 +19,5 @@ en:
   rules: Rules
   signout: Signout
   signup: Signup
+  tips: Tips
   unauthorized: You are unauthorized to perform this action

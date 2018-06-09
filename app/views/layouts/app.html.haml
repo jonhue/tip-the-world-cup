@@ -9,16 +9,16 @@
       .mdc-toolbar__row
         = link_to game_url(id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
           %i.nc.nc-dashboard-29.nc-lg
-          %p Dashboard
+          %p= t('dashboard')
         = link_to game_participants_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
           %i.nc.nc-podium.nc-lg
-          %p Leaderboard
+          %p= t('leaderboard')
         = link_to game_matches_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
           %i.nc.nc-soccer-field.nc-lg
-          %p Matches
+          %p= t('matches')
         = link_to game_participant_tips_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user: current_user).to_param), data: { turbolinks_animate_type: 'nav' } do
           %i.nc.nc-ball-soccer.nc-lg
-          %p Tips
+          %p= t('tips')
 
   .myg-content
     = mozaic_area :app do
