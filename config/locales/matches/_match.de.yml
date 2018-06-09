@@ -1,0 +1,7 @@
+de:
+  matches:
+    _match:
+      tips_by_others:
+        content: "%{n_participants} das Spiel getippt"
+        other_person: Anderer hat
+        others: Andere haben

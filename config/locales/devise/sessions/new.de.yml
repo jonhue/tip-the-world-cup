@@ -1,0 +1,6 @@
+de:
+  devise:
+    sessions:
+      new:
+        content: Willkommen zurück! Melde Dich an, um fortzufahren.
+        remember_me: An mich erinnern

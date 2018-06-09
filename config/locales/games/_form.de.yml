@@ -1,0 +1,19 @@
+de:
+  games:
+    _form:
+      name: Gib mir einen Namen
+      rule_match:
+        title: Punkte für richtiges Ergebnis
+        content: Anzahl der Punkte, wenn ein Ergebnis richtig getippt wurde.
+      rule_goal_difference:
+        title: Punkte für richtige Tordifferenz
+        content: Anzahl der Punkte, wenn Tordifferenz und Tendenz richtig getippt wurden.
+      rule_tendency:
+        title: Punkte für Tendenz
+        content: Anzahl der Punkte, wenn die Tendez richtig getippt wurde.
+      rule_miss:
+        title: Punkte für ein Miss
+        content: Anzahl der Punkte, wenn die Tendenz nicht richtig getippt wurde.
+      bet: Wähle eine Belohnung für den Gewinner.
+      private: Kein Anderer als Du und Deine eingaledenen Freunde können dieses Tippspiel sehen.
+      submit: Tippspiel erstellen

@@ -1,0 +1,9 @@
+de:
+  games:
+    _game:
+      next_required_tip:
+        none: Du hast alle verfügbaren Spiele getippt.
+        some: bis zu Deinem nächsten erforderlichen Tipp.
+        day: Tag
+        days: Tage
+      leaderboard: "%{place} auf der Bestenliste (von %{of})"

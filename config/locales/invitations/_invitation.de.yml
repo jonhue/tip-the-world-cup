@@ -1,0 +1,4 @@
+de:
+  invitations:
+    _invitation:
+      content: "%{name} hat Dich eingeladen"

@@ -1,0 +1,5 @@
+de:
+  games:
+    create:
+      success: Tippspiel wurde erfolgreich erstellt.
+      error: Tippspiel konnte nicht erstellt werden.

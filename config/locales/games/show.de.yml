@@ -1,0 +1,17 @@
+de:
+  games:
+    show:
+      title: "%{name} Übersicht"
+      all_games: Alle Tippspiele
+      full_leaderboard: Vollständige Besteliste
+      next_matches: Nächste Spiele
+      browse_matches: Spiele durchsuchen
+      rules:
+        bet: "Einsatz: %{bet}"
+        match: "Punkte für richtiges Ergebnis: %{rule_match}"
+        goal_difference: "Punkte für Tordifferenz: %{rule_goal_difference}"
+        tendency: "Punkte für Tendenz: %{rule_tendency}"
+        miss: "Punkte für ein Miss: %{rule_miss}"
+        penalties: Wenn ein Spiel im Elfmeterschießen entschieden wird, werden nur Punkte für Tendenz und Miss vergeben.
+      invite: Tipper einladen
+      join: Tippspiel beitreten

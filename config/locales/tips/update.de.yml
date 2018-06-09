@@ -1,0 +1,5 @@
+de:
+  tips:
+    update:
+      success: Tipp wurde erfolgreich aktualisiert.
+      error: Tipp konnte nicht aktualisiert werden.

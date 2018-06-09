@@ -1,0 +1,5 @@
+de:
+  participants:
+    create:
+      success: Du nimmst nun am Tippspiel teil.
+      error: Wir konnten Dich nicht als Teilnehmer hinzufügen.

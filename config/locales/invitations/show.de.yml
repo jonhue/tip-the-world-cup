@@ -1,0 +1,9 @@
+de:
+  invitations:
+    show:
+      title: "%{name} beitreten"
+      header: "%{name} hat dich eingeladen die Weltmeisterschaft 2018 zu tippen"
+      bet: "Einsatz: %{bet}"
+      participants: "%{participants} haben die Herausforderung bereits angenommen"
+      submit: Auf gehts
+      token_invalid: Token ungültig.

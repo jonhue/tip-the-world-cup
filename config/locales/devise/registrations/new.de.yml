@@ -1,0 +1,9 @@
+de:
+  devise:
+    registrations:
+      new:
+        content: Tippe die Weltmeisterschaft 2018 mit Freunden & Famile.
+        legal: Dutch Fortfahren stimmst Du unseren %{privacy} und %{terms} zu.
+        privacy: Datenschutzbestimmungen
+        terms: Nutzungsbedingungen
+        login_instead: Stattdessen anmelden?

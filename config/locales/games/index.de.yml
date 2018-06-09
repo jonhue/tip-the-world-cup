@@ -1,0 +1,8 @@
+de:
+  games:
+    index:
+      hi: Hi, %{name}
+      new:
+        title: Neues Tippspiel
+        content: Beginne mit Freunden und Familie zu spielen.
+      no_invitations: Du hast kein ausstehenden Einladungen.

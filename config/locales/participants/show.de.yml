@@ -1,0 +1,7 @@
+de:
+  participants:
+    show:
+      nation: "%{name} wird die Weltmeisterschaft gewinnen"
+      leaderboard: Platz in der Bestenliste
+      points: verdiente Punkte
+      no_tips: Dieser Teilnehmer hat noch keine öffentlichen Tipps.

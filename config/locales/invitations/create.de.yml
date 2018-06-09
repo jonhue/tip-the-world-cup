@@ -1,0 +1,5 @@
+de:
+  invitations:
+    create:
+      success: Einladung wurde erfolgreich verschickt.
+      error: Einladung konnte nicht verschickt werden.

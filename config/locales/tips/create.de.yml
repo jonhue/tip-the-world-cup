@@ -1,0 +1,5 @@
+de:
+  tips:
+    create:
+      success: Tipp wurde erfolgreich erstellt.
+      error: Tipp konnte nicht erstellt werden.

@@ -1,0 +1,5 @@
+de:
+  games:
+    update:
+      success: Tippspiel wurde erfolgreich aktualisiert.
+      error: Tippspiel konnte nicht aktualisiert werden.

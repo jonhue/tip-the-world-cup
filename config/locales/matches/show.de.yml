@@ -1,0 +1,10 @@
+de:
+  matches:
+    show:
+      title: "%{home} vs. %{away}"
+      live: LIVE!
+      match_starts_on: Das Spiel beginnt am
+      match_started_on: Der Spielbeginn war am
+      no_tips: Du und Deine Konkurrenten müssen dieses Spiel noch tippen.
+      tip_this_match: Spiel Tippen
+      edit_your_tip: Tipp ändern
