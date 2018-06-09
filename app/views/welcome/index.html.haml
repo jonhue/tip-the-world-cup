@@ -1,5 +1,5 @@
 = asset 'trophy.svg'
-%h1 Tip the 2018 World Cup with friends & family.
+%h1= t('welcome.index.title')
 %p= welcome_subtitle
 .myg-button__container.myg-grid__flex.-center
-  = link_to 'Get started', games_url, class: 'myg-button'
+  = link_to t('welcome.index.get_started'), games_url, class: 'myg-button'
