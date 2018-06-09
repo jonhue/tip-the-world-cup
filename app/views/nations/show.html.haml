@@ -6,13 +6,10 @@
     %h2= @nation.name
   .feature-wrapper
     %h4= @nation.participants.where(game_id: @game.id).count
-    %p
-      think
-      = @nation.name
-      will win the World Cup
+    %p= t('nations.show.fans', name: @nation.name)
 
 .content-wrapper
-  %h3 Matches
+  %h3= t('matches')
   .myg-card__container
     - @matches.each do |match|
       = render match, game: @game
