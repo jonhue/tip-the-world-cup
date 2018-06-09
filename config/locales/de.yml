@@ -240,6 +240,6 @@ de:
   time:
     am: vormittags
     formats:
-      default: %-d. %b, %H:%M Uhr
-      date: %-d. %b
+      default: "%-d. %b, %H:%M Uhr"
+      date: "%-d. %b"
     pm: nachmittags
