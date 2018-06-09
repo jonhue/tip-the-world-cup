@@ -1,0 +1,9 @@
+en:
+  devise:
+    registrations:
+      new:
+        content: Tip the 2018 World Cup with friends & family.
+        legal: By proceeding you agree to our %{privacy} and %{terms}.
+        privacy: Privacy Policy
+        terms: Terms of Use
+        login_instead: Login instead?

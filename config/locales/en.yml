@@ -1,2 +1,7 @@
 en:
+  email: Email
+  login: Login
+  name: Name
+  password: Password
+  signup: Signup
   unauthorized: You are unauthorized to perform this action

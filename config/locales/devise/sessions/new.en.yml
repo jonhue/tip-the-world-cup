@@ -1,0 +1,6 @@
+en:
+  devise:
+    sessions:
+      new:
+        content: Welcome back! Login to proceed.
+        remember_me: Remember me
