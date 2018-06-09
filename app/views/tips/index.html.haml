@@ -1,6 +1,6 @@
 - meta title: t('tips.index.title', name: @game.name)
 
-%h1= t('tips')
+%h1= t('d.tips')
 
 - @matches.group_by { |match| match.begins_at.to_date }.each do |date, matches|
   %p= date.strftime('%-d %B')

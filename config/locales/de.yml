@@ -1,24 +1,25 @@
 de:
-  account: Account
-  bet: Einsatz
-  continue: Weiter
-  dashboard: Übersicht
-  delete: Löschen
-  email: E-Mail
-  invitations: Einladungen
-  invite: Einladen
-  leaderboard: Bestenliste
-  login: Anmelden
-  manage: Verwalten
-  matches: Spiele
-  message: Nachricht
-  name: Name
-  none: Nichts
-  overview: Überblick
-  password: Passwort
-  private: Privat
-  rules: Regeln
-  signout: Abmelden
-  signup: Registrieren
-  tips: Tipps
-  unauthorized: Du bist nicht berechtigt, diese Aktion auszuführenz
+  d:
+    account: Account
+    bet: Einsatz
+    continue: Weiter
+    dashboard: Übersicht
+    delete: Löschen
+    email: E-Mail
+    invitations: Einladungen
+    invite: Einladen
+    leaderboard: Bestenliste
+    login: Anmelden
+    manage: Verwalten
+    matches: Spiele
+    message: Nachricht
+    name: Name
+    none: Nichts
+    overview: Überblick
+    password: Passwort
+    private: Privat
+    rules: Regeln
+    signout: Abmelden
+    signup: Registrieren
+    tips: Tipps
+    unauthorized: Du bist nicht berechtigt, diese Aktion auszuführenz

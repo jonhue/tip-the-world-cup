@@ -8,8 +8,8 @@
   = component 'myg/form-field', as: :input, attribute: :rule_miss, class_name: 'game', label: [t('games._form.rule_miss.title'), t('games._form.rule_miss.content')], input_html: { value: @game.rule_miss, type: :number, placeholder: '0' }
 
   %h3 More...
-  = component 'myg/form-field', as: :input, attribute: :bet, class_name: 'game', label: [t('bet'), t('games._form.bet')], input_html: { value: @game.bet, placeholder: '$5' }
-  = component 'myg/form-field', as: :switch, attribute: :private, class_name: 'game', inline_label: [t('private'), t('games._form.private')], input_html: { checked: @game.private }
+  = component 'myg/form-field', as: :input, attribute: :bet, class_name: 'game', label: [t('d.bet'), t('games._form.bet')], input_html: { value: @game.bet, placeholder: '$5' }
+  = component 'myg/form-field', as: :switch, attribute: :private, class_name: 'game', inline_label: [t('d.private'), t('games._form.private')], input_html: { checked: @game.private }
 
   .myg-button__container.myg-grid__flex.-reverse
     = component 'myg/button', value: t('games._form.submit')

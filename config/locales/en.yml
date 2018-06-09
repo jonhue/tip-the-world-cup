@@ -1,24 +1,25 @@
 en:
-  account: Account
-  bet: Bet
-  continue: Continue
-  dashboard: Dashboard
-  delete: Delete
-  email: Email
-  invitations: Invitations
-  invite: Invite
-  leaderboard: Leaderboard
-  login: Login
-  manage: Manage
-  matches: Matches
-  message: Message
-  name: Name
-  none: None
-  overview: Overview
-  password: Password
-  private: Private
-  rules: Rules
-  signout: Signout
-  signup: Signup
-  tips: Tips
-  unauthorized: You are unauthorized to perform this action.
+  d:
+    account: Account
+    bet: Bet
+    continue: Continue
+    dashboard: Dashboard
+    delete: Delete
+    email: Email
+    invitations: Invitations
+    invite: Invite
+    leaderboard: Leaderboard
+    login: Login
+    manage: Manage
+    matches: Matches
+    message: Message
+    name: Name
+    none: None
+    overview: Overview
+    password: Password
+    private: Private
+    rules: Rules
+    signout: Signout
+    signup: Signup
+    tips: Tips
+    unauthorized: You are unauthorized to perform this action.

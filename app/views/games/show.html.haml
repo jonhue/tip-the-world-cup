@@ -3,7 +3,7 @@
 = link_to t('games.show.all_games'), games_url, class: 'myg-text__hyperlink -inherit'
 %h1.sm= @game.name
 
-%h3= t('leaderboard')
+%h3= t('d.leaderboard')
 .myg-card__container
   - @participants.each do |participant|
     = render participant
@@ -15,7 +15,7 @@
     = render match, game: @game
   = link_to t('games.show.browse_matches'), game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
 
-%h3= t('rules')
+%h3= t('d.rules')
 .myg-list--contained
   .myg-list__item= t('games.show.rules.bet', bet: @game.bet || t('none'))
   .myg-list__item= t('games.show.rules.match', rule_match: @game.rule_match)
@@ -25,11 +25,11 @@
 %p.sm= t('games.show.rules.penalties')
 
 - if can? :update, @game
-  %h3= t('manage')
+  %h3= t('d.manage')
   .myg-button__container.myg-grid__flex
     = link_to t('games.show.invite'), new_game_invitation_url(game_id: @game.to_param), class: 'myg-button'
-    = link_to t('delete'), game_url(id: @game.to_param), method: :delete, class: 'myg-button--secondary -error', data: { confirm: 'Are you sure?' }
+    = link_to t('d.delete'), game_url(id: @game.to_param), method: :delete, class: 'myg-button--secondary -error', data: { confirm: 'Are you sure?' }
 
 - if current_user.participants.find_by(game: @game).nil?
   = link_to t('games.show.join'), new_game_participant_url(game_id: @game.to_param), class: 'myg-button'
-  %p.sm= t('games.show.rules.bet', bet: @game.bet || t('none'))
+  %p.sm= t('games.show.rules.bet', bet: @game.bet || t('d.none'))

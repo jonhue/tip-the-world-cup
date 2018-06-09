@@ -1,14 +1,14 @@
-- meta title: t('login')
+- meta title: t('d.login')
 
-%h1= t('login')
+%h1= t('d.login')
 %p= t('devise.sessions.new.content')
 
 = simple_form_for resource, as: resource_name, url: user_session_url do |f|
-    = component 'myg/form-field', as: :input, attribute: :email, class_name: 'user', floating_label: t('email'), input_html: { required: true, type: 'email', autofocus: true }
-    = component 'myg/form-field', as: :input, attribute: :password, class_name: 'user', floating_label: t('password'), input_html: { required: true, type: 'password', minlength: 6 }
+    = component 'myg/form-field', as: :input, attribute: :email, class_name: 'user', floating_label: t('d.email'), input_html: { required: true, type: 'email', autofocus: true }
+    = component 'myg/form-field', as: :input, attribute: :password, class_name: 'user', floating_label: t('d.password'), input_html: { required: true, type: 'password', minlength: 6 }
     = component 'myg/form-field', as: :checkbox, attribute: :remember_me, class_name: 'user', inline_label: t('devise.sessions.new.remember_me'), input_html: { input_html: { checked: true } } if devise_mapping.rememberable?
     .myg-grid__flex.-space-between
         %p.sm
-            = link_to t('signup'), new_user_registration_url(app: params[:app]), class: 'myg-text__hyperlink -inherit'
+            = link_to t('d.signup'), new_user_registration_url(app: params[:app]), class: 'myg-text__hyperlink -inherit'
             -# = link_to 'Forgot password?', new_user_password_url, class: 'myg-text__hyperlink -inherit'
-        = component 'myg/button', value: t('login')
+        = component 'myg/button', value: t('d.login')

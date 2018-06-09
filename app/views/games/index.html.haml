@@ -1,4 +1,4 @@
-- meta title: t('overview')
+- meta title: t('d.overview')
 
 %h1= t('games.index.hi', name: current_user.name)
 
@@ -10,7 +10,7 @@
       %h4= t('games.index.new.title')
       %p.sm= t('games.index.new.content')
 
-%h3= t('invitations')
+%h3= t('d.invitations')
 - if @invitations.any?
   .myg-card__container
     - @invitations&.each do |invitation|
@@ -18,6 +18,6 @@
 - else
   %p= t('games.index.no_invitations')
 
-%h3= t('account')
+%h3= t('d.account')
 .myg-button__container.myg-grid__flex
-  = link_to t('signout'), destroy_user_session_url, method: :delete, class: 'myg-button--secondary -error'
+  = link_to t('d.signout'), destroy_user_session_url, method: :delete, class: 'myg-button--secondary -error'

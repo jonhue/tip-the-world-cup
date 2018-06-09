@@ -9,7 +9,7 @@
     %p= t('nations.show.fans', name: @nation.name)
 
 .content-wrapper
-  %h3= t('matches')
+  %h3= t('d.matches')
   .myg-card__container
     - @matches.each do |match|
       = render match, game: @game
