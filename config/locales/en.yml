@@ -27,4 +27,6 @@ en:
   time:
     formats:
       default: "%b %-d, %I:%M %P"
-      date: "%B %-d"
+  date:
+    formats:
+      default: "%B %-d"
