@@ -4,9 +4,11 @@ en:
   delete: Delete
   email: Email
   invitations: Invitations
+  invite: Invite
   leaderboard: Leaderboard
   login: Login
   manage: Manage
+  message: Message
   name: Name
   none: None
   overview: Overview

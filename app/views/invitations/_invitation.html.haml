@@ -1,6 +1,4 @@
 = link_to new_game_participant_url(game_id: invitation.game.to_param), class: 'invitation' do
   .myg-card
     %h4= invitation.game.name
-    %p.sm
-      = invitation.game.user.name
-      invited you
+    %p.sm= t('invitations._invitation.content', name: invitation.game.user.name)
