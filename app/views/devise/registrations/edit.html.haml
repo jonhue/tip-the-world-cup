@@ -9,7 +9,8 @@
 
 %h3= t('d.account')
 = simple_form_for resource, as: resource_name, url: user_registration_url, html: { method: :put } do |f|
-  = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', label: t('d.first_name'), input_html: { required: true, value: resource.name, autofocus: true }
+  = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', label: t('d.first_name'), input_html: { required: true, value: resource.name }
+  = component 'myg/form-field', as: :input, attribute: :password, class_name: 'user', label: t('d.password'), input_html: { required: true, type: :password }
 
   .myg-button__container.myg-grid__flex.-reverse
     = component 'myg/button', value: t('devise.registrations.edit.submit')
