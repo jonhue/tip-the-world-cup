@@ -1,5 +1,4 @@
 class Participant < ApplicationRecord
-  before_create :check_if_tournament_started
   before_create :check_if_already_participating
 
   belongs_to :game
@@ -37,10 +36,6 @@ class Participant < ApplicationRecord
   end
 
   private
-
-  def check_if_tournament_started
-    throw(:abort) if Match.all.order(:begins_at).first.begins_at < DateTime.now
-  end
 
   def check_if_already_participating
     throw(:abort) if self.game.participants.where(user_id: self.user.id).any?
