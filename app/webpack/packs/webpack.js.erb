@@ -14,7 +14,7 @@ import 'onsignal/dist/OneSignalSDK';
 import OnSignal from 'onsignal';
 document.addEventListener( 'DOMContentLoaded', () => {
   window.onSignal = new OnSignal( '<%= Rails.application.credentials.onesignal[:app_id] %>', {} );
-  if (document.querySelector('body.devise.registrations.edit').length > 0) {
+  if (document.querySelector('body.devise.registrations.edit')) {
     let button = document.querySelector('#enableNotifications');
     if (onSignal.isSubscribed()) {
       button.classList.add('-disabled');
