@@ -38,9 +38,9 @@ class GamesController < ApplicationController
     authorize! :create, @game
 
     if @game.save
-      redirect_to new_game_participant_url(game_id: @game.to_param), notice: 'Game was successfully created.'
+      redirect_to new_game_participant_url(game_id: @game.to_param), notice: I18n.t('games.create.success')
     else
-      redirect_to new_game_url, alert: 'Could not create game.'
+      redirect_to new_game_url, alert: I18n.t('games.create.error')
     end
   end
 
@@ -49,9 +49,9 @@ class GamesController < ApplicationController
     authorize! :update, @game
 
     if @game.update game_params
-      redirect_to @game, notice: 'Game was successfully updated.'
+      redirect_to @game, notice: I18n.t('games.update.success')
     else
-      redirect_to @game, alert: 'Could not update game.'
+      redirect_to @game, alert: I18n.t('games.update.error')
     end
   end
 
@@ -59,7 +59,7 @@ class GamesController < ApplicationController
   def destroy
     authorize! :destroy, @game
     @game.destroy
-    redirect_to games_url, notice: 'Game was successfully destroyed.'
+    redirect_to games_url, notice: I18n.t('games.destroy.success')
   end
 
   private

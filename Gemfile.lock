@@ -76,6 +76,7 @@ GEM
     bootsnap (1.3.0)
       msgpack (~> 1.0)
     brakeman (4.3.0)
+    browser (1.1.0)
     builder (3.2.3)
     byebug (10.0.2)
     cancancan (2.2.0)
@@ -393,6 +394,7 @@ DEPENDENCIES
   binding_of_caller (~> 0.8.0)
   bootsnap (>= 1.1.0)
   brakeman
+  browser (~> 1.1)
   byebug
   cancancan (~> 2.2)
   capybara (>= 2.15, < 4.0)

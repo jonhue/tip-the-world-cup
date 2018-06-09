@@ -1,0 +1,5 @@
+en:
+  games:
+    update:
+      success: Game was successfully updated.
+      error: Could not update game.

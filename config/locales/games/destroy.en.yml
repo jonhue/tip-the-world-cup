@@ -1,0 +1,4 @@
+en:
+  games:
+    destroy:
+      success: Game was successfully destroyed.

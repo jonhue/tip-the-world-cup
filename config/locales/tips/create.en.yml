@@ -1,0 +1,5 @@
+en:
+  tips:
+    create:
+      success: Tip was successfully created.
+      error: Could not create tip.

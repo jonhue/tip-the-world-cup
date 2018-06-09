@@ -1,0 +1,5 @@
+en:
+  tips:
+    update:
+      success: Tip was successfully updated.
+      error: Could not update tip.

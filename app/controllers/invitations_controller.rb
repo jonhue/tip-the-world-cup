@@ -8,7 +8,7 @@ class InvitationsController < ApplicationController
   # GET /app/1/invitations/1
   def show
     unless params[:token] == @invitation.token
-      redirect_to root_url, alert: 'Token invalid.'
+      redirect_to root_url, alert: I18n.t('invitations.show.token_invalid')
     end
     turbolinks_animate 'fadein'
     render layout: 'application'
@@ -26,9 +26,9 @@ class InvitationsController < ApplicationController
     @invitation = @game.invitations.build invitation_params
 
     if @invitation.save
-      redirect_to @game, notice: 'Invitation was successfully sent.'
+      redirect_to @game, notice: I18n.t('invitations.create.success')
     else
-      redirect_to @game, alert: 'Could not send invitation.'
+      redirect_to @game, alert: I18n.t('invitations.create.error')
     end
   end
 

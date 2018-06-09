@@ -1,0 +1,4 @@
+en:
+  invitations:
+    show:
+      token_invalid: Token invalid.

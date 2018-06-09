@@ -40,9 +40,9 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new participant_params.merge(nation_id: Nation.find_by(name: params[:commit])&.id)
 
     if @participant.save
-      redirect_to @game, notice: 'You are now participating.'
+      redirect_to @game, notice: I18n.t('participants.create.success')
     else
-      redirect_to new_game_participant_url(game_id: @game.to_param), alert: 'Could not create participation.'
+      redirect_to new_game_participant_url(game_id: @game.to_param), alert: I18n.t('participants.create.error')
     end
   end
 

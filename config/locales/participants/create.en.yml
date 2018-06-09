@@ -1,0 +1,5 @@
+en:
+  participants:
+    create:
+      success: You are now participating.
+      error: We're unable to add you as participant.

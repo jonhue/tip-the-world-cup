@@ -1,0 +1,5 @@
+en:
+  games:
+    create:
+      success: Game was successfully created.
+      error: Could not create game.

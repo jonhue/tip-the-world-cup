@@ -1,0 +1,5 @@
+en:
+  invitations:
+    create:
+      success: Invitation was successfully sent.
+      error: Could not send invitation.
