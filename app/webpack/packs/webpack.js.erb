@@ -13,9 +13,7 @@ document.addEventListener( 'turbolinks:load', () => {
 import 'onsignal/dist/OneSignalSDK';
 import OnSignal from 'onsignal';
 document.addEventListener( 'DOMContentLoaded', () => {
-  window.onSignal = new OnSignal( '<%= Rails.application.credentials.onesignal[:app_id] %>', {
-    autoRegister: true
-  });
+  window.onSignal = new OnSignal( '<%= Rails.application.credentials.onesignal[:app_id] %>', {} );
 })
 
 import './../javascripts/myg/index';

@@ -2,5 +2,5 @@ de:
   devise:
     registrations:
       edit:
-        title: Einstellungen
-        submit: Update account
+        notifications: Sofern Du dies wünscht, können wir Dich erinnern Deinen Tipp einzutragen, bevor ein Spiel startet.
+        submit: Account aktualisieren

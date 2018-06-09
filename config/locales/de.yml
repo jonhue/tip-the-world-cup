@@ -17,11 +17,12 @@ de:
     message: Nachricht
     name: Name
     none: Nichts
+    notifications: Benachrichtigungen
     overview: Überblick
     password: Passwort
     private: Privat
     rules: Regeln
-    settings: Settings
+    settings: Einstellungen
     signout: Abmelden
     signup: Registrieren
     tips: Tipps

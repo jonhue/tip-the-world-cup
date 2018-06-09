@@ -1,7 +1,13 @@
-- meta title: t('devise.registrations.edit.title')
+- meta title: t('d.settings')
 
-%h1.sm= t('devise.registrations.edit.title')
+%h1.sm= t('d.settings')
 
+%h3= t('d.notifications')
+%p= t('devise.registrations.edit.notifications')
+.myg-button__container
+  = link_to 'Enable notifications', 'javascript:void(0)', onclick: 'onSignal.subscribe();', class: 'myg-button--secondary'
+
+%h3= t('d.account')
 = simple_form_for resource, as: resource_name, url: user_registration_url, html: { method: :put } do |f|
   = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', label: t('d.first_name'), input_html: { required: true, value: resource.name, autofocus: true }
 

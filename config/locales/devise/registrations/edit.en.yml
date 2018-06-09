@@ -2,5 +2,5 @@ en:
   devise:
     registrations:
       edit:
-        title: Settings
-        submit: Account aktualisieren
+        notifications: If you want to, we can remind you to enter your tip when a game is about to start.
+        submit: Update account
