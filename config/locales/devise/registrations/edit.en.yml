@@ -3,4 +3,5 @@ en:
     registrations:
       edit:
         notifications: If you want to, we can remind you to enter your tip when a game is about to start.
+        enable_notifications: Enable notifications
         submit: Update account

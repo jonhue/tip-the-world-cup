@@ -5,7 +5,7 @@
 %h3= t('d.notifications')
 %p= t('devise.registrations.edit.notifications')
 .myg-button__container
-  = link_to 'Enable notifications', 'javascript:void(0)', onclick: 'onSignal.subscribe();', class: 'myg-button--secondary'
+  = link_to t('devise.registrations.edit.enable_notifications'), 'javascript:void(0)', class: 'myg-button--secondary', id: 'enableNotifications'
 
 %h3= t('d.account')
 = simple_form_for resource, as: resource_name, url: user_registration_url, html: { method: :put } do |f|

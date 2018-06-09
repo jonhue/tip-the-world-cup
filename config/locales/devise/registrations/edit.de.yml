@@ -3,4 +3,5 @@ de:
     registrations:
       edit:
         notifications: Sofern Du dies wünscht, können wir Dich erinnern Deinen Tipp einzutragen, bevor ein Spiel startet.
+        enable_notifications: Benachrichtigungen aktivieren
         submit: Account aktualisieren
