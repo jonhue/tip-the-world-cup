@@ -10,12 +10,12 @@
     .tip-wrapper
       = component 'flag', nation: match.home, size: 'tn'
       %p.sm
-        = Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.home_goals || '?'
+        = current_user ? Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.home_goals || '?' : '?'
         = ':'
-        = Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.away_goals || '?'
+        = current_user ? Tip.includes(:participant).find_by(match_id: match.id, participants: { game: game, user: current_user })&.away_goals || '?' : '?'
       = component 'flag', nation: match.away, size: 'tn'
     %p.sm
-      - if current_user.participants.find_by(game: game)
+      - if current_user && current_user.participants.find_by(game: game)
         = t('matches._match.tips_by_others.content', n_participants: pluralize(match.count_tips_by_others(current_user.participants.find_by(game: game)), t('matches._match.tips_by_others.other_person'), t('matches._match.tips_by_others.others')))
         ·
       = l(match.begins_at)
