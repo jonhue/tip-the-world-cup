@@ -17,15 +17,19 @@ document.addEventListener( 'DOMContentLoaded', () => {
 })
 document.addEventListener( 'turbolinks:load', () => {
   if (document.querySelector('body.users.registrations.edit')) {
-    let button = document.querySelector('#enableNotifications');
-    if (onSignal.isSubscribed()) {
-      button.classList.add('-disabled');
-    }
-    button.addEventListener( 'click', () => {
+    disableNotificationButton();
+    document.querySelector('#enableNotifications').addEventListener( 'click', () => {
       onSignal.subscribe();
+      disableNotificationButton();
     });
   }
 })
+
+function disableNotificationButton() {
+  if (onSignal.isSubscribed()) {
+    document.querySelector('#enableNotifications').classList.add('-disabled');
+  }
+}
 
 import './../javascripts/myg/index';
 
