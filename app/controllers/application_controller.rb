@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_ability
+    @current_ability ||= Ability.new(current_user || User.new)
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     render_r404 :access_denied, 403, exception
   end

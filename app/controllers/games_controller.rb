@@ -17,15 +17,11 @@ class GamesController < ApplicationController
   # GET /app/1
   def show
     authorize! :read, @game
-    if current_user
-      @participants = @game.participants.leaderboard.take(3)
-      authorizes! :read, @participants
-      @matches = Match.future.limit(3).order(:begins_at)
-      authorizes! :read, @matches
-      turbolinks_animate 'fadein'
-    else
-      redirect_to new_user_registration_url(game_id: @game.to_param)
-    end
+    @participants = @game.participants.leaderboard.take(3)
+    authorizes! :read, @participants
+    @matches = Match.future.limit(3).order(:begins_at)
+    authorizes! :read, @matches
+    turbolinks_animate 'fadein'
   end
 
   # GET /app/new

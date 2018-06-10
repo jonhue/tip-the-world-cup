@@ -14,4 +14,7 @@ en:
         miss: "Points for Miss: %{rule_miss}"
         penalties: When a fixture is decided in penalties only points for Tendency and Miss are awarded.
       invite: Invite fellow tippers
-      join: Join the fun
+      join:
+        title: Join the fun
+        content: Everyone with a link can participate in this game!
+        submit: Join now

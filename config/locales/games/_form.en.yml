@@ -15,5 +15,6 @@ en:
         title: Points for Miss
         content: Points awarded if a the tendency of a game has not been tipped correctly.
       bet: Specify a reward for the winner.
+      bet_placeholder: None / 5$
       private: No one but you and your invited friends can see this game.
       submit: Create game

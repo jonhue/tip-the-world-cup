@@ -21,7 +21,27 @@ body.games.show
       .myg-list__item
         &:first-child
           background: myg-theme__color(background, darker)
-    & > .myg-button
-      margin-top: myg-spacing(6)
-    & > p.sm
-      margin: myg-spacing(2) 0
+    #join
+      background: myg-theme__color(accent, base)
+      margin: 0 myg-spacing(-4) myg-spacing(8)
+      padding: myg-spacing(7) myg-spacing(4)
+      h2, p
+        color: myg-theme__color(accent, contrast)
+      h2
+        margin: 0
+      p:not(.sm)
+        margin: myg-spacing(2) 0 myg-spacing(7)
+        opacity: .6
+      p.sm
+        text-align: center
+        font-weight: bold
+        margin-bottom: 0
+      .myg-button--light
+        position: relative
+        top: 0
+        +myg-animate__transition
+        &:hover, &:focus, &:active
+          top: myg__px(-2)
+          background: myg-theme__color(accent, contrast)
+          &, span
+              color: myg-theme__color(accent, base)

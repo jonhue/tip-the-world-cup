@@ -3,6 +3,19 @@
 = link_to t('games.show.all_games'), games_url, class: 'myg-text__hyperlink -inherit'
 %h1.sm= @game.name
 
+- if current_user.nil?
+  #join
+    %h2= t('games.show.join.title')
+    %p= t('games.show.join.content')
+    = link_to t('games.show.join.submit'), new_user_registration_url(game_id: @game.to_param), class: 'myg-button--light'
+    %p.sm= t('games.show.rules.bet', bet: @game.bet || t('d.none'))
+- elsif current_user.participants.find_by(game: @game).nil?
+  #join
+    %h2= t('games.show.join.title')
+    %p= t('games.show.join.content')
+    = link_to t('games.show.join.submit'), new_game_participant_url(game_id: @game.to_param), class: 'myg-button--light'
+    %p.sm= t('games.show.rules.bet', bet: @game.bet || t('d.none'))
+
 %h3= t('d.leaderboard')
 .myg-card__container
   - @participants.each do |participant|
@@ -29,7 +42,3 @@
   .myg-button__container.myg-grid__flex
     = link_to t('games.show.invite'), new_game_invitation_url(game_id: @game.to_param), class: 'myg-button'
     = link_to t('d.delete'), game_url(id: @game.to_param), method: :delete, class: 'myg-button--secondary -error', data: { confirm: t('d.are_you_sure') }
-
-- if current_user.participants.find_by(game: @game).nil?
-  = link_to t('games.show.join'), new_game_participant_url(game_id: @game.to_param), class: 'myg-button'
-  %p.sm= t('games.show.rules.bet', bet: @game.bet || t('d.none'))

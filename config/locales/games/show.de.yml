@@ -14,4 +14,7 @@ de:
         miss: "Punkte für ein Miss: %{rule_miss}"
         penalties: Wenn ein Spiel im Elfmeterschießen entschieden wird, werden nur Punkte für Tendenz und Miss vergeben.
       invite: Tipper einladen
-      join: Tippspiel beitreten
+      join:
+        title: Tippspiel beitreten
+        content: Jeder mit einem Link kann diesem Tippspiel beitreten!
+        submit: Jetzt beitreten
