@@ -4,4 +4,6 @@ en:
       edit:
         notifications: If you want to, we can remind you to enter your tip when a game is about to start.
         enable_notifications: Enable notifications
+        new_password: New password
+        current_password: Current password
         submit: Update account

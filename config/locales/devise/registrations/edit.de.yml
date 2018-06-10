@@ -4,4 +4,6 @@ de:
       edit:
         notifications: Sofern Du dies wünscht, können wir Dich erinnern Deinen Tipp einzutragen, bevor ein Spiel startet.
         enable_notifications: Benachrichtigungen aktivieren
+        new_password: Neues Passwort
+        current_password: Aktuelles Passwort
         submit: Account aktualisieren
