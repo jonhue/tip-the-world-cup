@@ -1,5 +1,6 @@
 class Invitation < ApplicationRecord
   before_validation :create_token, on: :create
+  before_create :check_if_already_participating
   after_create :associate_with_user
   after_create_commit :send_invitation
 
@@ -23,6 +24,10 @@ class Invitation < ApplicationRecord
     begin
       self.token = SecureRandom.hex
     end while self.class.where(token: self.token).exists?
+  end
+
+  def check_if_already_participating
+    throw(:abort) if self.game.participants.where(user_id: self.user.id).any?
   end
 
   def associate_with_user
