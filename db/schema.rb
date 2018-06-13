@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_09_102837) do
+ActiveRecord::Schema.define(version: 2018_05_26_150216) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(version: 2018_06_09_102837) do
     t.bigint "away_id"
     t.integer "home_goals"
     t.integer "away_goals"
+    t.integer "home_penalties"
+    t.integer "away_penalties"
+    t.boolean "finished", default: false, null: false
     t.datetime "begins_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "finished", default: false, null: false
-    t.integer "home_penalties"
-    t.integer "away_penalties"
     t.index ["away_id"], name: "index_matches_on_away_id"
     t.index ["home_id"], name: "index_matches_on_home_id"
   end
@@ -144,9 +144,9 @@ ActiveRecord::Schema.define(version: 2018_06_09_102837) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "name"
+    t.string "locale"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "locale"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

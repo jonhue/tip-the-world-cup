@@ -11,11 +11,18 @@ class Livescore
   private
 
   def fetch_livescore(home, away)
+    arr = []
     doc = Nokogiri::HTML(open(create_google_url(home, away)))
     content = doc.css('div.VewdRc div.eb7Tab > div').first&.content
-    goals = content&.split('(')&.first&.split(' - ')
-    penalties = content&.split('(')&.last&.tr(')', '')&.split(' - ')
-    return goals[0]&.to_i, goals[1]&.to_i, penalties[0]&.to_i, penalties[1]&.to_i
+    if goals = content&.split('(')&.first&.split(' - ')
+      arr << goals[0]&.to_i
+      arr << goals[1]&.to_i
+    end
+    if content&.split('(')&.length == 2 && penalties = content&.split('(')&.last&.tr(')', '')&.split(' - ')
+      arr << penalties[0]&.to_i
+      arr << penalties[1]&.to_i
+    end
+    arr
   end
 
   def create_google_url(home, away)
