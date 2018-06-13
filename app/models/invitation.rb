@@ -27,7 +27,11 @@ class Invitation < ApplicationRecord
   end
 
   def check_if_already_participating
-    throw(:abort) if self.game.participants.where(user_id: self.user.id).any?
+    if self.user.present?
+      throw(:abort) if self.game.participants.where(user_id: self.user.id).any?
+    else
+      throw(:abort) if self.game.participants.includes(:user).where(users: { email: self.email }).any?
+    end
   end
 
   def associate_with_user
