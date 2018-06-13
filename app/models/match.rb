@@ -10,6 +10,7 @@ class Match < ApplicationRecord
   scope :past, -> { where('begins_at < ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
   scope :future, -> { where('begins_at >= ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
   scope :live, -> { past.where(finished: false) }
+  scope :soon, -> { future.where('begins_at < ?', (Rails.env.production? ? DateTime.tomorrow.strftime('%Y-%m-%d %H:%M:%S') : DateTime.tomorrow.strftime('%Y-%d-%m %H:%M:%S'))) }
 
   def live?
     self.home_goals && self.away_goals && !self.finished
