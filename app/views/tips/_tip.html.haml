@@ -20,7 +20,7 @@
         %p.sm= tip.match.home.name
         %h4= "#{tip.home_goals} : #{tip.away_goals}"
         %p.sm= tip.match.away.name
-      .match-wrapper{ class: ('live' if match.live?) }
+      .match-wrapper{ class: ('live' if tip.match.live?) }
         = component 'flag', nation: tip.match.home, size: 'tn'
         %p.sm
           = tip.match.home_penalties || tip.match.home_goals || '-'
