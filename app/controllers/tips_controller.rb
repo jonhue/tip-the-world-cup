@@ -8,7 +8,7 @@ class TipsController < ApplicationController
 
   # GET /app/1/participants/1/tips
   def index
-    @matches = Match.all.order(:begins_at)
+    @matches = Match.future.order(:begins_at)
     authorizes! :read, @matches
     turbolinks_animate 'fadein'
   end
