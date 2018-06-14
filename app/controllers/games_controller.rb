@@ -19,8 +19,10 @@ class GamesController < ApplicationController
     authorize! :read, @game
     @participants = @game.participants.leaderboard.take(3)
     authorizes! :read, @participants
-    @matches = Match.future.limit(3).order(:begins_at)
-    authorizes! :read, @matches
+    @current_matches = Match.live.order(:begins_at)
+    @next_matches = Match.future.limit(3).order(:begins_at)
+    authorizes! :read, @current_matches
+    authorizes! :read, @next_matches
     turbolinks_animate 'fadein'
   end
 

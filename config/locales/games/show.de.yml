@@ -4,6 +4,7 @@ de:
       title: "%{name} Übersicht"
       all_games: Alle Tippspiele
       full_leaderboard: Vollständige Besteliste
+      current_matches: Aktuelle Spiele
       next_matches: Nächste Spiele
       browse_matches: Spiele durchsuchen
       rules:

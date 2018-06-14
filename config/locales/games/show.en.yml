@@ -4,6 +4,7 @@ en:
       title: "%{name} dashboard"
       all_games: All games
       full_leaderboard: Full leaderboard
+      current_matches: Current matches
       next_matches: Next matches
       browse_matches: Browse matches
       rules:
