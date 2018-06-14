@@ -8,7 +8,7 @@ class NationsController < ApplicationController
   # GET /app/1/nations/1
   def show
     authorize! :read, @nation
-    @matches = @nation.matches
+    @matches = @nation.matches.order(:begins_at)
     authorizes! :read, @matches
     turbolinks_animate 'fadeinright'
   end
