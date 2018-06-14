@@ -15,7 +15,7 @@ class Livescore
     doc = Nokogiri::HTML(open(create_google_url(home, away)))
     query = doc.css('div.VewdRc div.eb7Tab > div')
     content = query.first&.content
-    finished = query.last&.content == 'Endstand'
+    finished = query.last&.content == 'Final'
     if goals = content&.split('(')&.first&.split(' - ')
       arr << goals[0]&.to_i
       arr << goals[1]&.to_i
