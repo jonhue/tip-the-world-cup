@@ -16,7 +16,7 @@ class Tip < ApplicationRecord
 
   def earned_points
     return 0 unless self.match.goals_available?
-    if self.correct?
+    if self.match?
       return self.participant.game.rule_match
     elsif self.goal_difference?
       return self.participant.game.rule_goal_difference
@@ -27,9 +27,7 @@ class Tip < ApplicationRecord
     end
   end
 
-  private
-
-  def correct?
+  def match?
     return false if self.match.penalties?
     self.home_goals == self.match.home_goals && self.away_goals == self.match.away_goals
   end
@@ -46,6 +44,8 @@ class Tip < ApplicationRecord
       self.home_goals < self.away_goals && self.match.home_goals < self.match.away_goals || self.home_goals > self.away_goals && self.match.home_goals > self.match.away_goals || self.home_goals == self.away_goals && self.match.home_goals == self.match.away_goals
     end
   end
+
+  private
 
   def check_if_match_started
     throw(:abort) if self.match.begins_at.past?
