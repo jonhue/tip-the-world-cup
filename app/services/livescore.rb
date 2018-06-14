@@ -3,9 +3,8 @@ require 'open-uri'
 
 class Livescore
   def perform(match:)
-    home_goals, away_goals, home_penalties, away_penalties, finished = fetch_livescore(match.home.name, match.away.name)
+    finished, home_goals, away_goals, home_penalties, away_penalties = fetch_livescore(match.home.name, match.away.name)
     return if home_goals.nil? || away_goals.nil?
-    finished = match.finished if finished.nil?
     match.update_attributes(home_goals: home_goals, away_goals: away_goals, home_penalties: home_penalties, away_penalties: away_penalties, finished: finished)
   end
 
@@ -17,6 +16,7 @@ class Livescore
     query = doc.css('div.VewdRc div.eb7Tab > div')
     content = query.first&.content
     finished = query.last&.content == 'Final'
+    arr << finished
     if goals = content&.split('(')&.first&.split(' - ')
       arr << goals[0]&.to_i
       arr << goals[1]&.to_i
@@ -25,7 +25,8 @@ class Livescore
       arr << penalties[0]&.to_i
       arr << penalties[1]&.to_i
     end
-    arr << finished
+    require 'pry'
+    binding.pry
     arr
   end
 
