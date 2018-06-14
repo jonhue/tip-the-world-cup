@@ -25,8 +25,6 @@ class Livescore
       arr << penalties[0]&.to_i
       arr << penalties[1]&.to_i
     end
-    require 'pry'
-    binding.pry
     arr
   end
 
