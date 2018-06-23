@@ -112,7 +112,7 @@ end
 
 group :production do
   gem 'pg', '~> 1.0'
-  gem 'rack-timeout', '~> 0.4.2'
+  gem 'rack-timeout', '~> 0.5.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

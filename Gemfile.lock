@@ -239,7 +239,7 @@ GEM
       rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
-    rack-timeout (0.4.2)
+    rack-timeout (0.5.1)
     rails (5.2.0)
       actioncable (= 5.2.0)
       actionmailer (= 5.2.0)
@@ -425,7 +425,7 @@ DEPENDENCIES
   puma (~> 3.11)
   pwa (~> 4.0)
   r404 (~> 2.0)
-  rack-timeout (~> 0.4.2)
+  rack-timeout (~> 0.5.1)
   rails (~> 5.2.0)
   randomize_id (~> 1.0)
   rspec-rails (~> 3.7)
