@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   def user_location_detected_locale
     language = browser.accept_language.first
     return nil unless language
-    locale = language.split('-').first.to_sym
+    locale = language.code.to_sym
     return nil if locale != 'en' && locale != 'de'
     locale
   end
