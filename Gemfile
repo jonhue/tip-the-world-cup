@@ -80,7 +80,7 @@ gem 'modalist', '~> 2.3'
 # API requests
 gem 'httparty', '~> 0.16.2'
 # Language detection
-gem 'browser', '~> 1.1'
+gem 'browser', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
