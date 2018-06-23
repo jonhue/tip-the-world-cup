@@ -47,9 +47,16 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+<<<<<<< HEAD
     aws-eventstream (1.0.0)
     aws-partitions (1.90.0)
     aws-sdk-core (3.21.2)
+=======
+    ast (2.4.0)
+    aws-eventstream (1.0.1)
+    aws-partitions (1.93.0)
+    aws-sdk-core (3.21.3)
+>>>>>>> 7464944c688aaea9de71cc34d02f5094676132fd
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -57,7 +64,7 @@ GEM
     aws-sdk-kms (1.5.0)
       aws-sdk-core (~> 3)
       aws-sigv4 (~> 1.0)
-    aws-sdk-s3 (1.13.0)
+    aws-sdk-s3 (1.14.0)
       aws-sdk-core (~> 3, >= 3.21.2)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.0)
@@ -74,11 +81,16 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
+<<<<<<< HEAD
     browser (1.1.0)
+=======
+    brakeman (4.3.1)
+    browser (2.5.3)
+>>>>>>> 7464944c688aaea9de71cc34d02f5094676132fd
     builder (3.2.3)
     byebug (10.0.2)
     cancancan (2.2.0)
-    capybara (3.2.0)
+    capybara (3.2.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -117,9 +129,9 @@ GEM
       activesupport (>= 3.0.0)
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.23)
-    ffi (1.9.23-x64-mingw32)
-    ffi (1.9.23-x86-mingw32)
+    ffi (1.9.25)
+    ffi (1.9.25-x64-mingw32)
+    ffi (1.9.25-x86-mingw32)
     friendly_id (5.2.4)
       activerecord (>= 4.0.0)
     globalid (0.4.1)
@@ -134,13 +146,14 @@ GEM
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
+    jaro_winkler (1.5.1)
     jmespath (1.4.0)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
-    mailgun-ruby (1.1.9)
+    mailgun-ruby (1.1.10)
       rest-client (~> 2.0)
     marcel (0.3.2)
       mimemagic (~> 0.3.2)
@@ -182,11 +195,11 @@ GEM
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
     nio4r (2.3.1)
-    nokogiri (1.8.2)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.2-x64-mingw32)
+    nokogiri (1.8.3-x64-mingw32)
       mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.2-x86-mingw32)
+    nokogiri (1.8.3-x86-mingw32)
       mini_portile2 (~> 2.3.0)
     notification-handler (1.2.5)
       activerecord (>= 5.0)
@@ -209,6 +222,10 @@ GEM
     pg (1.0.0)
     pg (1.0.0-x64-mingw32)
     pg (1.0.0-x86-mingw32)
+<<<<<<< HEAD
+=======
+    powerpack (0.1.2)
+>>>>>>> 7464944c688aaea9de71cc34d02f5094676132fd
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -228,7 +245,7 @@ GEM
       rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
-    rack-timeout (0.4.2)
+    rack-timeout (0.5.1)
     rails (5.2.0)
       actioncable (= 5.2.0)
       actionmailer (= 5.2.0)
@@ -295,6 +312,18 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
+<<<<<<< HEAD
+=======
+    rubocop (0.57.2)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.5)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.9.0)
+>>>>>>> 7464944c688aaea9de71cc34d02f5094676132fd
     rubyzip (1.2.1)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
@@ -313,12 +342,12 @@ GEM
     selenium-webdriver (3.12.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
-    sentry-raven (2.7.3)
+    sentry-raven (2.7.4)
       faraday (>= 0.7.6, < 1.0)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
-    sprockets (3.7.1)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -339,13 +368,17 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.5)
       tzinfo (>= 1.0.0)
-    uglifier (4.1.11)
+    uglifier (4.1.12)
       execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
     unf_ext (0.0.7.5-x64-mingw32)
     unf_ext (0.0.7.5-x86-mingw32)
+<<<<<<< HEAD
+=======
+    unicode-display_width (1.4.0)
+>>>>>>> 7464944c688aaea9de71cc34d02f5094676132fd
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.6.2)
@@ -370,10 +403,18 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3
+<<<<<<< HEAD
   better_errors
   binding_of_caller
   bootsnap
   browser
+=======
+  better_errors (~> 2.4)
+  binding_of_caller (~> 0.8.0)
+  bootsnap (>= 1.1.0)
+  brakeman
+  browser (~> 2.5)
+>>>>>>> 7464944c688aaea9de71cc34d02f5094676132fd
   byebug
   cancancan
   capybara (>= 2.15, < 4.0)
@@ -397,6 +438,7 @@ DEPENDENCIES
   notification-pusher-onesignal
   onsignal
   pg (~> 1.0)
+<<<<<<< HEAD
   pry-rails
   puma
   pwa
@@ -407,6 +449,19 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   search-engine-optimization
+=======
+  pry-rails (~> 0.3.6)
+  puma (~> 3.11)
+  pwa (~> 4.0)
+  r404 (~> 2.0)
+  rack-timeout (~> 0.5.1)
+  rails (~> 5.2.0)
+  randomize_id (~> 1.0)
+  rspec-rails (~> 3.7)
+  rubocop
+  sass-rails (~> 5.0)
+  search-engine-optimization (~> 1.2)
+>>>>>>> 7464944c688aaea9de71cc34d02f5094676132fd
   selenium-webdriver
   sentry-raven
   simple_form
