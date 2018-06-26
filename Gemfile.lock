@@ -310,7 +310,7 @@ GEM
     search-engine-optimization (1.2.0)
       mozaic (~> 2.0)
       railties (>= 5.0)
-    selenium-webdriver (3.12.0)
+    selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     sentry-raven (2.7.4)
