@@ -13,7 +13,7 @@
         = link_to game_participants_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
           %i.nc.nc-podium.nc-lg
           %p= t('d.leaderboard')
-        = link_to game_matches_url(game_id: @game.to_param), data: { turbolinks_animate_type: 'nav' } do
+        = link_to game_matches_url(game_id: @game.to_param, anchor: Match.next&.id), data: { turbolinks_animate_type: 'nav' } do
           %i.nc.nc-soccer-field.nc-lg
           %p= t('d.matches')
         = link_to game_participant_tips_url(game_id: @game.to_param, participant_id: @game.participants.find_by(user: current_user).to_param), data: { turbolinks_animate_type: 'nav' } do

@@ -1,5 +1,5 @@
 - meta title: t('matches.show.title', home: @match.home.name, away: @match.away.name)
-- replace :back_location, game_matches_url(game_id: @game.to_param)
+- replace :back_location, game_matches_url(game_id: @game.to_param, anchor: @match.id)
 
 .match-wrapper{ class: ('live' if @match.live?) }
   .result-wrapper

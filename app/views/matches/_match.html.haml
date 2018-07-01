@@ -1,4 +1,4 @@
-= link_to game_match_url(game_id: game.to_param, id: match.to_param), class: 'match', data: { turbolinks_animate_animation: 'fadeout' } do
+= link_to game_match_url(game_id: game.to_param, id: match.to_param), class: 'match', id: match.id, data: { turbolinks_animate_animation: 'fadeout' } do
   .myg-card
     .match-wrapper{ class: ('live' if match.live?) }
       %p.sm= match.home.name

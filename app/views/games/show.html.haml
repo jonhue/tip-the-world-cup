@@ -27,13 +27,13 @@
   .myg-card__container
     - @current_matches.each do |match|
       = render match, game: @game
-    = link_to t('games.show.browse_matches'), game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
+    = link_to t('games.show.browse_matches'), game_matches_url(game_id: @game.to_param, anchor: Match.next&.id), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
 
 %h3= t('games.show.next_matches')
 .myg-card__container
   - @next_matches.each do |match|
     = render match, game: @game
-  = link_to t('games.show.browse_matches'), game_matches_url(game_id: @game.to_param), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
+  = link_to t('games.show.browse_matches'), game_matches_url(game_id: @game.to_param, anchor: Match.next&.id), class: 'myg-text__hyperlink -inherit', data: { turbolinks_animate_type: 'nav' }
 
 %h3= t('d.rules')
 .myg-list--contained
