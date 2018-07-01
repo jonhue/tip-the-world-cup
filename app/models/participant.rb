@@ -28,8 +28,8 @@ class Participant < ApplicationRecord
   end
 
   def days_left_before_next_required_tip
-    if Match.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).any?
-      ((Match.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).order(:begins_at).first.begins_at - DateTime.now) / 1.day).round
+    if Match.future.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).any?
+      ((Match.future.includes(:tips).where('id NOT IN (SELECT DISTINCT(match_id) FROM tips WHERE tips.participant_id = ?)', self.id).order(:begins_at).first.begins_at - DateTime.now) / 1.day).round
     else
       Float::INFINITY
     end
