@@ -1,2 +1,1 @@
-# WINNER = Nation.find_by(name: '')
-WINNER = nil
+WINNER = Nation.find_by(name: 'France')
