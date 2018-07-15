@@ -2,3 +2,4 @@ en:
   tips:
     index:
       title: "%{name} tips"
+      none: There aren't any matches for you to tip.
