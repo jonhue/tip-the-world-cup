@@ -6,7 +6,7 @@ class Participant < ApplicationRecord
   belongs_to :nation
   has_many :tips, dependent: :destroy
 
-  scope :leaderboard, -> { all.sort_by { |participant| WINNER ? [participant.nation == WINNER, participant.earned_points] : participant.earned_points }.reverse }
+  scope :leaderboard, -> { all.sort_by { |participant| Nation::WINNER ? [participant.nation == Nation::WINNER, participant.earned_points] : participant.earned_points }.reverse }
 
   def earned_points
     self.tips.sum(&:earned_points)
@@ -14,8 +14,8 @@ class Participant < ApplicationRecord
 
   def position
     self.class.where(game: self.game).leaderboard.each_with_index do |participant, index|
-      if WINNER
-        if WINNER == self.nation
+      if Nation::WINNER
+        if Nation::WINNER == self.nation
           return index + 1 if participant.earned_points == self.earned_points && participant.nation == self.nation
         else
           return index + 1 if participant.earned_points == self.earned_points && participant.nation != self.nation
