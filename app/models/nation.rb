@@ -1,4 +1,6 @@
 class Nation < ApplicationRecord
+  WINNER = Nation.find_by(name: 'France')
+  
   extend FriendlyId
   friendly_id :name, use: :slugged
 
