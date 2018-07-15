@@ -2,3 +2,4 @@ de:
   tips:
     index:
       title: "%{name} Tipps"
+      none: Es gibt aktuell keine Spiele, die Du tippen kannst.
