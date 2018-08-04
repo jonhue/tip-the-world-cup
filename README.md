@@ -39,15 +39,15 @@ Dependencies are listed in the [.tool-versions](.tool-versions) file.
 
 ### Testing
 
-#### RSpec
+This project uses a number of packages for testing and linting:
 
-#### RuboCop
-
-#### HAML-Lint
-
-#### ESLint
-
-#### stylelint
+```
+$ bundle exec rspec
+$ bundle exec rubocop
+$ bundle exec haml-lint
+$ yarn run stylelint
+$ yarn run eslint
+```
 
 ### Deployment
 
