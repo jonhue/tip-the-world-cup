@@ -11,8 +11,8 @@ class Participant < ApplicationRecord
   scope :leaderboard, lambda {
     all.sort_by do |participant|
       if Nation::WINNER.present?
-        [participant.nation == Nation::WINNER ? 0 : 1,
-         participant.earned_points]
+        [participant.earned_points,
+         participant.nation == Nation::WINNER ? 0 : 1]
       else
         participant.earned_points
       end
