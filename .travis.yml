@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.5.1
+node:
+  - 9.11.2
 script:
   - bundle exec haml-lint
   - bundle exec rubocop
