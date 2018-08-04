@@ -6,7 +6,16 @@ AllCops:
     - db/schema.rb
     - node_modules/**/*
     - vendor/**/*
+    - spec/**/*_spec.rb
   TargetRubyVersion: 2.5
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*.rb
 
 Style/Documentation:
   Enabled: false
