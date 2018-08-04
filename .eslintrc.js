@@ -24,6 +24,8 @@ module.exports = {
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    "no-undef": 1,
+    "no-unused-vars": 1
   }
 };
