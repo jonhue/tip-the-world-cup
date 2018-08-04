@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Invitation < ApplicationRecord
   before_validation :create_token, on: :create
   before_create :check_if_already_participating
@@ -7,38 +9,41 @@ class Invitation < ApplicationRecord
   belongs_to :game
   belongs_to :user, optional: true
 
-  validates :email, presence: true, unless: lambda { |invitation| invitation.user.present? }
+  validates :email, presence: true, unless: lambda { |invitation|
+    invitation.user.present?
+  }
   validates :token, presence: true, uniqueness: true
 
   scope :accepted, -> { where(accepted: true) }
   scope :unaccepted, -> { where(accepted: false) }
 
   def accept
-    self.update_attributes(accepted: true)
-    return Participant.new(game: self.game, user: self.user || User.find_by(email: self.email))
+    update!(accepted: true)
+    Participant.new(game: game, user: user || User.find_by(email: email))
   end
 
   private
 
   def create_token
-    begin
+    loop do
       self.token = SecureRandom.hex
-    end while self.class.where(token: self.token).exists?
-  end
-
-  def check_if_already_participating
-    if self.user.present?
-      throw(:abort) if self.game.participants.where(user_id: self.user.id).any?
-    else
-      throw(:abort) if self.game.participants.includes(:user).where(users: { email: self.email }).any?
+      break unless self.class.where(token: token).exists?
     end
   end
 
+  def check_if_already_participating
+    return unless game.participants.where(user_id: user&.id).any? ||
+                  game.participants.includes(:user)
+                      .where(users: { email: email }).any?
+
+    throw(:abort)
+  end
+
   def associate_with_user
-    self.update_columns(user_id: User.find_by(email: self.email)&.id) unless self.user.present?
+    update_columns(user_id: User.find_by(email: email)&.id) unless user.present?
   end
 
   def send_invitation
-    InvitationMailer.invitation(self.game.user, self).deliver
+    InvitationMailer.invitation(game.user, self).deliver
   end
 end

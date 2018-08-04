@@ -1,16 +1,15 @@
 $myg-animate__animation: (
-    shake: (
-        duration: .82s,
-        easing: cubic-bezier(.36,.07,.19,.97) both
-    ),
-    bell: (
-        duration: 3s,
-        easing: ease-in-out
-    )
-);
-
+  shake: (
+    duration: 0.82s,
+    easing: cubic-bezier(0.36, 0.07, 0.19, 0.97) both
+  ),
+  bell: (
+    duration: 3s,
+    easing: ease-in-out
+  )
+) !default;
 
 $myg-animate__transition: (
-    duration: .15s,
-    easing: ease-out
-);
+  duration: 0.15s,
+  easing: ease-out
+) !default;

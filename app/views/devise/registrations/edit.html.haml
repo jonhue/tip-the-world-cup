@@ -8,7 +8,7 @@
   = link_to t('devise.registrations.edit.enable_notifications'), 'javascript:void(0)', class: 'myg-button--secondary', id: 'enableNotifications'
 
 %h3= t('d.account')
-= simple_form_for resource, as: resource_name, url: user_registration_url, authenticity_token: true, html: { method: :put } do |f|
+= simple_form_for resource, as: resource_name, url: user_registration_url, authenticity_token: true, html: { method: :put } do
   = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', floating_label: t('d.name'), input_html: { required: true, value: resource.name }
   = component 'myg/form-field', as: :input, attribute: :email, class_name: 'user', floating_label: t('d.email'), input_html: { required: true, type: 'email', value: resource.email }
   = component 'myg/form-field', as: :input, attribute: :password, class_name: 'user', floating_label: t('devise.registrations.edit.new_password'), input_html: { minlength: 6, type: :password }

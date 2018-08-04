@@ -1,0 +1,86 @@
+// @import "myg/src/myg"
+
+
+/* CUSTOMIZE MYG */
+
+/* Base */
+@import "myg-base/base";
+
+/* Style */
+@import "variables/_theme";
+@import "myg-theme/theme";
+@import "myg-font/font";
+
+/* Components */
+// @import "myg-action-button/action-button";
+@import "myg-animate/animate";
+@import "myg-badge/badge";
+@import "myg-button/button";
+@import "myg-card/card";
+@import "myg-checkbox/checkbox";
+// @import "myg-dialog/dialog";
+// @import "myg-drawer/drawer";
+// @import "myg-dropdown/dropdown";
+@import "myg-elevation/elevation";
+// @import "myg-footer/footer";
+@import "myg-form-field/form-field";
+@import "myg-grid/grid";
+@import "myg-hint/hint";
+@import "myg-input/input";
+@import "myg-label/label";
+@import "myg-layout/layout";
+@import "myg-list/list";
+// @import "myg-menu/menu";
+@import "myg-modal/modal";
+// @import "myg-progress/progress";
+// @import "myg-radio/radio";
+// @import "myg-select/select";
+// @import "myg-sidebar/sidebar";
+// @import "myg-slide/slide";
+// @import "myg-slider/slider";
+@import "myg-spacing/spacing";
+@import "myg-switch/switch";
+// @import "myg-tabs/tabs";
+@import "myg-text/text";
+// @import "myg-titlebar/titlebar";
+@import "myg-toast/toast";
+@import "myg-toolbar/toolbar";
+// @import "myg-tooltip/tooltip";
+
+/* Classes */
+@include myg__classes--animate;
+@include myg__classes--base;
+@include myg__classes--badge;
+@include myg__classes--button;
+@include myg__classes--card;
+@include myg__classes--checkbox;
+// @include myg__classes--drawer;
+// @include myg__classes--dropdown;
+@include myg__classes--elevation;
+@include myg__classes--font;
+// @include myg__classes--footer;
+@include myg__classes--form-field;
+@include myg__classes--grid;
+@include myg__classes--hint;
+@include myg__classes--input;
+@include myg__classes--label;
+@include myg__classes--layout;
+@include myg__classes--list;
+// @include myg__classes--progress;
+// @include myg__classes--radio;
+// @include myg__classes--tabs;
+@include myg__classes--switch;
+@include myg__classes--text;
+@include myg__classes--theme;
+// @include myg__classes--titlebar;
+@include myg__classes--toast;
+@include myg__classes--toolbar;
+// @include myg__classes--tooltip;
+
+/* Styling of HTML tags */
+// @include myg__mappings--button;
+@include myg__mappings--input;
+@include myg__mappings--label;
+@include myg__mappings--layout;
+@include myg__mappings--text;
+@include myg__mappings--theme;

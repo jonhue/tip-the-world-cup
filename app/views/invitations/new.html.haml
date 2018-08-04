@@ -2,7 +2,7 @@
 
 %h1.sm= t('d.invite')
 
-= simple_form_for @invitation, url: game_invitations_url(game_id: @game.to_param) do |f|
+= simple_form_for @invitation, url: game_invitations_url(game_id: @game.to_param) do
   = component 'myg/form-field', as: :input, attribute: :email, class_name: 'invitation', label: t('d.email'), input_html: { required: true, type: :email, autofocus: true }
   = component 'myg/form-field', as: :textarea, attribute: :message, class_name: 'invitation', label: t('d.message'), input_html: { required: true }
   .myg-button__container.myg-grid__flex.-reverse

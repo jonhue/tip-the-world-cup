@@ -1,0 +1,66 @@
+a.match-tip {
+  display: inline-block;
+  text-decoration: none !important;
+  width: 100%;
+
+  .myg-card {
+    @include myg-grid__flex;
+    @include myg-grid__flex---center-y;
+    @include myg-grid__flex---space-between;
+    @include myg-animate__transition;
+
+    padding: myg-spacing(2) myg-spacing(4);
+
+    &.p5 {
+      background: myg-theme__color(accent, dark);
+      border-color: myg-theme__color(accent, dark);
+    }
+
+    &.p3 {
+      background: myg-theme__color(accent, base);
+      border-color: myg-theme__color(accent, base);
+    }
+
+    &.p2 {
+      background: myg-theme__color(accent, light);
+      border-color: myg-theme__color(accent, light);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: myg-theme__color(accent, base);
+
+      h4,
+      p {
+        color: myg-theme__color(accent, base) !important;
+      }
+    }
+
+    &.p5,
+    &.p3,
+    &.p2 {
+      h4,
+      p {
+        color: myg-theme__color(accent, contrast) !important;
+      }
+    }
+
+    h4,
+    p {
+      flex: 5;
+    }
+
+    p {
+      flex: 1;
+      margin: 0;
+      opacity: 0.6;
+
+      &:last-child {
+        font-weight: bold;
+        opacity: 1;
+        text-align: right;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.5.1
+script:
+  - bundle exec haml-lint
+  - bundle exec rubocop
+  # - bundle exec rspec
+  - yarn install
+  - yarn run eslint
+  - yarn run stylelint
+before_install:
+  - nvm install node 9.11.2

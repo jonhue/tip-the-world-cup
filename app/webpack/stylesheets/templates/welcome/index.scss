@@ -1,0 +1,18 @@
+body.welcome.index {
+  .myg-content {
+    padding: myg-spacing(4);
+    text-align: center;
+
+    svg {
+      margin: myg-spacing(15) 0 myg-spacing(4);
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .myg-button__container {
+      margin-top: myg-spacing(6);
+    }
+  }
+}

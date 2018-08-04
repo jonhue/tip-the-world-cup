@@ -1,0 +1,13 @@
+body.participants.index {
+  .myg-content {
+    padding: myg-spacing(4);
+
+    .myg-card__container {
+      & > a {
+        &:not(:first-child) {
+          margin-top: myg-spacing(4);
+        }
+      }
+    }
+  }
+}

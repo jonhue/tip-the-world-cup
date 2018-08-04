@@ -4,13 +4,13 @@
 %p= t('devise.registrations.new.content')
 
 = simple_form_for resource, as: resource_name, url: user_registration_url do |f|
-    = f.input :token, as: :hidden, input_html: { value: params[:token] }
-    = f.input :game_id, as: :hidden, input_html: { value: params[:game_id] }
-    = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', floating_label: t('d.name'), input_html: { required: true, autofocus: true }
-    = component 'myg/form-field', as: :input, attribute: :email, class_name: 'user', floating_label: t('d.email'), input_html: { required: true, type: 'email', value: params[:email] }
-    = component 'myg/form-field', as: :input, attribute: :password, class_name: 'user', floating_label: t('d.password'), input_html: { required: true, type: 'password', minlength: 6 }
-    %p.sm= t('devise.registrations.new.legal', privacy: link_to(t('devise.registrations.new.privacy'), 'https://jonhue.me/tip-the-world-cup/privacy', target: '_blank'), terms: link_to(t('devise.registrations.new.terms'), 'https://jonhue.me/tip-the-world-cup/terms', target: '_blank')).html_safe
-    .myg-grid__flex.-space-between
-        %p.sm
-            = link_to t('devise.registrations.new.login_instead'), new_user_session_url(game_id: params[:game_id], token: params[:token]), class: 'myg-text__hyperlink -inherit'
-        = component 'myg/button', value: t('d.signup')
+  = f.input :token, as: :hidden, input_html: { value: params[:token] }
+  = f.input :game_id, as: :hidden, input_html: { value: params[:game_id] }
+  = component 'myg/form-field', as: :input, attribute: :name, class_name: 'user', floating_label: t('d.name'), input_html: { required: true, autofocus: true }
+  = component 'myg/form-field', as: :input, attribute: :email, class_name: 'user', floating_label: t('d.email'), input_html: { required: true, type: 'email', value: params[:email] }
+  = component 'myg/form-field', as: :input, attribute: :password, class_name: 'user', floating_label: t('d.password'), input_html: { required: true, type: 'password', minlength: 6 }
+  %p.sm= t('devise.registrations.new.legal', privacy: link_to(t('devise.registrations.new.privacy'), 'https://jonhue.me/tip-the-world-cup/privacy', target: '_blank'), terms: link_to(t('devise.registrations.new.terms'), 'https://jonhue.me/tip-the-world-cup/terms', target: '_blank')).html_safe
+  .myg-grid__flex.-space-between
+    %p.sm
+      = link_to t('devise.registrations.new.login_instead'), new_user_session_url(game_id: params[:game_id], token: params[:token]), class: 'myg-text__hyperlink -inherit'
+    = component 'myg/button', value: t('d.signup')

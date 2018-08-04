@@ -1,6 +1,6 @@
-/*------------------------
+/* ------------------------
 	icons
--------------------------*/
+------------------------- */
 @function unicode($str) {
   @return unquote("\"\\#{$str}\"");
 }
@@ -40,4 +40,3 @@ $nc-add: unicode(ea0c);
 .nc-add::before {
   content: $nc-add;
 }
-

@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
-  def initialize user
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def initialize(user)
     can :read, Game, private: false
     can :read, Game, participants: { user_id: user.id }
     can :manage, Game, user_id: user.id
@@ -23,4 +26,5 @@ class Ability
 
     can :read, Notification, target_type: 'User', target_id: user.id
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 end

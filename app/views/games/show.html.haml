@@ -4,13 +4,13 @@
 %h1.sm= @game.name
 
 - if current_user.nil?
-  #join
+  .join
     %h2= t('games.show.join.title')
     %p= t('games.show.join.content')
     = link_to t('games.show.join.submit'), new_user_registration_url(game_id: @game.to_param), class: 'myg-button--light'
     %p.sm= t('games.show.rules.bet', bet: @game.bet || t('d.none'))
 - elsif current_user.participants.find_by(game: @game).nil?
-  #join
+  .join
     %h2= t('games.show.join.title')
     %p= t('games.show.join.content')
     = link_to t('games.show.join.submit'), new_game_participant_url(game_id: @game.to_param), class: 'myg-button--light'

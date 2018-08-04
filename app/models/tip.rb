@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Tip < ApplicationRecord
   before_save :check_if_match_started
   before_create :check_if_already_tipped
@@ -8,50 +10,64 @@ class Tip < ApplicationRecord
   validates :home_goals, presence: true
   validates :away_goals, presence: true
 
-  scope :unchangeable, -> { includes(:match).where('matches.begins_at < ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
+  scope :unchangeable, lambda {
+    includes(:match)
+      .where('matches.begins_at < ?', Time.now.strftime('%Y-%m-%d %H:%M:%S'))
+  }
+
+  delegate :game, to: :participant, allow_nil: true
 
   def goal_difference
-    (self.home_goals - self.away_goals).abs
+    pure_goal_difference.abs
+  end
+
+  def pure_goal_difference
+    home_goals - away_goals
   end
 
   def earned_points
-    return 0 unless self.match.goals_available?
-    if self.match?
-      return self.participant.game.rule_match
-    elsif self.goal_difference?
-      return self.participant.game.rule_goal_difference
-    elsif self.tendency?
-      return self.participant.game.rule_tendency
-    else
-      return self.participant.game.rule_miss
-    end
+    return 0 unless match.goals_available?
+
+    return game.rule_match if match?
+    return game.rule_goal_difference if goal_difference?
+    return game.rule_tendency if tendency?
+    game.rule_miss
   end
 
   def match?
-    return false if self.match.penalties?
-    self.home_goals == self.match.home_goals && self.away_goals == self.match.away_goals
+    return false if match.penalties?
+
+    home_goals == match.home_goals && away_goals == match.away_goals
   end
 
   def goal_difference?
-    return false if self.match.penalties?
-    self.tendency? && self.goal_difference == self.match.goal_difference
+    return false if match.penalties?
+
+    tendency? && goal_difference == match.goal_difference
   end
 
   def tendency?
-    if self.match.penalties?
-      self.home_goals < self.away_goals && self.match.home_penalties < self.match.away_penalties || self.home_goals > self.away_goals && self.match.home_penalties > self.match.away_penalties
-    else
-      self.home_goals < self.away_goals && self.match.home_goals < self.match.away_goals || self.home_goals > self.away_goals && self.match.home_goals > self.match.away_goals || self.home_goals == self.away_goals && self.match.home_goals == self.match.away_goals
-    end
+    return tendency_penalties? if match.penalties?
+
+    Tendency.new(pure_goal_difference, match.pure_goal_difference).perform
+  end
+
+  def tendency_penalties?
+    Tendency.new(pure_goal_difference, match.penalty_pure_goal_difference)
+            .perform
   end
 
   private
 
   def check_if_match_started
-    throw(:abort) if self.match.begins_at.past?
+    return unless match.begins_at.past?
+
+    throw(:abort)
   end
 
   def check_if_already_tipped
-    throw(:abort) if self.match.tips.where(participant_id: self.participant.id).any?
+    return unless match.tips.where(participant_id: participant.id).any?
+
+    throw(:abort)
   end
 end

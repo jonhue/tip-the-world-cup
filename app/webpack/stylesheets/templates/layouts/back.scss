@@ -1,0 +1,11 @@
+#back {
+  .myg-toolbar {
+    background: myg-theme__color(accent, base);
+    border: none;
+    padding: 0 myg-spacing(4);
+
+    i {
+      color: myg-theme__color(accent, contrast);
+    }
+  }
+}

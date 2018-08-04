@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game < ApplicationRecord
   belongs_to :user
   has_many :participants, dependent: :destroy
@@ -11,4 +13,10 @@ class Game < ApplicationRecord
 
   scope :personal, -> { where(private: true) }
   scope :shared, -> { where(private: false) }
+  scope :sorted, lambda {
+    includes(:participants).sort_by do |game|
+      current_user.participants.where(game: game)
+                  .days_left_before_next_required_tip
+    end
+  }
 end

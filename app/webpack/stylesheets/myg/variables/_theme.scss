@@ -1,7 +1,38 @@
+$myg-theme: (
+  accent: (
+    light: #51e689,
+    base: #28c161,
+    dark: #0d9e43,
+    contrast: #fff
+  ),
+  text: (
+    lighter: #bec7cf,
+    light: #97a4b0,
+    base: #657786,
+    dark: #3d4553,
+    darker: #14171a
+  ),
+  background: (
+    lighter: #fcfcfc,
+    light: #fff,
+    base: #fff,
+    dark: #fbfbfd,
+    darker: #ecf2f7
+  ),
+  border: #dce2e7,
+  box-shadow: rgba(#000, 0.06),
+  error: #e3646b,
+  success: #51e086,
+  overlay: (
+    light: transparentize(#e7ecf0, 0.13),
+    dark: transparentize(#14171a, 0.87),
+  )
+) !default;
+
 $myg-theme__scrollbar: (
-    width: myg__px(5),
-    track-background: transparent,
-    thumb-border-radius: myg__px(2.5),
-    thumb-background: myg-theme__color(border),
-    thumb-hover-background: myg-theme__color(text, dark)
-);
+  width: myg__px(5),
+  track-background: transparent,
+  thumb-border-radius: myg__px(2.5),
+  thumb-background: myg-theme__color(border),
+  thumb-hover-background: myg-theme__color(text, dark)
+) !default;

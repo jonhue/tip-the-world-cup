@@ -1,0 +1,18 @@
+.mozaic--component.flag {
+  width: myg__px(80);
+
+  &.-sm {
+    width: myg__px(50);
+  }
+
+  &.-tn {
+    width: myg__px(30);
+  }
+
+  img {
+    @include myg-theme__border-radius(2);
+    @include myg-elevation(2);
+
+    width: 100%;
+  }
+}

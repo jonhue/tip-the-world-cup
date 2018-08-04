@@ -1,0 +1,76 @@
+#app {
+  .myg-toolbar {
+    @include myg-elevation(10);
+
+    .mdc-toolbar__row {
+      @include myg-grid__flex;
+
+      a {
+        @include myg-grid__flex;
+        @include myg-grid__flex---center-y;
+
+        flex: 1;
+        flex-direction: column;
+        padding-top: myg-spacing(1);
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          i,
+          p {
+            color: myg-theme__color(accent, base);
+          }
+        }
+
+        i,
+        p {
+          @include myg-animate__transition;
+
+          color: myg-theme__color(text, base);
+        }
+
+        p {
+          font-size: myg__px(10);
+          margin: myg__px(2) 0 0;
+        }
+      }
+    }
+  }
+
+  &.games {
+    .myg-toolbar .mdc-toolbar__row a:nth-child(1) {
+      i,
+      p {
+        color: myg-theme__color(accent, base);
+      }
+    }
+  }
+
+  &.participants {
+    .myg-toolbar .mdc-toolbar__row a:nth-child(2) {
+      i,
+      p {
+        color: myg-theme__color(accent, base);
+      }
+    }
+  }
+
+  &.matches {
+    .myg-toolbar .mdc-toolbar__row a:nth-child(3) {
+      i,
+      p {
+        color: myg-theme__color(accent, base);
+      }
+    }
+  }
+
+  &.tips {
+    .myg-toolbar .mdc-toolbar__row a:nth-child(4) {
+      i,
+      p {
+        color: myg-theme__color(accent, base);
+      }
+    }
+  }
+}
