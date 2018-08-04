@@ -3,13 +3,14 @@
 = link_to t('games.show.all_games'), games_url, class: 'myg-text__hyperlink -inherit'
 %h1.sm= @game.name
 
-#join
-  - if current_user.nil?
+- if current_user.nil?
+  .join
     %h2= t('games.show.join.title')
     %p= t('games.show.join.content')
     = link_to t('games.show.join.submit'), new_user_registration_url(game_id: @game.to_param), class: 'myg-button--light'
     %p.sm= t('games.show.rules.bet', bet: @game.bet || t('d.none'))
-  - elsif current_user.participants.find_by(game: @game).nil?
+- elsif current_user.participants.find_by(game: @game).nil?
+  .join
     %h2= t('games.show.join.title')
     %p= t('games.show.join.content')
     = link_to t('games.show.join.submit'), new_game_participant_url(game_id: @game.to_param), class: 'myg-button--light'
