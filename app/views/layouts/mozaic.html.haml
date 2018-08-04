@@ -1,46 +1,46 @@
 !!!
 %html{ lang: I18n.locale }
 
-    %head
+  %head
 
-        %meta{ charset: 'utf-8' }
-        %meta{ name: 'viewport', content: 'user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1' }
+    %meta{ charset: 'utf-8' }
+    %meta{ name: 'viewport', content: 'user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1' }
 
-        = metamagic site: t('layouts.mozaic.title'), title: [:title, :site], separator: ' - ', description: t('layouts.mozaic.description'), keywords: ['fifa', 'world cup', '2018']
-        = component 'pwa/manifest', url: request.base_url
+    = metamagic site: t('layouts.mozaic.title'), title: [:title, :site], separator: ' - ', description: t('layouts.mozaic.description'), keywords: ['fifa', 'world cup', '2018']
+    = component 'pwa/manifest', url: request.base_url
 
-        %link{ rel: 'apple-touch-icon', sizes: '76x76', href: request.base_url + '/icon_76x76.png' }
-        %link{ rel: 'apple-touch-icon', sizes: '120x120', href: request.base_url + '/icon_120x120.png' }
-        %link{ rel: 'apple-touch-icon', sizes: '152x152', href: request.base_url + '/icon_152x152.png' }
-        %link{ rel: 'icon', sizes: '192x192', href: request.base_url + '/icon_192x192.png' }
-        %link{ rel: 'icon', sizes: '256x256', href: request.base_url + '/icon_256x256.png' }
-        %link{ rel: 'icon', sizes: '384x384', href: request.base_url + '/icon_384x384.png' }
-        %link{ rel: 'icon', sizes: '512x512', href: request.base_url + '/icon_512x512.png' }
-        %link{ rel: 'msapplication-square70x70logo', content: request.base_url + '/icon_70x70.png' }
-        %link{ rel: 'msapplication-square150x150logo', content: request.base_url + '/icon_150x150.png' }
-        -# %link{ rel: 'msapplication-wide310x150logo', content: request.base_url + '/icon_310x150.png' }
-        %link{ rel: 'msapplication-square310x310logo', content: request.base_url + '/icon_310x310.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '76x76', href: request.base_url + '/icon_76x76.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '120x120', href: request.base_url + '/icon_120x120.png' }
+    %link{ rel: 'apple-touch-icon', sizes: '152x152', href: request.base_url + '/icon_152x152.png' }
+    %link{ rel: 'icon', sizes: '192x192', href: request.base_url + '/icon_192x192.png' }
+    %link{ rel: 'icon', sizes: '256x256', href: request.base_url + '/icon_256x256.png' }
+    %link{ rel: 'icon', sizes: '384x384', href: request.base_url + '/icon_384x384.png' }
+    %link{ rel: 'icon', sizes: '512x512', href: request.base_url + '/icon_512x512.png' }
+    %link{ rel: 'msapplication-square70x70logo', content: request.base_url + '/icon_70x70.png' }
+    %link{ rel: 'msapplication-square150x150logo', content: request.base_url + '/icon_150x150.png' }
+    -# %link{ rel: 'msapplication-wide310x150logo', content: request.base_url + '/icon_310x150.png' }
+    %link{ rel: 'msapplication-square310x310logo', content: request.base_url + '/icon_310x310.png' }
 
-        = favicon_link_tag '/favicon.ico'
-        = component 'pwa/theme', default: '#28c161'
+    = favicon_link_tag '/favicon.ico'
+    = component 'pwa/theme', default: '#28c161'
 
-        = component 'seo/schema', type: :brand, name: t('layouts.mozaic.title'), description: t('layouts.mozaic.description'), url: 'https://tip-the-world-cup.com', logo: 'https://tip-the-world-cup.com/icon_512x512.png'
+    = component 'seo/schema', type: :brand, name: t('layouts.mozaic.title'), description: t('layouts.mozaic.description'), url: 'https://tip-the-world-cup.com', logo: 'https://tip-the-world-cup.com/icon_512x512.png'
 
-        = stylesheet_pack_tag 'webpack', media: 'all', 'data-turbolinks-track': 'reload'
-        = javascript_pack_tag 'webpack', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'webpack', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'webpack', 'data-turbolinks-track': 'reload'
 
-        = csrf_meta_tags
+    = csrf_meta_tags
 
-    = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: 'myg myg-layout ' + class_hierarchy( [params[:controller].split('/').each { |n| n }, action_name] ) + ' ' + area(:body_class, ''), id: area(:layout) do
+  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: 'myg myg-layout ' + class_hierarchy( [params[:controller].split('/').each { |n| n }, action_name] ) + ' ' + area(:body_class, ''), id: area(:layout) do
 
-        %p#notice.myg--hidden= notice
-        %p#alert.myg--hidden= alert
-        = component 'myg/toast'
+    %p#notice.myg--hidden= notice
+    %p#alert.myg--hidden= alert
+    = component 'myg/toast'
 
-        = component 'modalist/overlay'
-        = component 'modalist/wrapper'
+    = component 'modalist/overlay'
+    = component 'modalist/wrapper'
 
-        = component 'mobile'
+    = component 'mobile'
 
-        = mozaic_area do
-            = yield
+    = mozaic_area do
+      = yield
