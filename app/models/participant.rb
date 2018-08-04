@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Participant < ApplicationRecord
   before_create :check_if_already_participating
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Match < ApplicationRecord
   notification_object
 

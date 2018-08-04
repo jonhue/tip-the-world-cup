@@ -408,6 +408,7 @@ DEPENDENCIES
   myg
   mysql2
   nilify_blanks
+  nokogiri
   notification-handler
   notification-pusher-onesignal
   onsignal

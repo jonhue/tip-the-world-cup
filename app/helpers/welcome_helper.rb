@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WelcomeHelper
   def welcome_subtitle
     if Date.today < Match.all.order(:begins_at).first.begins_at

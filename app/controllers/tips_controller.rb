@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TipsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_game

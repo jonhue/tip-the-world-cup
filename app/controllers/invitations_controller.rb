@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InvitationsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :set_game

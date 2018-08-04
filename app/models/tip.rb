@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Tip < ApplicationRecord
   before_save :check_if_match_started
   before_create :check_if_already_tipped

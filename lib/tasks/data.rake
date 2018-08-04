@@ -5,7 +5,7 @@ namespace :data do
   task fetch: :environment do
     FifaWorldCupData::Match.new.perform
     Match.live&.each do |match|
-      Livescore.new.perform(match: match)
+      Livescore.new(match: match).perform
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AssetHelper
   # Get Asset as HTML String
   def asset path

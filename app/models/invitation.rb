@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Invitation < ApplicationRecord
   before_validation :create_token, on: :create
   before_create :check_if_already_participating

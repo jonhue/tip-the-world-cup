@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InvitationMailer < ApplicationMailer
   def invitation sender, invitation
     @user = User.find_by(email: invitation.email)
