@@ -6,7 +6,7 @@ class Tendency
   end
 
   def perform
-    @goal_differences.all?(&:postive?) ||
+    @goal_differences.all?(&:positive?) ||
       @goal_differences.all?(&:negative?) ||
       @goal_differences.all?(&:zero?)
   end
