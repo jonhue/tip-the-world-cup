@@ -1,0 +1,48 @@
+body.nations.show {
+  .myg-content {
+    .nation-wrapper {
+      background: myg-theme__color(accent, base);
+      padding: myg-spacing(4);
+
+      .name-wrapper {
+        @include myg-grid__flex;
+        @include myg-grid__flex---center-y;
+
+        h2 {
+          color: myg-theme__color(accent, contrast);
+          margin-left: myg-spacing(4);
+        }
+      }
+
+      .feature-wrapper {
+        @include myg-grid__flex;
+        @include myg-grid__flex---center-y;
+
+        margin: myg-spacing(3) 0;
+
+        h4,
+        p {
+          color: myg-theme__color(accent, contrast);
+          margin: 0;
+        }
+
+        p {
+          margin-left: myg-spacing(2);
+          opacity: 0.6;
+        }
+      }
+    }
+
+    .content-wrapper {
+      padding: myg-spacing(4);
+
+      .myg-card__container {
+        a.match {
+          &:not(:first-child) {
+            margin-top: myg-spacing(4);
+          }
+        }
+      }
+    }
+  }
+}

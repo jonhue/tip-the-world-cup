@@ -1,0 +1,24 @@
+a.game {
+  display: inline-block;
+  text-decoration: none !important;
+  width: 100%;
+
+  .myg-card {
+    background: myg-theme__color(accent, base);
+    border-color: myg-theme__color(accent, base);
+
+    h4,
+    p {
+      color: myg-theme__color(accent, contrast) !important;
+    }
+
+    p {
+      margin: myg-spacing(1) 0 0;
+      opacity: 0.6;
+
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}

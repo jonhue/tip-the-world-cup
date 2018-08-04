@@ -1,0 +1,21 @@
+body.users.sessions.new {
+  .myg-content {
+    padding: myg-spacing(4);
+
+    & > h1 {
+      margin-bottom: 0;
+    }
+
+    & > p {
+      margin: 0 0 myg-spacing(7);
+    }
+
+    .myg-grid__flex {
+      margin: myg-spacing(4) 0;
+
+      a.myg-text__hyperlink.-inherit {
+        text-decoration: none;
+      }
+    }
+  }
+}

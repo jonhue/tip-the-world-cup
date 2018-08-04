@@ -1,0 +1,65 @@
+a.tip {
+  display: inline-block;
+  text-decoration: none !important;
+  width: 100%;
+
+  .myg-card {
+    @include myg-animate__transition;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: myg-theme__color(accent, base);
+
+      h4,
+      p {
+        color: myg-theme__color(accent, base) !important;
+      }
+    }
+  }
+
+  .tip-wrapper {
+    @include myg-grid__grid-template(1fr, 1fr myg__px(65) 1fr);
+
+    p {
+      font-weight: bold;
+      margin: 0;
+
+      &:first-child {
+        text-align: left;
+      }
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+
+    h4 {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  .match-wrapper {
+    @include myg-grid__grid-template(1fr, 1fr myg__px(50) 1fr);
+
+    margin-bottom: myg-spacing(2);
+    text-align: center;
+
+    p {
+      @include myg-theme__border-radius(2);
+
+      height: myg__px(27);
+      margin: 0;
+    }
+
+    .flag:last-child {
+      @include myg-grid__grid--self-end-x;
+    }
+
+    &.live p {
+      border: myg__px(1) solid myg-theme__color(accent, base);
+      color: myg-theme__color(accent, base);
+    }
+  }
+}

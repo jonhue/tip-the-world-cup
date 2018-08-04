@@ -1,15 +1,15 @@
 $myg-grid__breakpoints: (
-    phone: 512px,
-    tablet: 768px,
-    laptop: 1024px,
-    large: 1280px,
-    desktop: 1920px
-);
+  phone: 512px,
+  tablet: 768px,
+  laptop: 1024px,
+  large: 1280px,
+  desktop: 1920px
+) !default;
 
 $myg-grid__grid--default-columns: (
-    phone: 4,
-    tablet: 4,
-    laptop: 8,
-    large: 12,
-    desktop: 12
-);
+  phone: 4,
+  tablet: 4,
+  laptop: 8,
+  large: 12,
+  desktop: 12
+) !default;

@@ -1,0 +1,17 @@
+.mozaic--component.mobile {
+  background: myg-theme__color(background, base);
+  display: none;
+  height: 100vh;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 1000;
+
+  @include myg-grid__bigger-than(phone) {
+    display: flex;
+  }
+
+  & > p {
+    max-width: myg__px(480);
+  }
+}

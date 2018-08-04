@@ -1,0 +1,24 @@
+a.card {
+  display: inline-block;
+  text-decoration: none !important;
+  width: 100%;
+
+  .myg-card {
+    @include myg-animate__transition;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: myg-theme__color(accent, base);
+
+      h4,
+      p {
+        color: myg-theme__color(accent, base) !important;
+      }
+    }
+
+    p {
+      margin: myg-spacing(1) 0 0;
+    }
+  }
+}

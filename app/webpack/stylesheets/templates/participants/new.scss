@@ -1,0 +1,57 @@
+body.participants.new {
+  .myg-content {
+    @include myg-grid__flex;
+    @include myg-grid__flex---center-y;
+
+    flex-direction: column;
+    padding: myg-spacing(4);
+
+    h1 {
+      margin: myg-spacing(6) 0;
+      max-width: 85%;
+      text-align: center;
+    }
+
+    form {
+      width: 100%;
+
+      .nation {
+        @include myg-grid__flex;
+        @include myg-grid__flex---center-y;
+        @include myg-theme__border-radius(1);
+        @include myg__cursor(pointer);
+        @include myg-animate__transition;
+
+        background: myg-theme__color(background, lighter);
+        border: myg__px(1) solid myg-theme__color(border);
+        color: myg-theme__color(text, base);
+        padding: myg-spacing(1) myg-spacing(2);
+        width: 100%;
+
+        &:not(:first-child) {
+          margin-top: myg-spacing(3);
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          border-color: myg-theme__color(accent, base);
+
+          p {
+            color: myg-theme__color(accent, base);
+          }
+        }
+
+        .flag {
+          margin-top: myg-spacing(1);
+        }
+
+        p {
+          flex: 1;
+          margin: 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

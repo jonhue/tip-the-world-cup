@@ -1,0 +1,51 @@
+.modalist--content-body.tips.new,
+.modalist--content-body.tips.edit {
+  .match-wrapper {
+    @include myg-grid__flex;
+    @include myg-grid__flex---center-y;
+    @include myg-grid__flex---space-between;
+
+    .flag {
+      &:first-child {
+        margin-right: myg-spacing(3);
+      }
+
+      &:last-child {
+        margin-left: myg-spacing(3);
+      }
+    }
+
+    .tip-wrapper {
+      @include myg-grid__flex;
+      @include myg-grid__flex---center;
+      @include myg-theme__border-radius(2);
+
+      background: myg-theme__color(background, darker);
+      margin-top: myg-spacing(-1);
+      padding: 0 myg-spacing(3);
+
+      input {
+        @include myg-font(monospace);
+
+        background: transparent;
+        border: none;
+        box-shadow: none !important;
+        font-size: myg__px(36);
+        font-weight: bold;
+        padding: 0;
+        width: myg__px(20);
+      }
+
+      h1 {
+        @include myg-font(monospace);
+
+        font-weight: normal;
+        margin: myg-spacing(-1) 0 0;
+      }
+    }
+  }
+
+  .myg-button__container {
+    margin-top: myg-spacing(2);
+  }
+}
