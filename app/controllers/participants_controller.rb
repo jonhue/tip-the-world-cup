@@ -4,16 +4,15 @@ class ParticipantsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_game
   before_action :set_participant, only: [:show]
+  before_action :set_new_participant, only: [:new]
 
   layout 'app'
 
-  # GET /app/1/participants
   def index
     @participants = Participant.all
     turbolinks_animate 'fadein'
   end
 
-  # GET /app/1/participants/1
   def show
     authorize! :read, @participant
     @tips = @participant.tips.unchangeable.order('matches.begins_at ASC')
@@ -22,29 +21,22 @@ class ParticipantsController < ApplicationController
     render layout: 'back'
   end
 
-  # GET /app/1/participants/new
   def new
-    if params.has_key?(:token)
-      @invitation = Invitation.find_by(token: params[:token])
-      @participant = @invitation.accept
-    else
-      authorize! :update, Game
-      @participant = @game.participants.build(user: current_user)
-    end
+    authorize! :read, @game unless @participant.present?
     @nations = Nation.all.order(:name)
-    authorizes! :read, @nation
+    authorizes! :read, @nations
     turbolinks_animate 'fadein'
     render layout: 'application'
   end
 
-  # POST /app/1/participants
   def create
-    @participant = Participant.new participant_params.merge(nation_id: Nation.find_by(name: params[:commit])&.id)
+    @participant = Participant.new(participant_params)
 
     if @participant.save
       redirect_to @game, notice: I18n.t('participants.create.success')
     else
-      redirect_to new_game_participant_url(game_id: @game.to_param), alert: I18n.t('participants.create.error')
+      redirect_to new_game_participant_url(game_id: @game.to_param),
+                  alert: I18n.t('participants.create.error')
     end
   end
 
@@ -58,7 +50,18 @@ class ParticipantsController < ApplicationController
     @participant = Participant.find(params[:id])
   end
 
+  def set_new_participant
+    if params.key?(:token)
+      @invitation = Invitation.find_by(token: params[:token])
+      @participant = @invitation&.accept
+    else
+      authorize! :update, Game
+      @participant = @game.participants.build(user: current_user)
+    end
+  end
+
   def participant_params
     params.require(:participant).permit(:game_id, :user_id, :nation_id)
+          .merge(nation_id: Nation.find_by(name: params[:commit])&.id)
   end
 end

@@ -6,9 +6,8 @@ class GamesController < ApplicationController
 
   layout 'app'
 
-  # GET /app
   def index
-    @games = current_user.games.includes(:participants).sort_by { |game| game.participants.find_by(user_id: current_user.id).days_left_before_next_required_tip }
+    @games = current_user.games.sorted
     @invitations = current_user.invitations.unaccepted
     authorizes! :read, @games
     authorizes! :update, @invitations
@@ -16,7 +15,6 @@ class GamesController < ApplicationController
     render layout: 'application'
   end
 
-  # GET /app/1
   def show
     authorize! :read, @game
     @participants = @game.participants.leaderboard.take(3)
@@ -28,7 +26,6 @@ class GamesController < ApplicationController
     turbolinks_animate 'fadein'
   end
 
-  # GET /app/new
   def new
     @game = current_user.administrating_games.build
     authorize! :create, @game
@@ -36,19 +33,18 @@ class GamesController < ApplicationController
     render layout: 'back'
   end
 
-  # POST /app
   def create
     @game = current_user.administrating_games.build game_params
     authorize! :create, @game
 
     if @game.save
-      redirect_to new_game_participant_url(game_id: @game.to_param), notice: I18n.t('games.create.success')
+      redirect_to new_game_participant_url(game_id: @game.to_param),
+                  notice: I18n.t('games.create.success')
     else
       redirect_to new_game_url, alert: I18n.t('games.create.error')
     end
   end
 
-  # PATCH/PUT /app/1
   def update
     authorize! :update, @game
 
@@ -59,7 +55,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # DELETE /app/1
   def destroy
     authorize! :destroy, @game
     @game.destroy
@@ -73,6 +68,8 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :bet, :rule_match, :rule_goal_difference, :rule_tendency, :rule_miss, :private)
+    params.require(:game).permit(:name, :bet, :rule_match,
+                                 :rule_goal_difference, :rule_tendency,
+                                 :rule_miss, :private)
   end
 end

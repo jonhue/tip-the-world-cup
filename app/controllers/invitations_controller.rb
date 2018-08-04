@@ -7,7 +7,6 @@ class InvitationsController < ApplicationController
 
   layout 'back'
 
-  # GET /app/1/invitations/1
   def show
     unless params[:token] == @invitation.token
       redirect_to root_url, alert: I18n.t('invitations.show.token_invalid')
@@ -16,14 +15,12 @@ class InvitationsController < ApplicationController
     render layout: 'application'
   end
 
-  # GET /app/1/invitations/new
   def new
     authorize! :update, @game
     @invitation = @game.invitations.build
     turbolinks_animate 'fadeinright'
   end
 
-  # POST /app/1/invitations
   def create
     @invitation = @game.invitations.build invitation_params
 
