@@ -5,5 +5,11 @@ linters:
   ConsecutiveComments:
     enabled: false
 
+  LineLength:
+    enabled: false
+
+  UnnecessaryStringOutput:
+    enabled: false
+
   ViewLength:
     max: 140

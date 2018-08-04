@@ -2,8 +2,8 @@
 
 %h1= t('d.tips')
 
-- if @matches.future.any?
-  - @matches.group_by { |match| match.begins_at.to_date }.each do |date, matches|
+- if @matches_grouped_by_day.any?
+  - @matches_grouped_by_day.each do |date, matches|
     %p= l(date)
     .myg-card__container
       - matches.each do |match|

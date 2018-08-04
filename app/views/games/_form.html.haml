@@ -1,15 +1,15 @@
-= simple_form_for @game do |f|
-  = component 'myg/form-field', as: :input, attribute: :name, class_name: 'game', label: t('games._form.name'), input_html: { required: true, value: @game.name, autofocus: true }
+= simple_form_for game do
+  = component 'myg/form-field', as: :input, attribute: :name, class_name: 'game', label: t('games._form.name'), input_html: { required: true, value: game.name, autofocus: true }
 
   %h3 Rules
-  = component 'myg/form-field', as: :input, attribute: :rule_match, class_name: 'game', label: [t('games._form.rule_match.title'), t('games._form.rule_match.content')], input_html: { value: @game.rule_match, type: :number, placeholder: '5' }
-  = component 'myg/form-field', as: :input, attribute: :rule_goal_difference, class_name: 'game', label: [t('games._form.rule_goal_difference.title'), t('games._form.rule_goal_difference.content')], input_html: { value: @game.rule_goal_difference, type: :number, placeholder: '3' }
-  = component 'myg/form-field', as: :input, attribute: :rule_tendency, class_name: 'game', label: [t('games._form.rule_tendency.title'), t('games._form.rule_tendency.content')], input_html: { value: @game.rule_tendency, type: :number, placeholder: '2' }
-  = component 'myg/form-field', as: :input, attribute: :rule_miss, class_name: 'game', label: [t('games._form.rule_miss.title'), t('games._form.rule_miss.content')], input_html: { value: @game.rule_miss, type: :number, placeholder: '0' }
+  = component 'myg/form-field', as: :input, attribute: :rule_match, class_name: 'game', label: [t('games._form.rule_match.title'), t('games._form.rule_match.content')], input_html: { value: game.rule_match, type: :number, placeholder: '5' }
+  = component 'myg/form-field', as: :input, attribute: :rule_goal_difference, class_name: 'game', label: [t('games._form.rule_goal_difference.title'), t('games._form.rule_goal_difference.content')], input_html: { value: game.rule_goal_difference, type: :number, placeholder: '3' }
+  = component 'myg/form-field', as: :input, attribute: :rule_tendency, class_name: 'game', label: [t('games._form.rule_tendency.title'), t('games._form.rule_tendency.content')], input_html: { value: game.rule_tendency, type: :number, placeholder: '2' }
+  = component 'myg/form-field', as: :input, attribute: :rule_miss, class_name: 'game', label: [t('games._form.rule_miss.title'), t('games._form.rule_miss.content')], input_html: { value: game.rule_miss, type: :number, placeholder: '0' }
 
   %h3 More...
-  = component 'myg/form-field', as: :input, attribute: :bet, class_name: 'game', label: [t('d.bet'), t('games._form.bet')], input_html: { value: @game.bet, placeholder: t('games._form.bet_placeholder') }
-  = component 'myg/form-field', as: :switch, attribute: :private, class_name: 'game', inline_label: [t('d.private'), t('games._form.private')], input_html: { checked: @game.private }
+  = component 'myg/form-field', as: :input, attribute: :bet, class_name: 'game', label: [t('d.bet'), t('games._form.bet')], input_html: { value: game.bet, placeholder: t('games._form.bet_placeholder') }
+  = component 'myg/form-field', as: :switch, attribute: :private, class_name: 'game', inline_label: [t('d.private'), t('games._form.private')], input_html: { checked: game.private }
 
   .myg-button__container.myg-grid__flex.-reverse
     = component 'myg/button', value: t('games._form.submit')

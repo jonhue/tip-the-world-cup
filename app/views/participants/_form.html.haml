@@ -1,6 +1,6 @@
-= simple_form_for @participant, url: game_participants_url do |f|
-  = f.input :game_id, as: :hidden, input_html: { value: @participant.game_id }
-  = f.input :user_id, as: :hidden, input_html: { value: @participant.user_id }
+= simple_form_for participant, url: game_participants_url do |f|
+  = f.input :game_id, as: :hidden, input_html: { value: participant.game_id }
+  = f.input :user_id, as: :hidden, input_html: { value: participant.user_id }
   - @nations.each do |nation|
     %button.nation{ type: 'submit', name: 'commit', value: nation.name }
       = component 'flag', nation: nation, size: 'tn'

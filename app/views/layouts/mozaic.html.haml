@@ -31,10 +31,10 @@
 
     = csrf_meta_tags
 
-  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: 'myg myg-layout ' + class_hierarchy( [params[:controller].split('/').each { |n| n }, action_name] ) + ' ' + area(:body_class, ''), id: area(:layout) do
+  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: body_class, id: area(:layout) do
 
-    %p#notice.myg--hidden= notice
-    %p#alert.myg--hidden= alert
+    %p.myg--hidden#notice= notice
+    %p.myg--hidden#alert= alert
     = component 'myg/toast'
 
     = component 'modalist/overlay'

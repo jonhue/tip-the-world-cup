@@ -9,7 +9,9 @@ class TipsController < ApplicationController
   layout 'app'
 
   def index
-    @matches = Match.future.order(:begins_at)
+    @matches_grouped_by_day = Match.future.order(:begins_at).group_by do |match|
+      match.begins_at.to_date
+    end
     authorizes! :read, @matches
     turbolinks_animate 'fadein'
   end
