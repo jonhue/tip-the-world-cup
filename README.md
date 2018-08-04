@@ -10,23 +10,27 @@ Dependencies are listed in the [.tool-versions](.tool-versions) file.
 
 1. Clone this repository
 
-    $ git clone ssh://git@github.com/jonhue/tip-the-world-cup.git
+    `$ git clone ssh://git@github.com/jonhue/tip-the-world-cup.git`
 
 2. Database setup
 
+    ```
     $ rails db:create
     $ rails db:migrate
     $ rails db:seed
+    ```
 
 3. Install dependencies
 
+    ```
     $ asdf install
     $ yarn install
     $ bundle install
+    ```
 
 4. Start development server
 
-    $ bundle exec foreman start -f Procfile.dev
+    `$ bundle exec foreman start -f Procfile.dev`
 
 ### Deployment
 
