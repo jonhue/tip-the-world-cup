@@ -9,32 +9,48 @@ class Match < ApplicationRecord
 
   validates :begins_at, presence: true
 
-  scope :past, -> { where('begins_at < ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
-  scope :future, -> { where('begins_at >= ?', (Rails.env.production? ? Time.now.strftime('%Y-%m-%d %H:%M:%S') : Time.now.strftime('%Y-%d-%m %H:%M:%S'))) }
   scope :live, -> { past.where(finished: false) }
-  scope :soon, -> { future.where('begins_at < ?', (Rails.env.production? ? DateTime.tomorrow.strftime('%Y-%m-%d %H:%M:%S') : DateTime.tomorrow.strftime('%Y-%d-%m %H:%M:%S'))) }
+  scope :past, lambda {
+    where('begins_at < ?', Time.now.strftime('%Y-%m-%d %H:%M:%S'))
+  }
+  scope :future, lambda {
+    where('begins_at >= ?', Time.now.strftime('%Y-%m-%d %H:%M:%S'))
+  }
+  scope :soon, lambda {
+    future.where('begins_at < ?', Time.tomorrow.strftime('%Y-%m-%d %H:%M:%S'))
+  }
 
   def self.next
     future.first
   end
 
   def live?
-    self.home_goals && self.away_goals && !self.finished
+    home_goals && away_goals && !finished
   end
 
   def goals_available?
-    self.home_goals && self.away_goals
+    home_goals && away_goals
   end
 
   def penalties?
-    self.home_penalties && self.away_penalties
+    home_penalties && away_penalties
   end
 
   def goal_difference
-    (self.home_goals - self.away_goals).abs
+    pure_goal_difference.abs
   end
 
-  def count_tips_by_others participant
-    self.tips.find_by(participant_id: participant.id) ? self.tips.includes(:participant).where(participants: { game_id: participant.game_id }).count - 1 : self.tips.includes(:participant).where(participants: { game_id: participant.game_id }).count
+  def pure_goal_difference
+    home_goals - away_goals
+  end
+
+  def penalty_pure_goal_difference
+    home_penalties - away_penalties
+  end
+
+  def count_tips_by_others(participant)
+    tips.includes(:participant)
+        .where(participants: { game_id: participant.game_id })
+        .where.not(participants: { id: participant.id }).count
   end
 end

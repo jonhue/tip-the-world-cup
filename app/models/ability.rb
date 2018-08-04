@@ -3,7 +3,8 @@
 class Ability
   include CanCan::Ability
 
-  def initialize user
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  def initialize(user)
     can :read, Game, private: false
     can :read, Game, participants: { user_id: user.id }
     can :manage, Game, user_id: user.id
@@ -25,4 +26,5 @@ class Ability
 
     can :read, Notification, target_type: 'User', target_id: user.id
   end
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 end

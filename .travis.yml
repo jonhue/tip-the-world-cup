@@ -4,7 +4,7 @@ rvm:
 script:
   - bundle exec haml-lint
   - bundle exec rubocop
-  - bundle exec rspec
+  # - bundle exec rspec
   - yarn install
   - yarn run eslint
   - yarn run stylelint
