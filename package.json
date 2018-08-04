@@ -2,7 +2,7 @@
   "name": "tip_the_world_cup",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "^3.5.0",
     "myg": "^0.13.4",
     "onsignal": "^5.0.6",
     "rails-erb-loader": "^5.4.2",
@@ -10,7 +10,16 @@
     "turbolinks": "^5.1.1",
     "turbolinks-animate": "^3.0.5"
   },
+  "scripts": {
+    "stylelint": "./node_modules/.bin/stylelint app/**/*.scss",
+    "eslint": "./node_modules/.bin/eslint app/**/*.js"
+  },
   "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+    "eslint": "^5.0.1",
+    "stylelint": "^9.3.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^2.11.2"
   }
 }

@@ -1,0 +1,9 @@
+exclude:
+  - vendor/**/*
+
+linters:
+  ConsecutiveComments:
+    enabled: false
+
+  ViewLength:
+    max: 140

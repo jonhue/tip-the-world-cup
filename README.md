@@ -20,7 +20,12 @@ Dependencies are listed in the [.tool-versions](.tool-versions) file.
     $ bundle install
     ```
 
-3. Database setup
+3. Credentials setup
+
+    Customize [credentials.yml.sample](config/credentials.yml.sample)
+    `EDITOR=vim be rails credentials:edit`
+
+4. Database setup
 
     ```
     $ rails db:create
@@ -28,9 +33,21 @@ Dependencies are listed in the [.tool-versions](.tool-versions) file.
     $ rails db:seed
     ```
 
-4. Start development server
+5. Start development server
 
     `$ bundle exec foreman start -f Procfile.dev`
+
+### Testing
+
+#### RSpec
+
+#### RuboCop
+
+#### HAML-Lint
+
+#### ESLint
+
+#### stylelint
 
 ### Deployment
 
