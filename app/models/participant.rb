@@ -12,11 +12,11 @@ class Participant < ApplicationRecord
     all.sort_by do |participant|
       if Nation::WINNER.present?
         [participant.earned_points,
-         participant.nation == Nation::WINNER ? 0 : 1]
+         participant.nation == Nation::WINNER ? 1 : 0]
       else
         participant.earned_points
       end
-    end
+    end.reverse
   }
 
   def earned_points
