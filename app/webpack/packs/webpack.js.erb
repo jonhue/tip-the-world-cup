@@ -8,13 +8,13 @@ Turbolinks.start();
 import 'turbolinks-animate';
 document.addEventListener( 'turbolinks:load', () => {
   TurbolinksAnimate.init({ element: document.querySelector('body.turbolinks-animate') });
-})
+});
 
 import 'onsignal/dist/OneSignalSDK';
 import OnSignal from 'onsignal';
 document.addEventListener( 'DOMContentLoaded', () => {
   window.onSignal = new OnSignal( '<%= Rails.application.credentials.onesignal[:app_id] %>', {} );
-})
+});
 document.addEventListener( 'turbolinks:load', () => {
   if (document.querySelector('body.users.registrations.edit')) {
     disableNotificationButton();
@@ -23,7 +23,7 @@ document.addEventListener( 'turbolinks:load', () => {
       disableNotificationButton();
     });
   }
-})
+});
 
 function disableNotificationButton() {
   if (onSignal.isSubscribed()) {

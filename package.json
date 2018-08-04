@@ -12,7 +12,7 @@
   },
   "scripts": {
     "stylelint": "./node_modules/.bin/stylelint app/**/*.scss",
-    "eslint": "./node_modules/.bin/eslint app/**/*.js"
+    "eslint": "./node_modules/.bin/eslint app/**/*.js app/webpack/packs/webpack.js.erb"
   },
   "devDependencies": {
     "eslint": "^5.0.1",

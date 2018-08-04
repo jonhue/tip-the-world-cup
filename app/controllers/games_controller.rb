@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   layout 'app'
 
   def index
-    @games = current_user.games.sorted
+    @games = current_user.games.sorted(current_user)
     @invitations = current_user.invitations.unaccepted
     authorizes! :read, @games
     authorizes! :update, @invitations
