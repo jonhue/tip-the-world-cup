@@ -31,7 +31,7 @@
 
     = csrf_meta_tags
 
-  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: body_class(area(:body_class)), id: area(:layout) do
+  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: body_class, id: area(:layout) do
 
     %p.myg--hidden#notice= notice
     %p.myg--hidden#alert= alert
