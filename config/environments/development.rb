@@ -1,7 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
-  # Verifies that versions and hashed value of the package contents in the project's package.json
+  # Settings specified here will take precedence over those in
+  # config/application.rb.
+
+  # Verifies that versions and hashed value of the package contents in the
+  # project's package.json
   config.webpacker.check_yarn_integrity = true
-  # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -29,7 +34,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Store uploaded files on the local file system (see config/storage.yml for options)
+  # Store uploaded files on the local file system (see config/storage.yml for
+  # options)
   config.active_storage.service = :amazon
 
   # Don't care if the mailer can't send.
@@ -67,8 +73,8 @@ Rails.application.configure do
   # Email delivery
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-  	api_key: Rails.application.credentials.mailgun[:api_key],
-  	domain: 'tip-the-world-cup.com'
+    api_key: Rails.application.credentials.mailgun[:api_key],
+    domain: 'tip-the-world-cup.com'
   }
 
   # Host for url helpers
