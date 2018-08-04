@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2018_05_26_150216) do
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "devices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "devices", force: :cascade do |t|
     t.string "owner_type"
     t.bigint "owner_id"
     t.string "onesignal_id"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["owner_type", "owner_id"], name: "index_devices_on_owner_type_and_owner_id"
   end
 
-  create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
     t.string "bet"
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
-  create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "invitations", force: :cascade do |t|
     t.bigint "game_id"
     t.bigint "user_id"
     t.string "email"
@@ -73,7 +76,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
-  create_table "matches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "matches", force: :cascade do |t|
     t.bigint "home_id"
     t.bigint "away_id"
     t.integer "home_goals"
@@ -88,7 +91,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["home_id"], name: "index_matches_on_home_id"
   end
 
-  create_table "nations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "nations", force: :cascade do |t|
     t.string "slug"
     t.string "name"
     t.datetime "created_at", null: false
@@ -96,7 +99,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["slug"], name: "index_nations_on_slug"
   end
 
-  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notifications", force: :cascade do |t|
     t.string "target_type"
     t.bigint "target_id"
     t.string "object_type"
@@ -110,7 +113,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["target_type", "target_id"], name: "index_notifications_on_target_type_and_target_id"
   end
 
-  create_table "participants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "participants", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "game_id"
     t.bigint "nation_id"
@@ -121,7 +124,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
-  create_table "tips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "tips", force: :cascade do |t|
     t.bigint "participant_id"
     t.bigint "match_id"
     t.integer "home_goals"
@@ -132,7 +135,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_150216) do
     t.index ["participant_id"], name: "index_tips_on_participant_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

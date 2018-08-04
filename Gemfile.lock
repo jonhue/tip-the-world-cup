@@ -170,9 +170,6 @@ GEM
       activesupport (>= 5.0)
       mozaic (~> 2.0)
       railties (>= 5.0)
-    mysql2 (0.5.2)
-    mysql2 (0.5.2-x64-mingw32)
-    mysql2 (0.5.2-x86-mingw32)
     nestive-rails (1.0.1)
       rails (>= 5.0)
     netrc (0.11.0)
@@ -406,7 +403,6 @@ DEPENDENCIES
   modalist
   mozaic
   myg
-  mysql2
   nilify_blanks
   nokogiri
   notification-handler
