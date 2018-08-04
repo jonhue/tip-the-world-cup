@@ -1,24 +1,33 @@
-# README
+# Tip The World Cup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The 2018 World Cup is coming and with it comes the opportunity for a quick bet with friends & family.
 
-Things you may want to cover:
+### Development
 
-* Ruby version
+This project uses [asdf](https://github.com/asdf-vm/asdf) as version manager, [Yarn](https://github.com/yarnpkg/yarn) as JavaScript package manager, and [Bundler](https://github.com/bundler/bundler) for Rubygems.
 
-* System dependencies
+Dependencies are listed in the [.tool-versions](.tool-versions) file.
 
-* Configuration
+1. Clone this repository
 
-* Database creation
+    $ git clone ssh://git@github.com/jonhue/tip-the-world-cup.git
 
-* Database initialization
+2. Database setup
 
-* How to run the test suite
+    $ rails db:create
+    $ rails db:migrate
+    $ rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Install dependencies
 
-* Deployment instructions
+    $ asdf install
+    $ yarn install
+    $ bundle install
 
-* ...
+4. Start development server
+
+    $ bundle exec foreman start -f Procfile.dev
+
+### Deployment
+
+The `master` branch of this repository is automatically deployed on Heroku.
