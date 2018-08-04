@@ -12,20 +12,20 @@ Dependencies are listed in the [.tool-versions](.tool-versions) file.
 
     `$ git clone ssh://git@github.com/jonhue/tip-the-world-cup.git`
 
-2. Database setup
-
-    ```
-    $ rails db:create
-    $ rails db:migrate
-    $ rails db:seed
-    ```
-
-3. Install dependencies
+2. Install dependencies
 
     ```
     $ asdf install
     $ yarn install
     $ bundle install
+    ```
+
+3. Database setup
+
+    ```
+    $ rails db:create
+    $ rails db:migrate
+    $ rails db:seed
     ```
 
 4. Start development server
