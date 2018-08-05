@@ -2,6 +2,8 @@
 
 The 2018 World Cup is coming and with it comes the opportunity for a quick bet with friends & family.
 
+**https://tip-the-world-cup.com**
+
 ### Development
 
 This project uses [asdf](https://github.com/asdf-vm/asdf) as version manager, [Yarn](https://github.com/yarnpkg/yarn) as JavaScript package manager, and [Bundler](https://github.com/bundler/bundler) for Rubygems.
@@ -27,11 +29,7 @@ Dependencies are listed in the [.tool-versions](.tool-versions) file.
 
 4. Database setup
 
-    ```
-    $ rails db:create
-    $ rails db:migrate
-    $ rails db:seed
-    ```
+    `$ rails db:setup`
 
 5. Start development server
 
