@@ -17,7 +17,7 @@ class Match < ApplicationRecord
     where('begins_at >= ?', Time.now.strftime('%Y-%m-%d %H:%M:%S'))
   }
   scope :soon, lambda {
-    future.where('begins_at < ?', Time.tomorrow.strftime('%Y-%m-%d %H:%M:%S'))
+    future.where('begins_at < ?', Date.tomorrow.strftime('%Y-%m-%d %H:%M:%S'))
   }
 
   def self.next
