@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :nation do
-    name 'Germany'
+    name { 'Germany' }
   end
   factory :another_nation, class: Nation do
-    name 'France'
+    name { 'France' }
   end
 end
