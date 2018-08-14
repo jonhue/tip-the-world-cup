@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :game do
-    name 'Game'
+    name { 'Game' }
   end
   factory :another_game, class: Game do
-    name 'Another Game'
+    name { 'Another Game' }
   end
 end
