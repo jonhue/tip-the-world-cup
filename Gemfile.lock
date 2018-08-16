@@ -102,7 +102,7 @@ GEM
     dotenv (0.7.0)
     erubi (1.7.1)
     execjs (2.7.0)
-    factory_bot (4.10.0)
+    factory_bot (4.11.0)
       activesupport (>= 3.0.0)
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
