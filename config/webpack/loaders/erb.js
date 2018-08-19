@@ -5,7 +5,7 @@ module.exports = {
   use: [{
     loader: 'rails-erb-loader',
     options: {
-      runner: 'bin/rails runner'
+      runner: 'ruby bin/rails runner'
     }
   }]
 }
