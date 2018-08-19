@@ -6,6 +6,7 @@ script:
   - bundle exec rubocop
   # - bundle exec rspec
   - bundle exec rails assets:precompile
+  - yarn install
   - yarn run eslint
   - yarn run stylelint
 before_install:
