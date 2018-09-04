@@ -27,4 +27,4 @@ You should **only** open pull requests for existing issues. Use the following fo
 
 Use the template provided for the pull request description.
 
-Thank you for contributing to Tip The World Cup!
+Thank you for contributing to Tip the World Cup!
