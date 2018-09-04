@@ -1,4 +1,4 @@
-# Tip The World Cup
+# Tip the World Cup
 
 The 2018 World Cup is coming and with it comes the opportunity for a quick bet with friends & family.
 
