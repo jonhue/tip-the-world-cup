@@ -29,8 +29,10 @@ module FifaWorldCupData
 
     def find_or_create_match(match)
       return unless match_valid?(match)
+
       match = ::Match.find_or_create_by!(find_or_create_hash(match))
       return unless match_updated?(match)
+
       match.update!(update_hash(match))
     end
 

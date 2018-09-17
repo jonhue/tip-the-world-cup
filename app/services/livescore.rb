@@ -10,6 +10,7 @@ class Livescore
   def perform
     livescore = fetch_livescore
     return if livescore[:home_goals].nil? || livescore[:away_goals].nil?
+
     match.update_attributes(livescore)
   end
 

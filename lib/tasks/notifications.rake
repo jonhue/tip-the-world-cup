@@ -6,6 +6,7 @@ namespace :notifications do
     Match.soon&.each do |match|
       Participant.includes(:tips)&.each do |participant|
         next if participant.tips.find_by(match: match)
+
         notification = Notification.create(target: participant.user,
                                            object: match)
         notification.push(
