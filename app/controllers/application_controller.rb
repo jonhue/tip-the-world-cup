@@ -45,18 +45,21 @@ class ApplicationController < ActionController::Base
 
   def user_pref_locale
     return nil unless current_user&.locale
+
     current_user.locale
   end
 
   def user_location_detected_locale
     language = browser.accept_language.first
     return nil unless language&.code
+
     language.code
   end
 
   def store_locale
     session[:locale] = I18n.locale
     return unless current_user && I18n.locale != current_user.locale
+
     current_user.locale = I18n.locale
     current_user.save!
   end

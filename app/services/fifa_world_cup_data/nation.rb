@@ -5,6 +5,7 @@ module FifaWorldCupData
     def perform
       nations = fetch_nations
       return unless nations.any?
+
       find_or_create_nations(nations)
       attach_flags_to_nations
     end

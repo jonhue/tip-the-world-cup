@@ -31,6 +31,7 @@ class Tip < ApplicationRecord
     return game.rule_match if match?
     return game.rule_goal_difference if goal_difference?
     return game.rule_tendency if tendency?
+
     game.rule_miss
   end
 
