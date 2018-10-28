@@ -53,7 +53,7 @@ module FifaWorldCupData
       {
         home_id: match['home_team'],
         away_id: match['away_team'],
-        begins_at: match['date'].to_datetime
+        begins_at: Time.parse(match['date'])
       }
     end
 
