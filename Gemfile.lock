@@ -101,6 +101,8 @@ GEM
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (0.7.0)
+    dotenv-rails (0.7.0)
+      dotenv (= 0.7.0)
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.11.1)
@@ -397,6 +399,7 @@ DEPENDENCIES
   cancancan
   capybara
   devise
+  dotenv-rails
   factory_bot
   foreman
   friendly_id
@@ -442,4 +445,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.2
+   1.17.1

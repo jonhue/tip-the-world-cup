@@ -14,9 +14,7 @@
 /yarn-error.log*
 /.yarn-integrity
 
-/config/settings.local.yml
-/config/settings/*.local.yml
-/config/environments/*.local.yml
+/.env
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
