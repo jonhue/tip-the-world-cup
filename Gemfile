@@ -47,6 +47,7 @@ gem 'webpacker'
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
+  gem 'dotenv-rails'
   gem 'factory_bot'
   gem 'haml_lint', require: false
   gem 'rspec-rails', require: false
