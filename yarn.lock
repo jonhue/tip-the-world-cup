@@ -486,7 +486,7 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
-animate.css@^3.5.2, animate.css@^3.6.1:
+animate.css@^3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.6.1.tgz#4ea8a48556378bc8d7535224296c4c0dac9229de"
   integrity sha512-xEIzzKyQvQSIldgrtC2d/qptAEQLVlMb6xQrjQ6HU6NyGhF7LAIivRZVmhSAg4EICRASNiS+A1G+wvAKTCoC7A==
@@ -9528,18 +9528,13 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-turbolinks-animate@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/turbolinks-animate/-/turbolinks-animate-3.0.5.tgz#bde5f26c582051a0cbeacd8543d4ee4a481b3685"
-  integrity sha512-uvpeoiRZa1vapRZCW+/3QaXbNz2sbX4kUnN4fETQfWAtevz/gcXvr0ZK/BBY+WIqjmsrdnSxTrYo2SIvpMAdkg==
+turbolinks-animate@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/turbolinks-animate/-/turbolinks-animate-3.1.0.tgz#a232a808d8714e01c09854f6b4db0ee9e15e63e2"
+  integrity sha512-pIwqqt/L81uWzE0vZfsZAoK/qJ6oaILiZvtSbs8ie64O4a6M0Xok5gVKV5YodjUkJun98FlUqqbw0FcW1+aSLQ==
   dependencies:
-    animate.css "^3.5.2"
-    turbolinks "^5.0.3"
-
-turbolinks@^5.0.3:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.1.1.tgz#3d418a2d8172edbde5e787bf74cb7bef151ae43f"
-  integrity sha512-Yhp3HH4Am4K8Qpm0XqEnbreZrCoYOWN6yx+r0fAY36JhAtiFJ3FPdwSt4Usph4duI1HMnB3z8F/LWy55Uf42Jg==
+    animate.css "^3.7.0"
+    turbolinks "^5.2.0"
 
 turbolinks@^5.2.0:
   version "5.2.0"
