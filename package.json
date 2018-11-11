@@ -9,7 +9,7 @@
     "rails-ujs": "^5.2.1",
     "sass-loader": "^7.1.0",
     "turbolinks": "^5.2.0",
-    "turbolinks-animate": "^3.1.0"
+    "turbolinks-animate": "^3.1.1"
   },
   "scripts": {
     "stylelint": "./node_modules/.bin/stylelint app/**/*.scss",
