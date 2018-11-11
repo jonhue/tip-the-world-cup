@@ -9534,10 +9534,10 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-turbolinks-animate@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/turbolinks-animate/-/turbolinks-animate-3.1.0.tgz#a232a808d8714e01c09854f6b4db0ee9e15e63e2"
-  integrity sha512-pIwqqt/L81uWzE0vZfsZAoK/qJ6oaILiZvtSbs8ie64O4a6M0Xok5gVKV5YodjUkJun98FlUqqbw0FcW1+aSLQ==
+turbolinks-animate@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/turbolinks-animate/-/turbolinks-animate-3.1.1.tgz#3f4016edf334231cc57e0a183919d4cd94d8a8be"
+  integrity sha512-abio6dtXnHANTExgNsBuFH7OrtoebASjURW41Xwg8UX5odPt+AiKlGUPvWHHeAV9V3a2MvK9EhUcX0GWP15crA==
   dependencies:
     animate.css "^3.7.0"
     turbolinks "^5.2.0"
