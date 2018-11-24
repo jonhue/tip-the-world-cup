@@ -4,6 +4,8 @@ The 2018 World Cup is coming and with it comes the opportunity for a quick bet w
 
 **https://tip-the-world-cup.com**
 
+![Hi](https://media.giphy.com/media/YjEGZfOjJrgOYZ986Z/giphy.gif)
+
 ### Development
 
 This project uses [asdf](https://github.com/asdf-vm/asdf) as version manager, [Yarn](https://github.com/yarnpkg/yarn) as JavaScript package manager, and [Bundler](https://github.com/bundler/bundler) for Rubygems.
