@@ -6,7 +6,7 @@
     "myg": "^0.13.8",
     "onsignal": "^5.0.6",
     "rails-erb-loader": "^5.5.0",
-    "rails-ujs": "^5.2.1",
+    "rails-ujs": "^5.2.2",
     "sass-loader": "^7.1.0",
     "turbolinks": "^5.2.0",
     "turbolinks-animate": "^3.1.1"
