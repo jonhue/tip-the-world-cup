@@ -2,7 +2,7 @@
   "name": "tip_the_world_cup",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.5.0",
+    "@rails/webpacker": "^3.6.0",
     "myg": "^0.13.8",
     "onsignal": "^5.0.6",
     "rails-erb-loader": "^5.5.2",
